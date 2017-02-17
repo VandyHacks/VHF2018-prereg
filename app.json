@@ -1,0 +1,9 @@
+{
+  "name": "VandyHacks Fall 2017 Landing Page",
+  "description": "The landing page for VandyHacks Fall 2017",
+  "website": "http://www.vandyhacks.org/",
+  "repository": "https://github.com/VandyHacks/VHF2017-landingpage",
+  "logo": "http://www.vandyhacks.org/img/logo.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
