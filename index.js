@@ -9,8 +9,11 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
-var universities = JSON.parse(fs.readFileSync('universities.json'));
-var ts = new TrieSearch('name', {'min': 3, 'splitOnRegEx': false});
+var universities = JSON.parse(fs.readFileSync('universities.json'))
+  .map(uni => {
+    return { name: uni.name, addr: uni.city + ', ' + uni.state };
+  });
+var ts = new TrieSearch('name', { 'min': 3, 'splitOnRegEx': false });
 universities.forEach(ts.add.bind(ts));
 
 app.get('/findunis', (req, res) => res.json(ts.get(req.query.q).slice(0, 15)));
