@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "express": "^4.13.4",
+    "fuzzysearch": "^1.0.3",
     "trie-search": "^1.0.0"
   },
   "repository": {

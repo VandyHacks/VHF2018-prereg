@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>VandyHacks 2017</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description"
-	content="The VandyHacks 2017 official website. Sign up for pre-registration here!">
+	<meta name="description" content="The VandyHacks 2017 official website. Sign up for pre-registration here!">
 	<link rel="icon" type="image/png" href="img/favicon.png">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
 	<script src="js/vue2-autocomplete.js"></script>
-	<link rel="stylesheet" type="text/css"  href="css/main.css">
-	<link rel="stylesheet" type="text/css"  href="css/vue2-autocomplete.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/vue2-autocomplete.css">
 </head>
+
 <body>
 	<div class="content">
 		<div class="logo-container">
@@ -21,15 +22,23 @@
 				<img src="img/logo.svg">
 			</div>
 		</div>
-		<div class="signup">
-			<form action="javascript:void(0);">
+		<div id="app">
+			<div class="signup">
 				<input type="email" placeholder="name@example.com">
+				<autocomplete url="/findunis" anchor="name" label="writer" :on-select="getData">
+				</autocomplete>
 				<input type="submit" value="Subscribe">
-			</form> 
+			</div>
 		</div>
 	</div>
 	<script>
-		
+		var app = new Vue({
+			el: "#app",
+			components: {
+				autocomplete: Vue2Autocomplete
+			}
+		});
 	</script>
 </body>
+
 </html>
