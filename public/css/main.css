@@ -37,6 +37,10 @@ body {
 	margin: 10px;
 }
 
+.signup > * {
+	display: inline-block;
+}
+
 input {
 	padding: 15px;
 	border-radius: 2px;
@@ -48,13 +52,13 @@ input {
 	transition: all 0.25s;
 }
 
-input[type="email"] {
+input[type="email"], input[type="text"] {
 	background: rgba(255,255,255,0.1);
 	color: #ccc;
 	width: 180px;
 }
 
-input[type="email"]:focus {
+input[type="email"]:focus, input[type="text"]:focus {
 	background: #fff;
 	color: #000;
 }
