@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "express": "^4.13.4",
+    "express-static-gzip": "^0.2.2",
     "fuzzysearch": "^1.0.3",
     "trie-search": "^1.0.0"
   },

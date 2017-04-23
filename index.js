@@ -3,18 +3,23 @@ const express = require('express');
 const fs = require('fs');
 const TrieSearch = require('trie-search');
 const fuzzysearch = require('fuzzysearch');
+const expressStaticGzip = require("express-static-gzip");
 
 const app = express();
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressStaticGzip(path.join(__dirname, 'public'), {
+	useBrotli: true,
+	indexFromEmptyFile: false
+}));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 const universities = JSON.parse(fs.readFileSync('universities.json'))
   .map(uni => {
     return { name: uni.name, addr: uni.city + ', ' + uni.state };
   });
-const maxResults = 6;
+fs.writeFileSync('universities.addr.json', JSON.stringify(universities));
+const maxResults = 5;
 
 
 const ts = new TrieSearch('name', { 'min': 3, 'splitOnRegEx': false });
