@@ -6,10 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="The VandyHacks 2017 official website. Sign up for pre-registration here!">
 	<link rel="icon" type="image/png" href="img/favicon.png">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
-	<script src="js/vue2-autocomplete.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/vue2-autocomplete.css">
 </head>
 
 <body>
@@ -24,21 +21,13 @@
 		</div>
 		<div id="app">
 			<div class="signup">
-				<input type="email" placeholder="name@example.com">
-				<autocomplete url="/findunis" anchor="name" label="writer" :on-select="getData">
-				</autocomplete>
+				<input type="email" placeholder="me@example.com">
+				<typeahead></typeahead>
 				<input type="submit" value="Subscribe">
 			</div>
 		</div>
 	</div>
-	<script>
-		var app = new Vue({
-			el: "#app",
-			components: {
-				autocomplete: Vue2Autocomplete
-			}
-		});
-	</script>
+	<script src="js/bundle.js"></script>
 </body>
 
 </html>
