@@ -28,28 +28,6 @@
 		</div>
 	</div>
 	<script src="js/bundle.js"></script>
-	<script>
-	function registerEmail(){
-			var email = document.getElementById('user_email').value;
-
-			// check email entered
-			if(email.length === 0) {
-				alert("Enter email");
-				return;
-			}
-
-			// check valid email
-			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-			if(!re.test(email)){
-				alert("Enter valid email");
-				return;
-			}
-
-			// send to mailchimp and forward to confirmation page
-		}
-	</script>
-
 </body>
 
 </html>

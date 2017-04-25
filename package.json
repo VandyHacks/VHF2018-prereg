@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "autosuggest-trie": "^2.0.0",
+    "email-validator": "^1.0.7",
     "express": "^4.13.4",
     "express-static-gzip": "^0.2.2",
     "replaceall": "^0.1.6"
