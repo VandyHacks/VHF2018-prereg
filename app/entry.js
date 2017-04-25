@@ -6,23 +6,19 @@ import * as EmailValidator from 'email-validator'
 Vue.use(VueResource);
 var app = new Vue({
     el: "#app",
-    components: { 'typeahead': Typeahead }
+    components: { 'typeahead': Typeahead },
+    data: {
+        email: '',
+    },
+    computed: {
+        emailHint: function () {
+            if (this.email.trim() == '') {
+                return 'Enter your email address';
+            } else if (!EmailValidator.validate(this.email)) {
+                return 'Invalid email address';
+            } else {
+                return '';
+            }
+        }
+    }
 });
-
-// This should be replaced with vue-validate
-window.registerEmail = () => {
-    var email = document.getElementById('user_email').value;
-
-    // check email entered
-    if (email.length === 0) {
-        alert("Enter email");
-        return;
-    }
-
-    if (!EmailValidator.validate(email)) {
-        alert("Enter valid email");
-        return;
-    }
-
-    // send to mailchimp and forward to confirmation page
-}

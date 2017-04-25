@@ -36,6 +36,7 @@ export default {
     // The callback function which is triggered when the user hits on an item
     // (required)
     onHit(item) {
+      this.reset();
       this.query = item.name;
     },
     reset() {

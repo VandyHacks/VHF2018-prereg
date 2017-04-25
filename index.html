@@ -21,7 +21,8 @@
 		</div>
 		<div id="app">
 			<div class="signup">
-				<input type="email" placeholder="me@example.com" id="user_email">
+				<input type="text" placeholder="me@example.com" v-model="email">
+				<div class="email-hint" v-html="emailHint"></div>
 				<typeahead></typeahead>
 				<input type="submit" value="Subscribe" onclick="registerEmail()">
 			</div>
