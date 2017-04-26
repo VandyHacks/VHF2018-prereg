@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-	background: #1F1028;
+	background: linear-gradient(45deg, #1F1028, #212635 100%) fixed no-repeat;
 	display: flex;
 	align-items: center;
 	justify-content: center;
