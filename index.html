@@ -11,18 +11,15 @@
 
 <body>
 	<div class="content">
-		<div class="logo-container">
-			<div class="glow">
-				<img src="img/logo.svg">
-			</div>
-			<div class="logo">
-				<img src="img/logo.svg">
-			</div>
-		</div>
 		<div id="app">
+			<div class="logo-container">
+				<img id="logo" src="img/logo_anim.gif" style="opacity:0.0" width="750px" height="100px" alt="VandyHacks IV" />
+			</div>
 			<div class="signup">
-				<input type="text" placeholder="me@example.com" v-model="email">
-				<div class="email-hint" v-html="emailHint"></div>
+				<div class="email-container">
+					<input type="text" placeholder="me@example.com" v-model="email">
+					<div class="email-hint" v-html="emailHint"></div>
+				</div>
 				<typeahead></typeahead>
 				<input type="submit" value="Subscribe" onclick="registerEmail()">
 			</div>
