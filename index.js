@@ -12,7 +12,7 @@ app.use(expressStaticGzip(path.join(__dirname, 'public'), {
 	useBrotli: true
 }));
 
-const universities = JSON.parse(fs.readFileSync('universities.json'))
+const universities = require('./app/universities.json')
   .map(uni => {
     return { name: uni.name, nameIndex: replaceAll('-', ' ', uni.name), addr: uni.city + ', ' + uni.state };
   });
@@ -21,6 +21,7 @@ console.log('Universities loaded: ' + universities.length);
 
 const trie = createTrie(universities, 'nameIndex');
 
+/*
 app.get('/findunis', (req, res) => {
   var query = req.query.q;
   var results;
@@ -31,6 +32,7 @@ app.get('/findunis', (req, res) => {
   }
   res.json(results);
 });
+*/
 
 const server = app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
