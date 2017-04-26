@@ -8,7 +8,8 @@
     @keydown.enter="hit" 
     @input="update" 
     @keydown.esc="reset" 
-    @blur="reset" />
+    @blur="reset"
+    @focus="update" />
   
     <div class="uni-list-container">
       <ul v-show="hasItems">
