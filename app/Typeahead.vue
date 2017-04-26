@@ -1,25 +1,22 @@
 <template>
-  <div>
-    <!-- the input field -->
-    <input type="text" 
-    placeholder="Name of university" 
-    autocomplete="off" 
+  <div class="typeahead-container">
+    <input type="text" placeholder="Name of university" autocomplete="off" 
     v-bind:value="query" 
     v-model="query" 
     @keydown.down="down" 
     @keydown.up="up" 
     @keydown.enter="hit" 
+    @input="update" 
     @keydown.esc="reset" 
-    @blur="reset" 
-    @input="update" />
+    @blur="reset" />
   
-    <!-- the list -->
-    <ul v-show="hasItems">
-      <!-- for vue@1.0 use: ($item, item) -->
-      <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
-        <span v-text="item.name"></span>
-      </li>
-    </ul>
+    <div class="uni-list-container">
+      <ul v-show="hasItems">
+        <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
+          <span v-text="item.name"></span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

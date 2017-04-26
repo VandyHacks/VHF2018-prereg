@@ -3,6 +3,14 @@ import Typeahead from './Typeahead.vue'
 import VueResource from 'vue-resource'
 import * as EmailValidator from 'email-validator'
 
+setTimeout(() => {
+        var logoEl = document.getElementById('logo');
+        logoEl.style.opacity = '1';
+        var imageUrl = logoEl.src;
+        logoEl.src = '#';
+        logoEl.src = imageUrl;
+    }, 5);
+
 Vue.use(VueResource);
 
 var app = new Vue({
@@ -21,12 +29,5 @@ var app = new Vue({
                 return '';
             }
         }
-    },
-    mounted: () => setTimeout(() => {
-        var logoEl = document.getElementById('logo');
-        logoEl.style.opacity = '1.0';
-        var imageUrl = logoEl.src;
-        logoEl.src = '#';
-        logoEl.src = imageUrl;
-    }, 5)
+    }
 });

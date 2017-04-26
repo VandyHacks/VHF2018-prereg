@@ -9,15 +9,14 @@ const app = express();
 app.set('port', (process.env.PORT || 5000));
 
 app.use(expressStaticGzip(path.join(__dirname, 'public'), {
-	useBrotli: true,
-	indexFromEmptyFile: false
+	useBrotli: true
 }));
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 const universities = JSON.parse(fs.readFileSync('universities.json'))
   .map(uni => {
     return { name: uni.name, nameIndex: replaceAll('-', ' ', uni.name), addr: uni.city + ', ' + uni.state };
   });
+console.log('Universities loaded: ' + universities.length);
 // fs.writeFileSync('universities.addr.json', JSON.stringify(universities));
 
 const trie = createTrie(universities, 'nameIndex');
