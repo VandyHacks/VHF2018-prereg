@@ -1,6 +1,7 @@
 <template>
   <div class="typeahead-container">
     <input type="text" placeholder="Name of university" autocomplete="off" 
+    ref="uniName"
     v-bind:value="query" 
     v-model="query" 
     @keydown.down="down" 
@@ -12,7 +13,7 @@
     @focus="update" />
   
     <div class="uni-list-container">
-      <ul v-show="hasItems">
+      <ul v-show="hasItems && isInputFocused()">
         <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
           <span v-text="item.name"></span>
         </li>
@@ -40,6 +41,9 @@ export default {
     reset() {
       this.items = [];
       this.loading = false;
+    },
+    isInputFocused() {
+      return document.activeElement == this.$refs.uniName;
     }
   }
 }
