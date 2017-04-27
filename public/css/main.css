@@ -110,9 +110,22 @@ input[type="text"]:focus {
 input[type="submit"] {
 	background: #479cae;
 	color:#212132;
+	cursor: pointer;
+	border: 0px;
+	padding: 17px;
+}
+
+input[type="submit"]:hover {
+	background: #63b9cb;
+}
+
+input[type="submit"]:active {
+	background: #3a7f8d;
+	transform: scale(0.95);
 }
 
 input[type="submit"]:disabled {
+	background: #479cae;
 	color: #36727c;
 	cursor: not-allowed;
 }
