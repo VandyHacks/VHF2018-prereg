@@ -19,7 +19,7 @@
 			<div id="signup" class="signup" style="opacity:0">
 				<email ref="emailField"></email>
 				<typeahead ref="universityAutofill"></typeahead>
-				<input type="submit" value="Get Notified" :click="registerEmail" :disabled="!areInputsValid">
+				<input type="submit" value="Get Notified" :disabled="!areInputsValid" v-on:click="registerEmail()">
 			</div>
 		</div>
 	</div>

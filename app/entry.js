@@ -33,7 +33,7 @@ var app = new Vue({
     },
     methods: {
         registerEmail() {
-            alert(this.$refs.emailField.email + ": " + this.$refs.universityAutofill.query);
+            console.log('registerEmail called...');
         }
     }
 });

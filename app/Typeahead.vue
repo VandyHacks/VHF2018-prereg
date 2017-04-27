@@ -40,7 +40,9 @@ export default {
     // (required)
     onHit(item) {
       this.reset();
-      this.query = item.name;
+      if (item) {
+        this.query = item.name;
+      }
     },
     reset() {
       this.items = [];
