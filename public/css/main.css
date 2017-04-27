@@ -130,6 +130,7 @@ input[type="submit"]:disabled {
 	background: #479cae;
 	color: #36727c;
 	cursor: not-allowed;
+	transform: scale(1) !important;
 }
 
 ::-webkit-input-placeholder {
