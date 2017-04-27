@@ -5,11 +5,14 @@
       <span class="fa" v-bind:class="typeaheadIndicatorClass"></span>
     </div>
     <div class="uni-list-container">
-      <ul v-show="hasItems && isInputFocused()">
-        <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
-          <span v-text="item.name"></span>
-        </li>
-      </ul>
+      <div class="list-wrapper" v-show="hasItems && isInputFocused()">
+        <div class="caret"></div>
+        <ul>
+          <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
+            <span v-text="item.name"></span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

@@ -63,13 +63,30 @@ body {
     text-align: center;
 }
 
-.uni-list-container ul {
-	list-style: none;
-    padding: 0;
-    background: white;
-	display: inline-block;
+.uni-list-container .list-wrapper {
+display: inline-block;
     margin-right: -100%;
 	min-width: 312px;
+	padding: 0;
+}
+
+.uni-list-container .list-wrapper .caret {
+    width: 0px;
+    height: 8px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    content: '';
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+.uni-list-container ul {
+	list-style: none;
+	padding: 4px 0px;
+	margin: 0;
+	background: white;
 }
 
 .uni-list-container li {
