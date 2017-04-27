@@ -18,8 +18,7 @@
 import VueTypeahead from 'vue-typeahead'
 import createTrie from 'autosuggest-trie'
 
-const replaceAll = require('replaceall');
-const stripHyphen = (str) => replaceAll('-', ' ', str);
+const stripHyphen = (str) => str.replace(/-/g, ' ');
 const universities = require('./universities.json')
   .map(uni => {
     return { name: uni.name, nameIndex: stripHyphen(uni.name), addr: uni.city + ', ' + uni.state };
