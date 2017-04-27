@@ -1,6 +1,6 @@
 <template>
   <div class="typeahead-container">
-    <input type="text" placeholder="Name of university" autocomplete="off" ref="uniName" v-bind:value="query" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.enter="hit" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" />
+    <input type="text" placeholder="University Name" autocomplete="off" ref="uniName" v-bind:value="query" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.enter="hit" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" />
   
     <div class="uni-list-container">
       <ul v-show="hasItems && isInputFocused()">
