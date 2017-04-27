@@ -19,9 +19,10 @@ import VueTypeahead from 'vue-typeahead'
 import createTrie from 'autosuggest-trie'
 
 const replaceAll = require('replaceall');
+const stripHyphen = (str) => replaceAll('-', ' ', str);
 const universities = require('./universities.json')
   .map(uni => {
-    return { name: uni.name, nameIndex: replaceAll('-', ' ', uni.name), addr: uni.city + ', ' + uni.state };
+    return { name: uni.name, nameIndex: stripHyphen(uni.name), addr: uni.city + ', ' + uni.state };
   });
 console.log('Universities loaded: ' + universities.length);
 const trie = createTrie(universities, 'nameIndex');
@@ -48,10 +49,11 @@ export default {
     },
     fetch() {
       var results;
-      if (this.query.trim() == '') {
+      var strippedQuery = stripHyphen(this.query);
+      if (strippedQuery.trim() == '') {
         results = [];
       } else {
-        results = trie.getMatches(this.query, { limit: 5 });
+        results = trie.getMatches(strippedQuery, { limit: 5 });
       }
       return Promise.resolve({ data: results });
     }
