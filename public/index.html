@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>VandyHacks 2017</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +18,10 @@
 			</div>
 			<div id="signup" class="signup" style="opacity:0">
 				<div class="email-container">
-					<input type="text" placeholder="Email Address" v-model="email">
-					<span class="fa" :class="emailIndicatorClass"></span>
+					<div class="input-wrapper">
+						<input type="text" placeholder="Email Address" v-model="email">
+						<span class="fa" :class="emailIndicatorClass"></span>
+					</div>
 				</div>
 				<typeahead ref="universityAutofill"></typeahead>
 				<input type="submit" value="Get Notified" onclick="registerEmail()" :disabled="!areInputsValid">

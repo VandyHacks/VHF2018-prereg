@@ -38,6 +38,11 @@ body {
 	display: inline-block;
 }
 
+.input-wrapper {
+    border: 2px solid #479cae;
+	margin-right: 4px;
+}
+
 .email-container, .typeahead-container {
 	vertical-align: top;
 }
@@ -80,10 +85,7 @@ body {
     top: 0;
     padding: 16px;
     background: none;
-    border: 2px solid #479cae;
-    border-left: none;
     margin-left: -5px;
-	margin-right: 4px;
     width: 16px;
 }
 
@@ -94,14 +96,12 @@ input {
 	border: none;
 	font-family: 'sofiapro', sans-serif;
 	transition: all 0.25s;
-	border: 2px solid #479cae;
 }
 
 input[type="text"] {
 	background: transparent;
 	color: #479cae;
 	width: 240px;
-	border-right: none;
 	padding-right: 0px;
 	margin-right: 0px;
 }
@@ -114,7 +114,6 @@ input[type="submit"] {
 	background: #479cae;
 	color:#212132;
 	cursor: pointer;
-	border: 0px;
 	padding: 17px;
 }
 
