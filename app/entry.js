@@ -4,16 +4,16 @@ import Typeahead from './Typeahead.vue'
 // import VueResource from 'vue-resource'
 // Vue.use(VueResource);
 
-// Chrome doesn't handle single-loop GIFS properly, 
-// so opacity needs to be set on element
 setTimeout(() => {
+    // Workaround Chrome animated GIF bug
     var logoEl = document.getElementById('logo');
-    logoEl.style.opacity = '1';
     var imageUrl = logoEl.src;
     logoEl.src = '#';
     logoEl.src = imageUrl;
-    document.getElementById('signup').style.opacity = '1';
-    document.getElementById('app').style.transform = 'scale(1)';
+    // Opacity and scale
+    var appEl = document.getElementById('app');
+    appEl.style.opacity = '1';
+    appEl.style.transform = 'scale(1)';
 }, 5);
 
 var app = new Vue({

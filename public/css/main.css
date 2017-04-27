@@ -25,7 +25,9 @@ body {
 	display: inline-block;
 }
 
-#logo, .signup, #app {
+#app {
+	opacity: 0;
+	transform: scale(0.9);
 	transition: all 1s ease-out;
 }
 
@@ -144,10 +146,8 @@ input[type="submit"]:disabled {
 
 ::-moz-placeholder {
 	color: #479cae;
-	opacity: 0.6;
 }
 
 :-moz-placeholder {
 	color: #479cae;
-	opacity: 0.6;
 }
