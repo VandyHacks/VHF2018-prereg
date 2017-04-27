@@ -41,3 +41,5 @@ var app = new Vue({
         }
     }
 });
+
+setTimeout(() => app.$refs.emailField.focus(), 1000);
