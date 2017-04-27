@@ -28,6 +28,12 @@ var app = new Vue({
             } else {
                 return 'fa-check-circle';
             }
+        },
+        isEmailInputValid() {
+            return this.email.trim() != '' && EmailValidator.validate(this.email);
+        },
+        areInputsValid() {
+            return this.isEmailInputValid && this.$refs.universityAutofill.isUniversityInputValid;
         }
     }
 });

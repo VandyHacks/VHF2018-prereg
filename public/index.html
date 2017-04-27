@@ -18,10 +18,10 @@
 			<div class="signup">
 				<div class="email-container">
 					<input type="text" placeholder="Email Address" v-model="email">
-					<span class="fa" v-bind:class="emailIndicatorClass"></span>
+					<span class="fa" :class="emailIndicatorClass"></span>
 				</div>
-				<typeahead></typeahead>
-				<input type="submit" value="Get Notified" onclick="registerEmail()" disabled>
+				<typeahead ref="universityAutofill"></typeahead>
+				<input type="submit" value="Get Notified" onclick="registerEmail()" :disabled="!areInputsValid">
 			</div>
 		</div>
 	</div>
