@@ -9,6 +9,7 @@ setTimeout(() => {
         var imageUrl = logoEl.src;
         logoEl.src = '#';
         logoEl.src = imageUrl;
+        document.getElementById('signup').style.opacity = '1';
     }, 5);
 
 Vue.use(VueResource);

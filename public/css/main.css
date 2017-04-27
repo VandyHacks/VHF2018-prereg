@@ -28,6 +28,7 @@ body {
 .signup {
 	margin: 10px;
 	height: 72px;
+	transition: all 1s;
 }
 
 .signup > * {
