@@ -1,45 +1,39 @@
 import Vue from 'vue'
+import EmailField from './EmailField.vue'
 import Typeahead from './Typeahead.vue'
-import VueResource from 'vue-resource'
-import * as EmailValidator from 'email-validator'
+// import VueResource from 'vue-resource'
+// Vue.use(VueResource);
 
 // Chrome doesn't handle single-loop GIFS properly, 
 // so opacity needs to be set on element
 setTimeout(() => {
-        var logoEl = document.getElementById('logo');
-        logoEl.style.opacity = '1';
-        var imageUrl = logoEl.src;
-        logoEl.src = '#';
-        logoEl.src = imageUrl;
-        document.getElementById('signup').style.opacity = '1';
-        document.getElementById('app').style.transform = 'scale(1)';
-    }, 5);
-
-Vue.use(VueResource);
+    var logoEl = document.getElementById('logo');
+    logoEl.style.opacity = '1';
+    var imageUrl = logoEl.src;
+    logoEl.src = '#';
+    logoEl.src = imageUrl;
+    document.getElementById('signup').style.opacity = '1';
+    document.getElementById('app').style.transform = 'scale(1)';
+}, 5);
 
 var app = new Vue({
     el: "#app",
-    components: { 'typeahead': Typeahead },
+    components: { 'typeahead': Typeahead, 'email': EmailField },
     data: {
-        email: ''
+        isMounted: false
+    },
+    mounted() {
+        this.isMounted = true;
     },
     computed: {
-        emailIndicatorClass() {
-            if (this.email.trim() == '') {
-                return 'fa-envelope';
-            } else if (!EmailValidator.validate(this.email)) {
-                return 'fa-exclamation-circle';
-            } else {
-                return 'fa-check-circle';
-            }
-        },
-        isEmailInputValid() {
-            return this.email.trim() != '' && EmailValidator.validate(this.email);
-        },
         areInputsValid() {
-            return this.isEmailInputValid && this.$refs.universityAutofill.isUniversityInputValid;
+            return this.isMounted &&
+                this.$refs.emailField.isEmailInputValid && this.$refs.universityAutofill.isUniversityInputValid;
+        }
+    },
+    methods: {
+        registerEmail() {
+            alert(this.$refs.emailField.email + ": " + this.$refs.universityAutofill.query);
         }
     }
 });
-
-setTimeout(() => app.$refs.emailField.focus(), 1000);

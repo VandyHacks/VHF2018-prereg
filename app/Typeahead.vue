@@ -29,10 +29,12 @@ const trie = createTrie(universities, 'nameIndex');
 
 export default {
   extends: VueTypeahead,
-  data: () => ({
-    src: '/findunis',
-    selected: ''
-  }),
+  data() {
+    return {
+      src: '/findunis',
+      selected: ''
+    };
+  },
   methods: {
     // The callback function which is triggered when the user hits on an item
     // (required)

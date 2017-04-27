@@ -17,14 +17,9 @@
 				<img id="logo" src="img/logo_anim.gif" style="opacity:0" width="750px" height="100px" alt="VandyHacks IV" />
 			</div>
 			<div id="signup" class="signup" style="opacity:0">
-				<div class="email-container">
-					<div class="input-wrapper">
-						<input ref="emailField" type="text" placeholder="Email Address" v-model="email">
-						<span class="fa" :class="emailIndicatorClass"></span>
-					</div>
-				</div>
+				<email ref="emailField"></email>
 				<typeahead ref="universityAutofill"></typeahead>
-				<input type="submit" value="Get Notified" onclick="registerEmail()" :disabled="!areInputsValid">
+				<input type="submit" value="Get Notified" :click="registerEmail" :disabled="!areInputsValid">
 			</div>
 		</div>
 	</div>
