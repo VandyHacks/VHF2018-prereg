@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>VandyHacks 2017</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="The VandyHacks 2017 official website. Sign up for pre-registration here!">
 	<link rel="icon" type="image/png" href="img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
@@ -18,10 +18,10 @@
 			<div class="signup">
 				<div class="email-container">
 					<input type="text" placeholder="Email Address" v-model="email">
-					<div class="email-hint" v-html="emailHint"></div>
+					<span class="fa" v-bind:class="emailIndicatorClass"></span>
 				</div>
 				<typeahead></typeahead>
-				<input type="submit" value="Get Notified" onclick="registerEmail()">
+				<input type="submit" value="Get Notified" onclick="registerEmail()" disabled>
 			</div>
 		</div>
 	</div>

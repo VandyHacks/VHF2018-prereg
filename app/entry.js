@@ -20,13 +20,13 @@ var app = new Vue({
         email: ''
     },
     computed: {
-        emailHint: function () {
+        emailIndicatorClass() {
             if (this.email.trim() == '') {
-                return 'Enter your email address';
+                return 'fa-envelope';
             } else if (!EmailValidator.validate(this.email)) {
-                return 'Invalid email address';
+                return 'fa-exclamation-circle';
             } else {
-                return '';
+                return 'fa-check-circle';
             }
         }
     }

@@ -14,7 +14,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	/* REMOVE AFTER FINISHED */
+	font-family: 'sofiapro', sans-serif;
 }
 
 .content {
@@ -70,30 +70,50 @@ body {
 	color: white;
 }
 
+.fa {
+    color: #479cae;
+    right: 0;
+    top: 0;
+    padding: 16px;
+    background: none;
+    border: 2px solid #479cae;
+    border-left: none;
+    margin-left: -5px;
+	margin-right: 4px;
+    width: 16px;
+}
+
 input {
 	padding: 15px;
-	border-radius: 2px;
-	margin: 2px;
+	margin: 0px;
 	outline: none;
 	border: none;
 	font-family: 'sofiapro', sans-serif;
 	transition: all 0.25s;
-	border: 1px solid #479cae;
+	border: 2px solid #479cae;
 }
 
-input[type="email"], input[type="text"] {
+input[type="text"] {
 	background: transparent;
 	color: #479cae;
-	width: 276px;
+	width: 240px;
+	border-right: none;
+	padding-right: 0px;
+	margin-right: 0px;
 }
 
-input[type="email"]:focus, input[type="text"]:focus {
+input[type="text"]:focus {
 	color: #fff;
 }
 
 input[type="submit"] {
 	background: #479cae;
 	color:#212132;
+}
+
+input[type="submit"]:disabled {
+	color: #36727c;
+	cursor: not-allowed;
 }
 
 ::-webkit-input-placeholder {

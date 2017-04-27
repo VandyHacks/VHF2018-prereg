@@ -1,6 +1,7 @@
 <template>
   <div class="typeahead-container">
     <input type="text" placeholder="University Name" autocomplete="off" ref="uniName" v-bind:value="query" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.enter="hit" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" />
+    <span class="fa" v-bind:class="typeaheadIndicatorClass"></span>
   
     <div class="uni-list-container">
       <ul v-show="hasItems && isInputFocused()">
@@ -52,6 +53,17 @@ export default {
         results = trie.getMatches(this.query, { limit: 5 });
       }
       return Promise.resolve({ data: results });
+    }
+  },
+  computed: {
+    typeaheadIndicatorClass() {
+      if (this.query.trim() == '') {
+        return ['fa-graduation-cap'];
+      } else if (this.query.length < 10) {
+        return ['fa-exclamation-circle'];
+      } else {
+        return ['fa-check-circle'];
+      }
     }
   }
 }
