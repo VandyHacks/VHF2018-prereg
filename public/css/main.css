@@ -3,16 +3,13 @@
     src: url('SofiaProRegular.otf');
 }
 
-html {
-	background: linear-gradient(45deg, #1F1028, #212635 100%) fixed no-repeat;
-}
-
 html, body {
 	height: 100%;
 	margin: 0px;
 }
 
 body {
+	background: linear-gradient(45deg, #1F1028, #212635 100%) fixed no-repeat;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -103,7 +100,7 @@ input {
 
 input[type="text"] {
 	background: transparent;
-	color: #fff;
+	color: #479cae;
 	width: 240px;
 	padding-right: 0px;
 	margin-right: 0px;
@@ -115,7 +112,7 @@ input[type="text"]:focus {
 
 input[type="submit"] {
 	background: #479cae;
-	color:#fff;
+	color:#212132;
 	cursor: pointer;
 	padding: 17px;
 }
@@ -134,6 +131,7 @@ input[type="submit"]:disabled {
 	color: #36727c;
 	cursor: not-allowed;
 	transform: scale(1) !important;
+	opacity: 0.5;
 }
 
 ::-webkit-input-placeholder {
