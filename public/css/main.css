@@ -59,10 +59,6 @@ body {
     margin-right: -50%;
 }
 
-.dateTive {
-
-}
-
 .dateText.lines:before,
 .dateText.lines:after {
 	width: 120px;
