@@ -14,6 +14,7 @@ setTimeout(() => {
     var appEl = document.getElementById('app');
     appEl.style.opacity = '1';
     appEl.style.transform = 'scale(1)';
+    document.getElementById("date").className += " lines";
 }, 5);
 
 var app = new Vue({

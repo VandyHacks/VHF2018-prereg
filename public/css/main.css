@@ -25,6 +25,49 @@ body {
 	display: inline-block;
 }
 
+.dateText {
+	color: #479cae;
+	font-size: 24px;
+	margin-bottom: 10px;
+	width: 750px;
+}
+
+.dateText:before,
+.dateText:after {
+    background-color: #479cae;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 0px;
+	transition: all 0.75s ease-in-out;
+}
+
+.dateText img {
+	vertical-align: middle;
+	width: 475px;
+}
+
+.dateText:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+
+.dateText:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.dateTive {
+
+}
+
+.dateText.lines:before,
+.dateText.lines:after {
+	width: 120px;
+}
+
 #app {
 	opacity: 0;
 	transform: scale(0.9);
