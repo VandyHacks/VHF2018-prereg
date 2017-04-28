@@ -7,6 +7,5 @@ Installing
 Running
 ==
 
-    webpack
-    # webpack -p for production
-    node index.js
+    npm run build	# npm run build:prod for production
+    npm start
