@@ -31,7 +31,7 @@ export default {
         }
     },
     mounted() {
-        setTimeout(() => this.$refs.emailInput.focus(), 750);
+        this.$refs.emailInput.focus();
     }
 }
 </script>
