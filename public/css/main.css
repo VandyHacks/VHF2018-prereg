@@ -149,6 +149,11 @@ display: inline-block;
     background: none;
     margin-left: -5px;
     width: 16px;
+	transition: all 0.25s;
+}
+
+.fa-exclamation-circle {
+	color: #fff;
 }
 
 input {
@@ -157,7 +162,6 @@ input {
 	outline: none;
 	border: none;
 	font-family: 'sofiapro', sans-serif;
-	transition: all 0.25s;
 }
 
 input[type="text"] {
