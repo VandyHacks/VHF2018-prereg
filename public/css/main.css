@@ -150,14 +150,9 @@ display: inline-block;
 
 .fa {
     color: #479cae;
-    right: 0;
-    top: 0;
-    padding: 16px;
-    background: none;
-    margin-left: -5px;
+    padding: 14px;
     width: 16px;
-	vertical-align: sub;
-}
+    vertical-align: sub;}
 
 .icon-exclamation-circle {
 	color: #fff;
