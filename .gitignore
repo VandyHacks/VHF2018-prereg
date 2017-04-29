@@ -16,4 +16,4 @@ docker-compose.yml
 jsconfig.json
 
 # Webpack
-bundle.js
+public/js

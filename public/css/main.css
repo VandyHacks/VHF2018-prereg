@@ -141,6 +141,10 @@ display: inline-block;
 	cursor: default;
 }
 
+.fa, input[type="submit"] {
+	transition: all 0.25s;
+}
+
 .fa {
     color: #479cae;
     right: 0;
@@ -149,7 +153,6 @@ display: inline-block;
     background: none;
     margin-left: -5px;
     width: 16px;
-	transition: all 0.25s;
 }
 
 .fa-exclamation-circle {
