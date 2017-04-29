@@ -17,3 +17,5 @@ jsconfig.json
 
 # Webpack
 public/js
+public/css/*.css
+public/css/*.gz

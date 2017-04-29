@@ -1,10 +1,24 @@
+@import 'normalize';
+@import 'fa-min';
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}
+
 @font-face {
-    font-family: 'sofiapro';
+    font-family: 'Sofia Pro';
     src: url('fonts/SofiaProRegular.woff2') format('woff2'),
          url('fonts/SofiaProRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
+$font-stack: 'Sofia Pro', sans-serif;
+$bg-color: #1F1028;
+$primary-color: #479cae;
 
 html, body {
 	height: 100%;
@@ -12,12 +26,12 @@ html, body {
 }
 
 body {
-	background: linear-gradient(45deg, #1F1028, #212635 100%) fixed no-repeat;
+	background: linear-gradient(45deg, $bg-color, #212635 100%) fixed no-repeat;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	font-family: 'sofiapro', sans-serif;
+	font-family: $font-stack;
 }
 
 .content {
@@ -29,7 +43,7 @@ body {
 }
 
 .dateText {
-	color: #479cae;
+	color: $primary-color;
 	font-size: 24px;
 	margin-bottom: 10px;
 	width: 750px;
@@ -37,7 +51,7 @@ body {
 
 .dateText:before,
 .dateText:after {
-    background-color: #479cae;
+    background-color: $primary-color;
     content: "";
     display: inline-block;
     height: 2px;
@@ -82,7 +96,7 @@ body {
 }
 
 .input-wrapper {
-    border: 2px solid #479cae;
+    border: 2px solid $primary-color;
 	margin-right: 4px;
 }
 
@@ -118,7 +132,7 @@ display: inline-block;
     right: 0;
     margin: auto;
     content: '';
-    border-bottom: 8px solid #fff;
+    border-bottom: 8px solid white;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
 }
@@ -127,7 +141,7 @@ display: inline-block;
 	list-style: none;
 	padding: 4px 0px;
 	margin: 0;
-	background: #fff;
+	background:white;
 	box-shadow: 0px 4px 4px rgba(0,0,0,0.4);
 }
 
@@ -139,7 +153,7 @@ display: inline-block;
 }
 
 .uni-list-container li.active {
-	background: #ddd;
+	background: darken(white, 15%);
 	cursor: default;
 }
 
@@ -148,13 +162,13 @@ display: inline-block;
 }
 
 .fa {
-    color: #479cae;
+    color: $primary-color;
     padding: 14px;
     width: 16px;
     vertical-align: sub;}
 
 .icon-exclamation-circle {
-	color: #fff;
+	color: white;
 }
 
 input {
@@ -162,57 +176,45 @@ input {
 	margin: 0px;
 	outline: none;
 	border: none;
-	font-family: 'sofiapro', sans-serif;
+	font-family: $font-stack;
 }
 
 input[type="text"] {
 	background: transparent;
-	color: #fff;
+	color: white;
 	width: 240px;
 	padding-right: 0px;
 	margin-right: 0px;
 }
 
 input[type="text"]:focus {
-	color: #fff;
+	color:white;
 }
 
 input[type="submit"] {
-	background: #479cae;
-	color:#212132;
+	background: $primary-color;
+	color: $bg-color;
 	cursor: pointer;
 	padding: 17px;
 }
 
 input[type="submit"]:hover {
-	background: #63b9cb;
+	background: lighten($primary-color, 10%);
 }
 
 input[type="submit"]:active {
-	background: #3a7f8d;
+	background: darken($primary-color, 15%);
 	transform: scale(0.95);
 }
 
 input[type="submit"]:disabled {
-	background: #479cae;
-	color: #36727c;
+	background: $primary-color;
+	color: darken($primary-color, 15%);
 	cursor: not-allowed;
 	transform: scale(1) !important;
 	opacity: 0.5;
 }
 
-::-webkit-input-placeholder {
-	color:#479cae;
-}
-
-:-ms-input-placeholder {
-	color: #479cae;
-}
-
-::-moz-placeholder {
-	color: #479cae;
-}
-
-:-moz-placeholder {
-	color: #479cae;
-}
+input { @include placeholder {
+    color: $primary-color;
+}}
