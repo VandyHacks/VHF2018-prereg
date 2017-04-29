@@ -49,21 +49,24 @@ body {
     display: inline-block;
 }
 
+$logo_width: 750px;
+$date_total_width: 739px;
+
+$date_img_width: 475px;
+$horiz_line_spacing: 12px;
+
 #logo {
-	width: 750px;
+	width: $logo_width;
 }
 
 .dateText {
-    color: $primary-color;
-    font-size: 24px;
     margin-bottom: 10px;
-    width: 750px;
     &:before {
-        right: 12px;
+        right: $horiz_line_spacing;
         margin-left: -50%;
     }
     &:after {
-        left: 12px;
+        left: $horiz_line_spacing;
         margin-right: -50%;
     }
     &:before,
@@ -79,12 +82,12 @@ body {
     }
     img {
         vertical-align: middle;
-		width: 475px;
+		width: $date_img_width;
     }
     &.lines {
         &:before,
         &:after {
-            width: 120px;
+            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2;
         }
     }
 }
