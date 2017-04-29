@@ -1,220 +1,211 @@
 @import 'normalize';
 @import 'fa-min';
-
 @mixin placeholder {
-  &::-webkit-input-placeholder {@content}
-  &:-moz-placeholder           {@content}
-  &::-moz-placeholder          {@content}
-  &:-ms-input-placeholder      {@content}  
+    &::-webkit-input-placeholder {
+        @content
+    }
+    &:-moz-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &:-ms-input-placeholder {
+        @content
+    }
 }
 
 @font-face {
     font-family: 'Sofia Pro';
-    src: url(fonts/SofiaProRegular.woff2) format('woff2'),
-         url(fonts/SofiaProRegular.woff) format('woff');
+    src: url(fonts/SofiaProRegular.woff2) format('woff2'), url(fonts/SofiaProRegular.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-$font-stack: 'Sofia Pro', sans-serif;
+$font-stack: 'Sofia Pro',
+sans-serif;
 $bg-color: #1F1028;
 $primary-color: #479cae;
-
-html, body {
-	height: 100%;
-	margin: 0px;
+html,
+body {
+    height: 100%;
+    margin: 0px;
 }
 
 body {
-	background: linear-gradient(45deg, $bg-color, #212635 100%) fixed no-repeat;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	font-family: $font-stack;
+    background: linear-gradient(45deg, $bg-color, #212635 100%) fixed no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: $font-stack;
 }
 
 .content {
-	text-align: center;
+    text-align: center;
 }
 
 .logo-container {
-	display: inline-block;
+    display: inline-block;
 }
 
 .dateText {
-	color: $primary-color;
-	font-size: 24px;
-	margin-bottom: 10px;
-	width: 750px;
-}
-
-.dateText:before,
-.dateText:after {
-    background-color: $primary-color;
-    content: "";
-    display: inline-block;
-    height: 2px;
-    position: relative;
-    vertical-align: middle;
-    width: 0px;
-	transition: all 0.75s ease-in-out;
-}
-
-.dateText img {
-	vertical-align: middle;
-}
-
-.dateText:before {
-    right: 0.5em;
-    margin-left: -50%;
-}
-
-.dateText:after {
-    left: 0.5em;
-    margin-right: -50%;
-}
-
-.dateText.lines:before,
-.dateText.lines:after {
-	width: 120px;
+    color: $primary-color;
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 750px;
+    &:before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+    &:after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
+    &:before,
+    &:after {
+        background-color: $primary-color;
+        content: "";
+        display: inline-block;
+        height: 2px;
+        position: relative;
+        vertical-align: middle;
+        width: 0px;
+        transition: all 0.75s ease-in-out;
+    }
+    img {
+        vertical-align: middle;
+    }
+    &.lines {
+        &:before,
+        &:after {
+            width: 120px;
+        }
+    }
 }
 
 #app {
-	opacity: 0;
-	transform: scale(0.9);
-	transition: all 0.75s ease-out;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.75s ease-out;
 }
 
 .signup {
-	margin: 10px;
-	height: 72px;
-}
-
-.signup > * {
-	display: inline-block;
+    margin: 10px;
+    height: 72px;
+    &>* {
+        display: inline-block;
+    }
 }
 
 .input-wrapper {
     border: 2px solid $primary-color;
-	margin-right: 4px;
+    margin-right: 4px;
 }
 
-.email-container, .typeahead-container {
-	vertical-align: top;
+.email-container,
+.typeahead-container {
+    vertical-align: top;
 }
 
 .email-hint {
-	color: white;
+    color: white;
 }
 
 .typeahead-container {
-	width: 312px;
+    width: 312px;
 }
 
 .uni-list-container {
-	position: relative;
+    position: relative;
     right: 50%;
     text-align: center;
+    .list-wrapper {
+        display: inline-block;
+        margin-right: -100%;
+        min-width: 340px;
+        padding: 0;
+        .caret {
+            width: 0px;
+            height: 8px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            content: '';
+            border-bottom: 8px solid white;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 4px 0px;
+        margin: 0;
+        background: white;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    }
+    li {
+        color: #000;
+        padding: 8px 12px;
+        text-align: left;
+        font-size: 13.3333px;
+        &.active {
+            background: darken(white, 10%);
+            cursor: default;
+        }
+    }
 }
 
-.uni-list-container .list-wrapper {
-display: inline-block;
-    margin-right: -100%;
-	min-width: 340px;
-	padding: 0;
-}
-
-.uni-list-container .list-wrapper .caret {
-    width: 0px;
-    height: 8px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    content: '';
-    border-bottom: 8px solid white;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-}
-
-.uni-list-container ul {
-	list-style: none;
-	padding: 4px 0px;
-	margin: 0;
-	background:white;
-	box-shadow: 0px 4px 4px rgba(0,0,0,0.4);
-}
-
-.uni-list-container li {
-	color: #000;
-	padding: 8px 12px;
-	text-align: left;
-	font-size: 13.3333px;
-}
-
-.uni-list-container li.active {
-	background: darken(white, 10%);
-	cursor: default;
-}
-
-.fa, input[type="submit"] {
-	transition: all 0.25s;
+.fa,
+input[type="submit"] {
+    transition: all 0.25s;
 }
 
 .fa {
     color: $primary-color;
     padding: 14px;
     width: 16px;
-    vertical-align: sub;}
+    vertical-align: sub;
+}
 
 .icon-exclamation-circle {
-	color: white;
+    color: white;
 }
 
 input {
-	padding: 15px;
-	margin: 0px;
-	outline: none;
-	border: none;
-	font-family: $font-stack;
+    padding: 15px;
+    margin: 0px;
+    outline: none;
+    border: none;
+    font-family: $font-stack;
+    &[type="text"] {
+        background: transparent;
+        color: white;
+        width: 240px;
+        padding-right: 0px;
+        margin-right: 0px;
+    }
+    &[type="submit"] {
+        background: $primary-color;
+        color: $bg-color;
+        cursor: pointer;
+        padding: 17px;
+        &:hover {
+            background: lighten($primary-color, 10%);
+        }
+        &:active {
+            background: darken($primary-color, 15%);
+            transform: scale(0.95);
+        }
+        &:disabled {
+            background: $primary-color;
+            color: darken($primary-color, 15%);
+            cursor: not-allowed;
+            transform: scale(1) !important;
+            opacity: 0.5;
+        }
+    }
+    @include placeholder {
+        color: $primary-color;
+    }
 }
-
-input[type="text"] {
-	background: transparent;
-	color: white;
-	width: 240px;
-	padding-right: 0px;
-	margin-right: 0px;
-}
-
-input[type="text"]:focus {
-	color:white;
-}
-
-input[type="submit"] {
-	background: $primary-color;
-	color: $bg-color;
-	cursor: pointer;
-	padding: 17px;
-}
-
-input[type="submit"]:hover {
-	background: lighten($primary-color, 10%);
-}
-
-input[type="submit"]:active {
-	background: darken($primary-color, 15%);
-	transform: scale(0.95);
-}
-
-input[type="submit"]:disabled {
-	background: $primary-color;
-	color: darken($primary-color, 15%);
-	cursor: not-allowed;
-	transform: scale(1) !important;
-	opacity: 0.5;
-}
-
-input { @include placeholder {
-    color: $primary-color;
-}}
