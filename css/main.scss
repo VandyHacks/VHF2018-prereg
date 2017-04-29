@@ -55,6 +55,8 @@ $date_total_width: 739px;
 $date_img_width: 475px;
 $horiz_line_spacing: 12px;
 
+$colored-line-width: 2px;
+
 #logo {
 	width: $logo_width;
 }
@@ -74,7 +76,7 @@ $horiz_line_spacing: 12px;
         background-color: $primary-color;
         content: "";
         display: inline-block;
-        height: 2px;
+        height: $colored-line-width;
         position: relative;
         vertical-align: middle;
         width: 0px;
@@ -107,21 +109,27 @@ $horiz_line_spacing: 12px;
 }
 
 .input-wrapper {
-    border: 2px solid $primary-color;
-    margin-right: 4px;
+    border: $colored-line-width solid $primary-color;
 }
 
 .email-container,
 .typeahead-container {
     vertical-align: top;
+	margin-right: 4px;
 }
 
 .email-hint {
     color: white;
 }
 
+$input-width: 240px;
+$input-padding-left: 15px;
+$font-width: 26px;
+$icon-padding: 9px;
+$mysterious-space: 5px; // Idk
+
 .typeahead-container {
-    width: 312px;
+    width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + $colored-line-width * 2 + $mysterious-space;
 }
 
 .uni-list-container {
@@ -171,7 +179,7 @@ input[type="submit"] {
 
 .fa {
     color: $primary-color;
-    padding: 11px;
+    padding: $icon-padding;
 }
 
 .icon-attention-circled {
@@ -179,7 +187,7 @@ input[type="submit"] {
 }
 
 input {
-    padding: 15px;
+    padding: $input-padding-left;
     margin: 0px;
     outline: none;
     border: none;
@@ -187,7 +195,7 @@ input {
     &[type="text"] {
         background: transparent;
         color: white;
-        width: 240px;
+        width: $input-width;
         padding-right: 0px;
         margin-right: 0px;
     }
