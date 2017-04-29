@@ -22,11 +22,10 @@ import VueTypeahead from 'vue-typeahead'
 import createTrie from 'autosuggest-trie'
 
 const universities = require('./universities.json')
-  .map(uni => {
-    return { name: uni.name, addr: uni.city + ', ' + uni.state };
-  });
+  .map(uni => ({ name: uni }));
 console.log('Universities loaded: ' + universities.length);
-const trie = createTrie(universities, 'name', { splitRegex: /\s+|-/ });
+const splitByHyphen = /\s+|-/;
+const trie = createTrie(universities, 'name', { splitRegex: splitByHyphen });
 
 export default {
   extends: VueTypeahead,
@@ -58,7 +57,7 @@ export default {
       if (trimmedQuery == '') {
         results = [];
       } else {
-        results = trie.getMatches(trimmedQuery.replace(/-/g, ' '), { limit: 5 });
+        results = trie.getMatches(trimmedQuery, { limit: 5, splitRegex: splitByHyphen });
       }
       return Promise.resolve({ data: results });
     }
