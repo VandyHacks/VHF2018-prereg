@@ -8,8 +8,8 @@
   "scripts": {
     "start": "node index.js",
     "watch:start": "nodemon index.js",
-    "build": "webpack",
-    "build:prod": "webpack -p"
+    "build": "webpack && gzip -kf public/js/bundle.js",
+    "build:prod": "webpack -p && gzip -kf public/js/bundle.js"
   },
   "dependencies": {
     "autosuggest-trie": "^2.1.0",
