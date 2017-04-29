@@ -23,7 +23,7 @@ import createTrie from 'autosuggest-trie'
 
 const universities = require('./universities.json')
   .map(uni => ({ name: uni }));
-console.log('Universities loaded: ' + universities.length);
+// console.log('Universities loaded: ' + universities.length);
 const splitByHyphen = /\s+|-/;
 const trie = createTrie(universities, 'name', { splitRegex: splitByHyphen });
 
@@ -65,11 +65,11 @@ export default {
   computed: {
     typeaheadIndicatorClass() {
       if (this.query.trim() == '') {
-        return ['fa-graduation-cap'];
+        return ['icon-graduation-cap'];
       } /* else if (this.query.length < 10) {
-        return ['fa-exclamation-circle'];
+        return ['icon-exclamation-circle'];
       } */ else {
-        return ['fa-check-circle'];
+        return ['icon-check-circle'];
       }
     },
     isUniversityInputValid() {
