@@ -156,7 +156,7 @@ display: inline-block;
     background: none;
     margin-left: -5px;
     width: 16px;
-	vertical-align: middle;
+	vertical-align: sub;
 }
 
 .icon-exclamation-circle {
