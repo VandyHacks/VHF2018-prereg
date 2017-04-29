@@ -8,14 +8,14 @@
   "scripts": {
     "start": "node index.js",
     "watch:start": "nodemon index.js",
-    "build": "webpack && gzip -kf public/js/bundle.js && node-sass css/main.scss public/css/main.css && gzip -kf public/css/main.css",
-    "build:prod": "webpack -p && gzip -kf public/js/bundle.js && node-sass css/main.scss public/css/main.css --output-style compressed && gzip -kf public/css/main.css"
+    "build": "webpack && node-sass css/main.scss public/css/main.css",
+    "build:prod": "webpack -p && node-sass css/main.scss public/css/main.css --output-style compressed"
   },
   "dependencies": {
     "autosuggest-trie": "^2.1.0",
+    "compression": "^1.6.2",
     "email-validator": "^1.0.7",
     "express": "^4.13.4",
-    "express-static-gzip": "^0.2.2",
     "replaceall": "^0.1.6"
   },
   "repository": {
