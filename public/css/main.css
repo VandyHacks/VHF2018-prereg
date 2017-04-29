@@ -1,8 +1,7 @@
 @font-face {
     font-family: 'sofiapro';
     src: url('fonts/SofiaProRegular.woff2') format('woff2'),
-         url('fonts/SofiaProRegular.woff') format('woff'),
-         url('fonts/SofiaProRegular.otf');
+         url('fonts/SofiaProRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
