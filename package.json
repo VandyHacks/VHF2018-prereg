@@ -8,8 +8,8 @@
   "scripts": {
     "start": "node index.js",
     "watch:start": "nodemon index.js",
-    "build": "webpack && gzip -kf public/js/bundle.js && sassc css/main.scss public/css/main.css && gzip -kf public/css/main.css",
-    "build:prod": "webpack -p && gzip -kf public/js/bundle.js && sassc css/main.scss public/css/main.css --style compressed && gzip -kf public/css/main.css"
+    "build": "webpack && gzip -kf public/js/bundle.js && node-sass css/main.scss public/css/main.css && gzip -kf public/css/main.css",
+    "build:prod": "webpack -p && gzip -kf public/js/bundle.js && node-sass css/main.scss public/css/main.css --output-style compressed && gzip -kf public/css/main.css"
   },
   "dependencies": {
     "autosuggest-trie": "^2.1.0",
@@ -36,6 +36,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.0",
+    "node-sass": "^4.5.2",
     "vue": "^2.2.6",
     "vue-loader": "^11.3.4",
     "vue-resource": "^1.3.1",
