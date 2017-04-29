@@ -66,14 +66,14 @@ export default {
     typeaheadIndicatorClass() {
       if (this.query.trim() == '') {
         return ['icon-graduation-cap'];
-      } /* else if (this.query.length < 10) {
+      }  else if (this.query.length < 8) {
         return ['icon-exclamation-circle'];
-      } */ else {
+      } else {
         return ['icon-check-circle'];
       }
     },
     isUniversityInputValid() {
-      return this.query.trim() != '';
+      return this.query.trim() != '' && this.query.length >= 8;
     }
   }
 }
