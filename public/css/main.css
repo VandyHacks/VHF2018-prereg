@@ -152,9 +152,10 @@ display: inline-block;
     background: none;
     margin-left: -5px;
     width: 16px;
+	vertical-align: middle;
 }
 
-.fa-exclamation-circle {
+.icon-exclamation-circle {
 	color: #fff;
 }
 
