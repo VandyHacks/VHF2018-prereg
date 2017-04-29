@@ -19,11 +19,11 @@ export default {
     computed: {
         emailIndicatorClass() {
             if (this.email.trim() == '') {
-                return 'icon-envelope';
+                return 'icon-mail-alt';
             } else if (!EmailValidator.validate(this.email)) {
-                return 'icon-exclamation-circle';
+                return 'icon-attention-circled';
             } else {
-                return 'icon-check-circle';
+                return 'icon-ok-circled';
             }
         },
         isEmailInputValid() {

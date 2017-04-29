@@ -67,9 +67,9 @@ export default {
       if (this.query.trim() == '') {
         return ['icon-graduation-cap'];
       }  else if (this.query.length < 8) {
-        return ['icon-exclamation-circle'];
+        return ['icon-attention-circled'];
       } else {
-        return ['icon-check-circle'];
+        return ['icon-ok-circled'];
       }
     },
     isUniversityInputValid() {

@@ -1,5 +1,5 @@
 @import 'normalize';
-@import 'fa-min';
+@import 'fontello';
 @mixin placeholder {
     &::-webkit-input-placeholder {
         @content
@@ -171,12 +171,10 @@ input[type="submit"] {
 
 .fa {
     color: $primary-color;
-    padding: 14px;
-    width: 16px;
-    vertical-align: sub;
+    padding: 11px;
 }
 
-.icon-exclamation-circle {
+.icon-attention-circled {
     color: white;
 }
 
