@@ -51,14 +51,11 @@ body {
 
 $logo_width: 750px;
 $date_total_width: 739px;
-
 $date_img_width: 475px;
 $horiz_line_spacing: 12px;
-
 $colored-line-width: 2px;
-
 #logo {
-	width: $logo_width;
+    width: $logo_width;
 }
 
 .dateText {
@@ -84,7 +81,7 @@ $colored-line-width: 2px;
     }
     img {
         vertical-align: middle;
-		width: $date_img_width;
+        width: $date_img_width;
     }
     &.lines {
         &:before,
@@ -115,7 +112,7 @@ $colored-line-width: 2px;
 .email-container,
 .typeahead-container {
     vertical-align: top;
-	margin-right: 4px;
+    margin-right: 4px;
 }
 
 .email-hint {
@@ -127,7 +124,6 @@ $input-padding-left: 15px;
 $font-width: 26px;
 $icon-padding: 9px;
 $mysterious-space: 5px; // Idk
-
 .typeahead-container {
     width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + $colored-line-width * 2 + $mysterious-space;
 }
@@ -224,75 +220,120 @@ input {
     }
 }
 
+
 /*
 	Responsiveness
 */
+
 @media screen and (max-width: 800px) {
-	$logo_width_800px: 600px;
-
-	#logo {
-		width: $logo_width_800px;
-	}
-
-	.dateText {
-		transform: scale($logo_width_800px / $logo_width);
-		margin-bottom: 4px;
-	}
-
-	$input-width-800px: 166px;
-	
-	input[type="text"] {
-		width: $input-width-800px;
-	}
-	
-	.typeahead-container {
-		width: $input-width-800px + $input-padding-left + $font-width + $icon-padding * 2 + $colored-line-width * 2 + $mysterious-space;
-	}
+    $logo_width_800px: 600px;
+    #logo {
+        width: $logo_width_800px;
+    }
+    .dateText {
+        transform: scale($logo_width_800px / $logo_width);
+        margin-bottom: 4px;
+        &:before,
+        &:after {
+            height: 2 * $logo_width / $logo_width_800px + 0px;
+        }
+    }
+    $input-width-800px: 166px;
+    input[type="text"] {
+        width: $input-width-800px;
+    }
+    .typeahead-container {
+        width: $input-width-800px + $input-padding-left + $font-width + $icon-padding * 2 + $colored-line-width * 2 + $mysterious-space;
+    }
 }
 
 @media screen and (max-width: 640px) {
-	$logo_width_640px: 450px;
+    $logo_width_640px: 450px;
+    #logo {
+        width: $logo_width_640px;
+    }
+    .dateText {
+        img {
+            width: 360px;
+        }
+        &.lines:before,
+        &.lines:after {
+            width: 86px;
+        }
+    }
+    $input-width-640px: 378px;
+    input[type="text"] {
+        width: $input-width-640px;
+    }
+    $input-total-width-640px: $input-width-640px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
+    .typeahead-container {
+        width: $input_total_width_640px;
+    }
+    input[type="submit"] {
+        width: $input_total_width_640px;
+    }
+    .email-container,
+    .typeahead-container {
+        margin-right: 0px;
+        margin-bottom: 16px;
+    }
+    .uni-list-container {
+        position: absolute;
+        z-index: 5;
+        .list-wrapper {
+            min-width: $input_total_width_640px;
+        }
+    }
+    #app {
+        height: 300px;
+    }
+}
 
-	#logo {
-		width: $logo_width_640px;
-	}
+@media screen and (max-width: 480px) {
+    $logo_width_480px: 320px;
+    #logo,
+    .logo-container {
+        width: $logo_width_480px;
+    }
+    .dateText {
+        transform: scale(0.57);
+		margin-bottom: 0px;
+        &:before,
+        &:after {
+            height: 4px;
+        }
+    }
+    $input-width-480px: 250px;
+    input[type="text"] {
+        width: $input-width-480px;
+    }
+    $input-total-width-480px: $input-width-480px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
+    .typeahead-container {
+        width: $input-total-width-480px;
+    }
+    input[type="submit"] {
+        width: $input-total-width-480px;
+    }
+    .email-container,
+    .typeahead-container {
+        margin-right: 0px;
+        margin-bottom: 16px;
+    }
+    .uni-list-container {
+        position: absolute;
+        z-index: 5;
+        .list-wrapper {
+            min-width: $input-total-width-480px;
+        }
+    }
+    #app {
+        height: 278px;
+    }
+}
 
-	.dateText {
-		transform: scale($logo_width_640px / $logo_width);
-		margin-bottom: 4px;
-	}
-
-	$input-width-640px: 378px;
-	
-	input[type="text"] {
-		width: $input-width-640px;
-	}
-	
-	$input-total-width-640px: $input-width-640px + $input-padding-left + $font-width + $icon-padding * 2 + $colored-line-width * 2 + $mysterious-space;
-
-	.typeahead-container {
-		width: $input_total_width_640px;
-	}
-
-	input[type="submit"] {
-		width: $input_total_width_640px;
-	}
-
-	.email-container, .typeahead-container {
-		margin-right: 0px;
-		margin-bottom: 16px;
-	}
-
-	.uni-list-container {
-		position: absolute;
-		z-index: 5;
-
-		.list-wrapper {
-			min-width: $input_total_width_640px;
-		}
-	}
-
-	#app {
-		height: 300px;
-	}
+// lol
+@media screen and (max-width: 340px) {
+    .content {
+        transform: scale(0.9);
+    }
 }
