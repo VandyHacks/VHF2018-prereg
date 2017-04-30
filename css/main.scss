@@ -59,7 +59,7 @@ $colored-line-width: 2px;
 }
 
 .dateText {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     &:before {
         right: $horiz_line_spacing;
         margin-left: -50%;
@@ -234,7 +234,7 @@ input {
     }
     .dateText {
         transform: scale($logo_width_800px / $logo_width);
-        margin-bottom: 4px;
+        margin-bottom: 0px;
         &:before,
         &:after {
             height: 2 * $logo_width / $logo_width_800px + 0px;
@@ -299,7 +299,6 @@ input {
     }
     .dateText {
         transform: scale(0.57);
-		margin-bottom: 0px;
         &:before,
         &:after {
             height: 4px;
