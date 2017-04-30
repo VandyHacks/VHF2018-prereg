@@ -223,3 +223,29 @@ input {
         color: $primary-color;
     }
 }
+
+/*
+	Responsiveness
+*/
+@media screen and (max-width: 800px) {
+	$logo_width_800px: 600px;
+
+	#logo {
+		width: $logo_width_800px;
+	}
+
+	.dateText {
+		transform: scale($logo_width_800px / $logo_width);
+		margin-bottom: 4px;
+	}
+
+	$input-width-800px: 166px;
+	
+	input[type="text"] {
+		width: $input-width-800px;
+	}
+	
+	.typeahead-container {
+		width: $input-width-800px + $input-padding-left + $font-width + $icon-padding * 2 + $colored-line-width * 2 + $mysterious-space;
+	}
+}
