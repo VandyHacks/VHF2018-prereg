@@ -153,6 +153,7 @@ $mysterious-space: 5px; // Idk
         list-style: none;
         padding: 4px 0px;
         margin: 0;
+        margin-top: -1px;
         background: white;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     }
@@ -188,7 +189,7 @@ input {
     outline: none;
     border: none;
     font-family: $font-stack;
-    &[type="text"] {
+    &[type="text"], &[type="email"] {
         background: transparent;
         color: white;
         width: $input-width;
@@ -200,6 +201,7 @@ input {
         color: $bg-color;
         cursor: pointer;
         padding: 17px;
+        -webkit-tap-highlight-color: transparent;
         &:hover {
             background: lighten($primary-color, 10%);
         }
@@ -239,7 +241,7 @@ input {
         }
     }
     $input-width-800px: 166px;
-    input[type="text"] {
+    input[type="text"], input[type="email"] {
         width: $input-width-800px;
     }
     .typeahead-container {
@@ -262,7 +264,7 @@ input {
         }
     }
     $input-width-640px: 378px;
-    input[type="text"] {
+    input[type="text"], input[type="email"] {
         width: $input-width-640px;
     }
     $input-total-width-640px: $input-width-640px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
@@ -304,7 +306,7 @@ input {
         }
     }
     $input-width-480px: 250px;
-    input[type="text"] {
+    input[type="text"], input[type="email"] {
         width: $input-width-480px;
     }
     $input-total-width-480px: $input-width-480px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
