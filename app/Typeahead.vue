@@ -57,7 +57,22 @@ export default {
       if (trimmedQuery == '') {
         results = [];
       } else {
-        results = trie.getMatches(trimmedQuery, { limit: 5, splitRegex: splitByHyphen });
+        results = trie.getMatches(trimmedQuery, { limit: 15, splitRegex: splitByHyphen });
+        var ranks = {};
+        var normalizedQuery = trimmedQuery.split(splitByHyphen).join(' ').toLowerCase();
+        for (let result of results) {
+          var normalizedResult = result.name.split(splitByHyphen).join(' ').toLowerCase();
+          if (normalizedResult.startsWith(normalizedQuery)) {
+            ranks[result.name] = 2;
+          } else if (normalizedResult.includes(normalizedQuery)) {
+            ranks[result.name] = 1;
+          } else {
+            ranks[result.name] = 0;
+          }
+        }
+        results = Object.keys(ranks)
+        .sort((a,b) => ranks[b] - ranks[a]).slice(0, 5)
+        .map(result => ({ name: result }));
       }
       return Promise.resolve({ data: results });
     }
@@ -66,7 +81,7 @@ export default {
     typeaheadIndicatorClass() {
       if (this.query.trim() == '') {
         return ['icon-graduation-cap'];
-      }  else if (this.query.length < 8) {
+      } else if (this.query.length < 8) {
         return ['icon-attention-circled'];
       } else {
         return ['icon-ok-circled'];
