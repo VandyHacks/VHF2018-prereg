@@ -12,7 +12,7 @@
     "build:prod": "webpack -p && node-sass css/main.scss public/css/main.css --output-style compressed"
   },
   "dependencies": {
-    "autosuggest-trie": "^2.1.0",
+    "autosuggest-trie": "^2.1.1",
     "compression": "^1.6.2",
     "email-validator": "^1.0.7",
     "express": "^4.13.4",
