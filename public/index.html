@@ -18,12 +18,15 @@
 				<div id="date" class="dateText"><img src="img/date.svg"></div>
 			</div>
 			<div id="signup" class="signup">
-				<email ref="emailField"></email>
+				<form action='/signup' method="POST">
+				<email id="email" ref="emailField"></email>
 				<typeahead ref="universityAutofill"></typeahead>
 				<input type="submit" value="Get Notified" :disabled="!areInputsValid" v-on:click="registerEmail()">
+			</form>
 			</div>
 		</div>
 	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/bundle.js"></script>
 </body>
 

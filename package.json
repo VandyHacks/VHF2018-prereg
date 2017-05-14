@@ -13,10 +13,12 @@
   },
   "dependencies": {
     "autosuggest-trie": "^2.1.1",
+    "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "email-validator": "^1.0.7",
     "express": "^4.15.2",
-    "replaceall": "^0.1.6"
+    "replaceall": "^0.1.6",
+    "superagent": "^3.5.2"
   },
   "repository": {
     "type": "git",
