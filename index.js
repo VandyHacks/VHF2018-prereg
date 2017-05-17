@@ -15,19 +15,17 @@ app.use(compression({ filter: shouldCompress }));
 app.use(bodyParser.json());
 
 // api var initialize
-var mailchimpInstance   = 'us9',
-    listUniqueId        = process.env.MC_LIST_ID,
-    mailchimpApiKey     = process.env.MC_API_KEY;
+var mailchimpInstance = process.env.MC_INSTANCE_ID,
+  listUniqueId = process.env.MC_LIST_ID,
+  mailchimpApiKey = process.env.MC_API_KEY;
 
 app.post('/signup', (req, res) => {
-  console.log('Received register for ' + req.body.email + ' attending ' + req.body.university);
-  console.log(listUniqueId);
-  console.log(mailchimpApiKey);
+  console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
 
   request
     .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
     .set('Content-Type', 'application/json;charset=utf-8')
-    .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey ).toString('base64'))
+    .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey).toString('base64'))
     .send({
       'email_address': req.body.email,
       'status': 'subscribed',
@@ -35,13 +33,13 @@ app.post('/signup', (req, res) => {
         'UNIVERSITY': req.body.university
       }
     })
-    .end(function(err, response) {
+    .end((err, response) => {
       if (response.status < 300) {
-        res.json({status: 'Thank you for pre-registering! Will send more information soon!'});
-      } else if(response.status === 400 && response.body.title === 'Member Exists') {
-        res.json({status: 'You have already pre-registered!'});
+        res.json({ status: 'Thank you for pre-registering! Will send more information soon!' });
+      } else if (response.status === 400 && response.body.title === 'Member Exists') {
+        res.json({ status: 'You have already pre-registered!' });
       } else {
-        res.json({status: 'Error in your registration ): Please try again or contact the organizers!'});
+        res.json({ status: 'Error in your registration ): Please try again or contact the organizers!' });
       }
     });
 });

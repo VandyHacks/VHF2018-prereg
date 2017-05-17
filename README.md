@@ -12,6 +12,6 @@ Running
 
 In the .env file add
 ==
-
+    MC_INSTANCE_ID = { region/instance }
     MC_LIST_ID = {list id}
     MC_API_KEY = {api key}
