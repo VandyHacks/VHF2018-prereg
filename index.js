@@ -6,17 +6,23 @@ const compressible = require('compressible');
 
 var request = require('superagent');
 var bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 app.use(compression({ filter: shouldCompress }));
 
+// added later
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 var mailchimpInstance   = 'us9',
+    listUniqueId        = process.env.MC_LIST_ID,
+    mailchimpApiKey     = process.env.MC_API_KEY;
 
 app.post('/signup', (req, res) => {
   console.log('Received register for ' + req.body.email + ' attending ' + req.body.university);
-
+  console.log(listUniqueId);
+  console.log(mailchimpApiKey);
   // PLEASE USE ENVIRONMENT VARIABLES FOR SECRET KEYS AND CHANGE THEM ASAP
   request
     .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
@@ -26,7 +32,7 @@ app.post('/signup', (req, res) => {
       'email_address': req.body.email,
       'status': 'subscribed',
       'merge_fields': {
-        'UNIVERSITY': req.body.university,
+        'UNIVERSITY': req.body.university
       }
     })
     .end(function(err, response) {
