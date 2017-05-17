@@ -6,6 +6,7 @@ const compressible = require('compressible');
 
 var request = require('superagent');
 var bodyParser = require('body-parser');
+var emailValidator = require('email-validator');
 
 require('dotenv').config();
 
@@ -20,6 +21,11 @@ var mailchimpInstance = process.env.MC_INSTANCE_ID,
   mailchimpApiKey = process.env.MC_API_KEY;
 
 app.post('/signup', (req, res) => {
+  if (!emailValidator.validate(req.body.email) || req.body.university.length < 8) {
+    res.json({ status: 'The submitted email or university was invalid.' });
+    return;
+  }
+
   console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
 
   request
