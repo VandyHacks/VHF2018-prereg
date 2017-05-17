@@ -21,7 +21,7 @@
 				<div id="signup" class="signup" v-if="!statusMessage" key="inputs">
 					<email ref="emailField"></email>
 					<typeahead ref="universityAutofill"></typeahead>
-					<input type="submit" value="Get Notified" :disabled="!areInputsValid" v-on:click="registerEmail()">
+					<input type="submit" value="Get Notified" :disabled="!areInputsValid || submitted" v-on:click="registerEmail()">
 				</div>
 				<div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
 			</transition>
