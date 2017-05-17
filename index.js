@@ -4,47 +4,38 @@ const fs = require('fs');
 const compression = require('compression')
 const compressible = require('compressible');
 
-// maybe delete
 var request = require('superagent');
 var bodyParser = require('body-parser');
 
 const app = express();
 app.use(compression({ filter: shouldCompress }));
 
-// added later
 app.use(bodyParser.json());
+
+var mailchimpInstance   = 'us9',
 
 app.post('/signup', (req, res) => {
   console.log('Received register for ' + req.body.email + ' attending ' + req.body.university);
-  // REMOVE
-  res.json({ status: 'Thank you for pre-registering, catch up on Facebook, tell your friends, blah blah blah' });
-  if (1 && true) return;
-  // REMOVE
 
   // PLEASE USE ENVIRONMENT VARIABLES FOR SECRET KEYS AND CHANGE THEM ASAP
   request
     .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
     .set('Content-Type', 'application/json;charset=utf-8')
-    .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey).toString('base64'))
+    .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey ).toString('base64'))
     .send({
-      'email_address': req.email,
+      'email_address': req.body.email,
       'status': 'subscribed',
       'merge_fields': {
-        'FNAME': "first_name",
-        'LNAME': "last_name"
+        'UNIVERSITY': req.body.university,
       }
     })
-    .end(function (err, response) {
-      if (response.status < 300 || (response.status === 400 && response.body.title === "Member Exists")) {
-        res.send('Signed Up!');
-      } else if (response.status === 400) {
-        res.send("400");
-      } else if (response.status === 401) {
-        res.send("401");
-      } else if (response.status == 404) {
-        res.send("404");
+    .end(function(err, response) {
+      if (response.status < 300) {
+        res.json({status: 'Thank you for pre-registering! Will send more information soon!'});
+      } else if(response.status === 400 && response.body.title === 'Member Exists') {
+        res.json({status: 'You have already pre-registered!'});
       } else {
-        res.send(response.status);
+        res.json({status: 'Error in your registration ): Please try again or contact the organizers!'});
       }
     });
 });
