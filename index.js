@@ -13,8 +13,6 @@ app.use(compression({ filter: shouldCompress }));
 
 // added later
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 
 app.post('/signup', (req, res) => {
   console.log('Received register for ' + req.body.email + ' attending ' + req.body.university);
