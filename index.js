@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.post('/signup', (req, res) => {
   console.log('Received register for ' + req.body.email + ' attending ' + req.body.university);
   // REMOVE
-  res.json({ status: 'Dummy Registration Message' });
+  res.json({ status: 'Thank you for pre-registering, catch up on Facebook, tell your friends, blah blah blah' });
   if (1 && true) return;
   // REMOVE
 

@@ -21,7 +21,8 @@ var app = new Vue({
   el: "#app",
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data: {
-    isMounted: false
+    isMounted: false,
+    statusMessage: null
   },
   mounted() {
     this.isMounted = true;
@@ -39,7 +40,7 @@ var app = new Vue({
       xhr.open("POST", '/signup', true);
       xhr.onreadystatechange = () => {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-          alert(xhr.responseText);
+          this.statusMessage = JSON.parse(xhr.responseText).status;
         }
       }
       xhr.setRequestHeader("Content-Type", "application/json");

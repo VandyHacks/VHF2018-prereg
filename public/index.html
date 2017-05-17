@@ -17,11 +17,14 @@
 				<img id="logo" src="img/logo_anim.gif" alt="VandyHacks IV" />
 				<div id="date" class="dateText"><img src="img/date.svg"></div>
 			</div>
-			<div id="signup" class="signup">
-				<email ref="emailField"></email>
-				<typeahead ref="universityAutofill"></typeahead>
-				<input type="submit" value="Get Notified" :disabled="!areInputsValid" v-on:click="registerEmail()">
-			</div>
+			<transition name="fade" mode="out-in">
+				<div id="signup" class="signup" v-if="!statusMessage" key="inputs">
+					<email ref="emailField"></email>
+					<typeahead ref="universityAutofill"></typeahead>
+					<input type="submit" value="Get Notified" :disabled="!areInputsValid" v-on:click="registerEmail()">
+				</div>
+				<div class="status-message" v-else key="message" v-cloak>{{ statusMessage }}</div>
+			</transition>
 		</div>
 	</div>
 	<script src="js/bundle.js"></script>

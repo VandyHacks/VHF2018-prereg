@@ -32,6 +32,26 @@ body {
     margin: 0px;
 }
 
+
+/** Vue stuff **/
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0
+}
+
+[v-cloak] {
+    display: none;
+}
+
+
+/** App starts here **/
+
 body {
     background: linear-gradient(45deg, $bg-color, #212635 100%) fixed no-repeat;
     display: flex;
@@ -97,12 +117,20 @@ $colored-line-width: 2px;
     transition: all 0.75s ease-out;
 }
 
-.signup {
+.signup,
+.status-message {
     margin: 10px;
     height: 72px;
-    &>* {
-        display: inline-block;
-    }
+}
+
+.signup>* {
+    display: inline-block;
+}
+
+.status-message {
+    color: $primary-color;
+    font-size: 24px;
+    max-width: 740px;
 }
 
 .input-wrapper {
@@ -189,7 +217,8 @@ input {
     outline: none;
     border: none;
     font-family: $font-stack;
-    &[type="text"], &[type="email"] {
+    &[type="text"],
+    &[type="email"] {
         background: transparent;
         color: white;
         width: $input-width;
@@ -240,8 +269,13 @@ input {
             height: 2 * $logo_width / $logo_width_800px + 0px;
         }
     }
+    .status-message {
+        font-size: 18px;
+        max-width: 698px;
+    }
     $input-width-800px: 166px;
-    input[type="text"], input[type="email"] {
+    input[type="text"],
+    input[type="email"] {
         width: $input-width-800px;
     }
     .typeahead-container {
@@ -264,7 +298,8 @@ input {
         }
     }
     $input-width-640px: 378px;
-    input[type="text"], input[type="email"] {
+    input[type="text"],
+    input[type="email"] {
         width: $input-width-640px;
     }
     $input-total-width-640px: $input-width-640px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
@@ -305,7 +340,8 @@ input {
         }
     }
     $input-width-480px: 250px;
-    input[type="text"], input[type="email"] {
+    input[type="text"],
+    input[type="email"] {
         width: $input-width-480px;
     }
     $input-total-width-480px: $input-width-480px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
