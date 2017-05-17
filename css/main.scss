@@ -119,18 +119,23 @@ $colored-line-width: 2px;
 
 .signup,
 .status-message {
-    margin: 10px;
     height: 72px;
 }
 
-.signup>* {
-    display: inline-block;
+.signup {
+    margin: 10px;
+    &>* {
+        display: inline-block;
+    }
 }
 
 .status-message {
     color: $primary-color;
     font-size: 24px;
-    max-width: 740px;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+    max-width: $logo_width;
 }
 
 .input-wrapper {
@@ -271,7 +276,7 @@ input {
     }
     .status-message {
         font-size: 18px;
-        max-width: 698px;
+        max-width: $logo_width_800px;
     }
     $input-width-800px: 166px;
     input[type="text"],
@@ -296,6 +301,10 @@ input {
         &.lines:after {
             width: 86px;
         }
+    }
+    .status-message {
+        font-size: 16px;
+        max-width: $logo_width_640px;
     }
     $input-width-640px: 378px;
     input[type="text"],
@@ -338,6 +347,10 @@ input {
         &:after {
             height: 4px;
         }
+    }
+    .status-message {
+        font-size: 14px;
+        max-width: $logo_width_480px;
     }
     $input-width-480px: 250px;
     input[type="text"],
