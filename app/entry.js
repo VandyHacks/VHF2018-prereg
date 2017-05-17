@@ -22,7 +22,7 @@ var app = new Vue({
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data: {
     isMounted: false,
-    submitted: false,
+    isSubmitted: false,
     statusMessage: null
   },
   mounted() {
@@ -36,7 +36,7 @@ var app = new Vue({
   },
   methods: {
     registerEmail() {
-      this.submitted = true;
+      this.isSubmitted = true;
       var params = { email: this.$refs.emailField.email, university: this.$refs.universityAutofill.query };
       var xhr = new XMLHttpRequest();
       xhr.open("POST", '/signup', true);

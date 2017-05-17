@@ -53,7 +53,7 @@ body {
 /** App starts here **/
 
 body {
-    background: linear-gradient(225deg, #212635, rgba(0,0,0,0) 100%) fixed no-repeat;
+    background: linear-gradient(225deg, #212635, rgba(0, 0, 0, 0) 100%) fixed no-repeat;
     background-color: $bg-color;
     display: flex;
     align-items: center;
@@ -250,6 +250,9 @@ input {
             cursor: not-allowed;
             transform: scale(1) !important;
             opacity: 0.5;
+            &.submitted {
+                cursor: wait;
+            }
         }
     }
     @include placeholder {
