@@ -35,7 +35,7 @@ var app = new Vue({
     methods: {
         registerEmail() {
           // grab email from input
-          var email = document.getElementById("email").childNodes[0].childNodes[0].value;
+          window.alert('Email: ' + this.$refs.emailField.email + ", University: " + this.$refs.universityAutofill.query);
           console.log('registerEmail test...');
 
           // test to see if endpoint.php was reached
