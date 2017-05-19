@@ -7,6 +7,7 @@ const compressible = require('compressible');
 var request = require('superagent');
 var bodyParser = require('body-parser');
 var emailValidator = require('email-validator');
+var emailExistence = require('email-existence')
 
 require('dotenv').config();
 
@@ -21,33 +22,47 @@ var mailchimpInstance = process.env.MC_INSTANCE_ID,
   mailchimpApiKey = process.env.MC_API_KEY;
 
 app.post('/signup', (req, res) => {
+
   if (!emailValidator.validate(req.body.email) || req.body.university.length < 8) {
     res.json({ status: 'The submitted email or university was invalid.' });
     return;
   }
 
-  console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
+  emailExistence.check(req.body.email, function(err,result){
+    if(result == false){
+      res.json({ status: 'The submitted email does not exist'});
+      console.log(result);
+      return;
+    } else {
+      sendPost();
+    }
+  });
 
-  request
-    .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
-    .set('Content-Type', 'application/json;charset=utf-8')
-    .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey).toString('base64'))
-    .send({
-      'email_address': req.body.email,
-      'status': 'subscribed',
-      'merge_fields': {
-        'UNIVERSITY': req.body.university
-      }
-    })
-    .end((err, response) => {
-      if (response.status < 300) {
-        res.json({ status: 'Thank you for pre-registering! Will send more information soon!' });
-      } else if (response.status === 400 && response.body.title === 'Member Exists') {
-        res.json({ status: 'You have already pre-registered!' });
-      } else {
-        res.json({ status: 'Error in your registration ): Please try again or contact the organizers!' });
-      }
-    });
+  function sendPost() {
+    
+    console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
+
+    request
+      .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
+      .set('Content-Type', 'application/json;charset=utf-8')
+      .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey).toString('base64'))
+      .send({
+        'email_address': req.body.email,
+        'status': 'subscribed',
+        'merge_fields': {
+          'UNIVERSITY': req.body.university
+        }
+      })
+      .end((err, response) => {
+        if (response.status < 300) {
+          res.json({ status: 'Thank you for pre-registering! Will send more information soon!' });
+        } else if (response.status === 400 && response.body.title === 'Member Exists') {
+          res.json({ status: 'You have already pre-registered!' });
+        } else {
+          res.json({ status: 'Error in your registration ): Please try again or contact the organizers!' });
+        }
+      });
+    }
 });
 
 function shouldCompress(req, res) {
