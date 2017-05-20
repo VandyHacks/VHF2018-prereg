@@ -48,7 +48,7 @@ app.post('/signup', (req, res) => {
         })
         .end((err, response) => {
           if (response.status < 300) {
-            res.json({ status: 'Thank you for pre-registering! We will announce more details shortly.' });
+            res.json({ status: 'Thank you for pre-registering! We will announce more details soon.' });
           } else if (response.status === 400 && response.body.title === 'Member Exists') {
             res.json({ status: 'You have already pre-registered!' });
           } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
