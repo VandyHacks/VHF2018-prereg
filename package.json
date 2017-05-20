@@ -16,9 +16,9 @@
     "body-parser": "^1.17.1",
     "compressible": "^2.0.10",
     "compression": "^1.6.2",
-    "email-existence": "^0.1.5",
     "email-validator": "^1.0.7",
     "express": "^4.15.2",
+    "mailgun-validate": "^0.1.0",
     "replaceall": "^0.1.6",
     "superagent": "^3.5.2"
   },

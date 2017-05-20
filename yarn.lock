@@ -1438,10 +1438,6 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-email-existence@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/email-existence/-/email-existence-0.1.5.tgz#0303db2e8584cc0cd5e8c46e91f47fc3842f505b"
-
 email-validator@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-1.0.7.tgz#4621ca32fc741eb833ac98d5fb55670b7e056c95"
@@ -2274,6 +2270,10 @@ lru-cache@^4.0.1:
 macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
+
+mailgun-validate@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mailgun-validate/-/mailgun-validate-0.1.0.tgz#b0c82ec13827351bcdd369d3c554061f1b7612ab"
 
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
