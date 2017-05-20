@@ -1438,6 +1438,10 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+email-existence@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/email-existence/-/email-existence-0.1.5.tgz#0303db2e8584cc0cd5e8c46e91f47fc3842f505b"
+
 email-validator@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-1.0.7.tgz#4621ca32fc741eb833ac98d5fb55670b7e056c95"
