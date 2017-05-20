@@ -51,7 +51,10 @@ app.post('/signup', (req, res) => {
             res.json({ status: 'Thank you for pre-registering! We will announce more details soon.' });
           } else if (response.status === 400 && response.body.title === 'Member Exists') {
             res.json({ status: 'You have already pre-registered!' });
+          } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
+            res.json({ status: 'That email address doesn\'t look real. Please refresh and try again.' });
           } else {
+            // console.log(response);
             res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
           }
         });
