@@ -24,7 +24,7 @@
 
 $font-stack: 'Sofia Pro',
 sans-serif;
-$bg-color: #181827;
+$bg-color: #29214a;
 $primary-color: #2EDCEB;
 html,
 body {
@@ -53,6 +53,7 @@ body {
 /** App starts here **/
 
 body {
+    background: linear-gradient(180deg, #181829, rgba(0, 0, 0, 0) 100%) fixed no-repeat;
     background-color: $bg-color;
     display: flex;
     align-items: center;
