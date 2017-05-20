@@ -18,11 +18,11 @@
 				<div id="date" class="dateText"><img src="img/date.svg" alt="October 20-22, 2017 at Vanderbilt University"></div>
 			</div>
 			<transition name="fade" mode="out-in">
-				<div id="signup" class="signup" v-if="!statusMessage" key="inputs">
+				<form id="signup" class="signup" v-if="!statusMessage" key="inputs" v-on:submit.prevent="registerEmail()">
 					<email ref="emailField"></email>
 					<typeahead ref="universityAutofill"></typeahead>
-					<input type="submit" value="Get Notified" :class="{ submitted: isSubmitted }" :disabled="!areInputsValid || isSubmitted" v-on:click="registerEmail()">
-				</div>
+					<input type="submit" value="Get Notified" :class="{ submitted: isSubmitted }" :disabled="!areInputsValid || isSubmitted">
+				</form>
 				<div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
 			</transition>
 		</div>
