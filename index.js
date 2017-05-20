@@ -41,7 +41,7 @@ app.post('/signup', (req, res) => {
         .set('Authorization', 'Basic ' + new Buffer('any:' + mailchimpApiKey).toString('base64'))
         .send({
           'email_address': req.body.email,
-          'status': 'subscribed',
+          'status': 'pending',
           'merge_fields': {
             'UNIVERSITY': req.body.university
           }
