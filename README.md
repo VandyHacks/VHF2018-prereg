@@ -10,7 +10,7 @@ Running
     npm run build	# npm run build:prod for production
     npm start
 
-In the .env file add
+Create a .env file and add:
 ==
     MC_INSTANCE_ID = {region/instance}
     MC_LIST_ID = {list id}
