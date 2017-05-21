@@ -16,6 +16,11 @@ export default {
       email: ''
     };
   },
+  methods: {
+    processEnter() {
+      this.$emit('pressed:enter');
+    }
+  },
   computed: {
     emailIndicatorClass() {
       if (this.email.trim() === '') {

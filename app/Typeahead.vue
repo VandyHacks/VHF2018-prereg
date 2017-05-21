@@ -1,7 +1,7 @@
 <template>
   <div class="typeahead-container">
     <div class="input-wrapper">
-      <input type="text" placeholder="University Name" autocomplete="off" ref="uniName" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.tab="hit" @keydown.enter="hit" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" />
+      <input type="text" placeholder="University Name" autocomplete="off" ref="uniName" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.tab="hit" @keydown.enter="processEnter" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" />
       <span class="fa" v-bind:class="typeaheadIndicatorClass"></span>
     </div>
     <div class="uni-list-container">
@@ -35,6 +35,13 @@ export default {
     };
   },
   methods: {
+    processEnter() {
+      if (this.current !== -1) {
+        this.onHit(this.items[this.current]);
+      } else {
+        this.$emit('pressed:enter');
+      }
+    },
     // The callback function which is triggered when the user hits on an item
     // (required)
     onHit(item) {
@@ -73,8 +80,8 @@ export default {
           }
         }
         results = Object.keys(ranks)
-        .sort((a, b) => ranks[b] - ranks[a]).slice(0, 5)
-        .map(result => ({ name: result }));
+          .sort((a, b) => ranks[b] - ranks[a]).slice(0, 5)
+          .map(result => ({ name: result }));
         if (results.length == 1 && results[0].name === trimmedQuery) {
           results = [];
         }
