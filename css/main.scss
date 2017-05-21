@@ -141,10 +141,6 @@ $colored-line-width: 2px;
     transition: all 0.75s ease-out;
 }
 
-.dateText:before, .dateText:after, #app, body {
-    transition-delay: 25ms;
-}
-
 .loaded #app {
     opacity: 1;
     transform: scale(1);
