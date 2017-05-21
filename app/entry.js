@@ -3,6 +3,8 @@ import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
 
+const preregEndpoint = '';
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -33,7 +35,7 @@ new Vue({
       this.submitted = true;
       const params = { email: this.email, university: this.university };
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', '/signup', true);
+      xhr.open('POST', preregEndpoint + '/signup', true);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           this.statusMessage = JSON.parse(xhr.responseText).status;
@@ -51,5 +53,9 @@ new Vue({
     logoEl.src = imageUrl;
     // Opacity and scale (workaround Safari initial load no animation)
     setTimeout(() => document.body.className = 'loaded', 50);
+    // Wake up dyno if applicable
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', preregEndpoint + '/ping', true);
+    xhr.send();
   }
 });
