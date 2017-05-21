@@ -3,7 +3,8 @@ import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
 
-const app = new Vue({
+/* eslint-disable no-new */
+new Vue({
   el: '#app',
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data: {
