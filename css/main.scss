@@ -317,7 +317,8 @@ input {
 
 @media screen and (max-width: 640px) {
     $logo_width_640px: 450px;
-    #logo {
+    #logo, 
+    .logo-container {
         width: $logo_width_640px;
     }
     .dateText {
@@ -333,12 +334,15 @@ input {
         font-size: 16px;
         max-width: $logo_width_640px;
     }
+    .signup > * {
+        display: block;
+    }
     $input-width-640px: 378px;
     input[type="text"],
     input[type="email"] {
         width: $input-width-640px;
     }
-    $input-total-width-640px: $input-width-640px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
+    $input-total-width-640px: $logo_width_640px;
     .typeahead-container {
         width: $input_total_width_640px;
     }
@@ -378,9 +382,6 @@ input {
     .status-message {
         font-size: 14px;
         max-width: $logo_width_480px;
-    }
-    .signup > * {
-        display: block;
     }
     $input-width-480px: 250px;
     input[type="text"],
