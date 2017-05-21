@@ -19,8 +19,8 @@
 			</div>
 			<transition name="fade" mode="out-in">
 				<div id="signup" class="signup" v-if="!statusMessage" key="inputs">
-					<email @update:email="setEmail" @pressed:enter="submitRegistration"></email>
-					<typeahead @update:university="setUniversity" @pressed:enter="submitRegistration"></typeahead>
+					<email :submitted="submitted" @update:email="setEmail" @pressed:enter="submitRegistration"></email>
+					<typeahead :submitted="submitted" @update:university="setUniversity" @pressed:enter="submitRegistration"></typeahead>
 					<input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!areInputsValid || submitted"
 					 @click="submitRegistration">
 				</div>

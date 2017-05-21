@@ -1,7 +1,7 @@
 <template>
   <div class="email-container">
     <div class="input-wrapper">
-      <input ref="emailInput" type="email" placeholder="Email Address" v-model="email" @keydown.enter="processEnter">
+      <input ref="emailInput" type="email" placeholder="Email Address" v-model="email" @keydown.enter="processEnter" :readonly="submitted" />
       <span class="fa" :class="emailIndicatorClass"></span>
     </div>
   </div>
@@ -11,6 +11,7 @@
 import EmailValidator from 'email-validator';
 
 export default {
+  props: ['submitted'],
   data() {
     return {
       email: ''

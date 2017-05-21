@@ -29,7 +29,7 @@ new Vue({
       this.university = val;
     },
     submitRegistration() {
-      if (!this.areInputsValid || submitted) {
+      if (!this.areInputsValid || this.submitted) {
         return;
       }
       this.submitted = true;
