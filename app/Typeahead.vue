@@ -5,7 +5,7 @@
       <span class="fa" v-bind:class="typeaheadIndicatorClass"></span>
     </div>
     <div class="uni-list-container">
-      <div class="list-wrapper" v-show="hasItems && isInputFocused()">
+      <div class="list-wrapper" v-show="shouldDisplayMenu()">
         <div class="caret"></div>
         <ul>
           <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
@@ -50,6 +50,9 @@ export default {
     },
     isInputFocused() {
       return document.activeElement === this.$refs.uniName;
+    },
+    shouldDisplayMenu() {
+      return this.hasItems && this.isInputFocused();
     },
     fetch() {
       let results;
