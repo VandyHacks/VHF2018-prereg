@@ -48,6 +48,12 @@ export default {
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(params));
     }
+  },
+  mounted() {
+    // Wake up dyno if applicable
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', this.endpoint + '/ping', true);
+    xhr.send();
   }
 };
 </script>
