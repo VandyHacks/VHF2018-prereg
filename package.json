@@ -9,7 +9,8 @@
     "start": "node index.js",
     "watch:start": "nodemon index.js",
     "build": "webpack && node-sass css/main.scss public/css/main.css",
-    "build:prod": "webpack -p && node-sass css/main.scss public/css/main.css --output-style compressed"
+    "build:prod": "webpack -p && node-sass css/main.scss public/css/main.css --output-style compressed",
+    "lint": "eslint index.js app/**.js app/**.vue"
   },
   "dependencies": {
     "autosuggest-trie": "^2.1.1",
@@ -43,10 +44,12 @@
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
+    "eslint-config-vue": "^2.0.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^2.0.1",
     "node-sass": "^4.5.2",
     "vue": "^2.3.2",
     "vue-loader": "^12.0.3",

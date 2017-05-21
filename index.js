@@ -1,12 +1,12 @@
 const express = require('express');
-const compression = require('compression')
+const compression = require('compression');
 const compressible = require('compressible');
 
-var request = require('superagent');
-var bodyParser = require('body-parser');
+const request = require('superagent');
+const bodyParser = require('body-parser');
 
-var EmailValidator = require('email-validator');
-var MailgunValidator = require('mailgun-validate');
+const EmailValidator = require('email-validator');
+const MailgunValidator = require('mailgun-validate');
 
 require('dotenv').config();
 
@@ -16,11 +16,11 @@ app.use(compression({ filter: shouldCompress }));
 app.use(bodyParser.json());
 
 // api var initialize
-var mailchimpInstance = process.env.MC_INSTANCE_ID;
-var listUniqueId = process.env.MC_LIST_ID;
-var mailchimpApiKey = process.env.MC_API_KEY;
+const mailchimpInstance = process.env.MC_INSTANCE_ID;
+const listUniqueId = process.env.MC_LIST_ID;
+const mailchimpApiKey = process.env.MC_API_KEY;
 
-var mailgunValidator = new MailgunValidator(process.env.MG_PUBLIC_KEY);
+const mailgunValidator = new MailgunValidator(process.env.MG_PUBLIC_KEY);
 
 app.post('/signup', (req, res) => {
   if (!EmailValidator.validate(req.body.email) || req.body.university.length < 8) {
@@ -46,8 +46,8 @@ app.post('/signup', (req, res) => {
           }
         })
         .end((err, response) => {
-          if (!response || err) {
-            console.log(err);
+          if (!response) {
+            if (err) console.log(err);
             res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
           } else if (response.status < 300) {
             res.json({ status: 'Thank you for pre-registering! Please check for a confirmation email.' });
@@ -56,6 +56,7 @@ app.post('/signup', (req, res) => {
           } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
             res.json({ status: 'That email address doesn\'t look real. Please refresh and try again.' });
           } else {
+            if (err) console.log(err);
             res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
           }
         });
@@ -64,7 +65,7 @@ app.post('/signup', (req, res) => {
 });
 
 function shouldCompress(req, res) {
-  var type = res.getHeader('Content-Type');
+  const type = res.getHeader('Content-Type');
   // compressible doesn't think GIF should be compressed, which is wrong
   if (type === undefined || (type !== 'image/gif' && !compressible(type))) {
     return false;

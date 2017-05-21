@@ -5,7 +5,10 @@
         "es6": true,
         "node": true
     },
-    "extends": "standard",
+    "extends": [
+        "standard",
+        "vue"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -13,7 +16,13 @@
         "sourceType": "module"
     },
     "rules": {
+        "prefer-const": ["error", {
+            "destructuring": "all",
+            "ignoreReadBeforeAssign": true
+        }],
+        "no-var": "error",
         "semi": ["error", "always"],
-        "space-before-function-paren": ["error", "never"]
+        "space-before-function-paren": ["error", "never"],
+        "vue/jsx-uses-vars": 2
     }
 }

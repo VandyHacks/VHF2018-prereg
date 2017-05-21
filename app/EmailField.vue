@@ -8,30 +8,30 @@
 </template>
 
 <script>
-import * as EmailValidator from 'email-validator'
+import * as EmailValidator from 'email-validator';
 
 export default {
-    data() {
-        return {
-            email: ''
-        }
+  data() {
+    return {
+      email: ''
+    };
+  },
+  computed: {
+    emailIndicatorClass() {
+      if (this.email.trim() === '') {
+        return 'icon-mail-alt';
+      } else if (!EmailValidator.validate(this.email)) {
+        return 'icon-attention-circled';
+      } else {
+        return 'icon-ok-circled';
+      }
     },
-    computed: {
-        emailIndicatorClass() {
-            if (this.email.trim() == '') {
-                return 'icon-mail-alt';
-            } else if (!EmailValidator.validate(this.email)) {
-                return 'icon-attention-circled';
-            } else {
-                return 'icon-ok-circled';
-            }
-        },
-        isEmailInputValid() {
-            return this.email.trim() != '' && EmailValidator.validate(this.email);
-        }
-    },
-    mounted() {
-        this.$refs.emailInput.focus();
+    isEmailInputValid() {
+      return this.email.trim() !== '' && EmailValidator.validate(this.email);
     }
-}
+  },
+  mounted() {
+    this.$refs.emailInput.focus();
+  }
+};
 </script>

@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import VueTypeahead from 'vue-typeahead'
-import createTrie from 'autosuggest-trie'
+import VueTypeahead from 'vue-typeahead';
+import createTrie from 'autosuggest-trie';
 
 const universities = require('./universities.json')
   .map(uni => ({ name: uni }));
@@ -49,19 +49,19 @@ export default {
       this.loading = false;
     },
     isInputFocused() {
-      return document.activeElement == this.$refs.uniName;
+      return document.activeElement === this.$refs.uniName;
     },
     fetch() {
-      var results;
-      var trimmedQuery = this.query.trim();
-      if (trimmedQuery == '') {
+      let results;
+      const trimmedQuery = this.query.trim();
+      if (trimmedQuery === '') {
         results = [];
       } else {
         results = trie.getMatches(trimmedQuery, { limit: 15, splitRegex: splitByHyphen });
-        var ranks = {};
-        var normalizedQuery = trimmedQuery.split(splitByHyphen).join(' ').toLowerCase();
-        for (let result of results) {
-          var normalizedResult = result.name.split(splitByHyphen).join(' ').toLowerCase();
+        const ranks = {};
+        const normalizedQuery = trimmedQuery.split(splitByHyphen).join(' ').toLowerCase();
+        for (const result of results) {
+          const normalizedResult = result.name.split(splitByHyphen).join(' ').toLowerCase();
           if (normalizedResult.startsWith(normalizedQuery)) {
             ranks[result.name] = 2;
           } else if (normalizedResult.includes(normalizedQuery)) {
@@ -71,7 +71,7 @@ export default {
           }
         }
         results = Object.keys(ranks)
-        .sort((a,b) => ranks[b] - ranks[a]).slice(0, 5)
+        .sort((a, b) => ranks[b] - ranks[a]).slice(0, 5)
         .map(result => ({ name: result }));
       }
       return Promise.resolve({ data: results });
@@ -79,7 +79,7 @@ export default {
   },
   computed: {
     typeaheadIndicatorClass() {
-      if (this.query.trim() == '') {
+      if (this.query.trim() === '') {
         return ['icon-graduation-cap'];
       } else if (this.query.length < 8) {
         return ['icon-attention-circled'];
@@ -88,8 +88,8 @@ export default {
       }
     },
     isUniversityInputValid() {
-      return this.query.trim() != '' && this.query.length >= 8;
+      return this.query.trim() !== '' && this.query.length >= 8;
     }
   }
-}
+};
 </script>

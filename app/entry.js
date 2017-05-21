@@ -1,25 +1,25 @@
-import Vue from 'vue'
-import EmailField from './EmailField.vue'
-import Typeahead from './Typeahead.vue'
+import Vue from 'vue';
+import EmailField from './EmailField.vue';
+import Typeahead from './Typeahead.vue';
 // import VueResource from 'vue-resource'
 // Vue.use(VueResource);
 
 setTimeout(() => {
   // Workaround Chrome animated GIF bug
-  var logoEl = document.getElementById('logo');
-  var imageUrl = logoEl.src;
+  const logoEl = document.getElementById('logo');
+  const imageUrl = logoEl.src;
   logoEl.src = '#';
   logoEl.src = imageUrl;
   // Opacity and scale
-  var appEl = document.getElementById('app');
+  const appEl = document.getElementById('app');
   appEl.style.opacity = '1';
   appEl.style.transform = 'scale(1)';
   document.getElementById('date').className += ' lines';
   document.body.className = 'loaded';
 }, 5);
 
-var app = new Vue({
-  el: "#app",
+const app = new Vue({
+  el: '#app',
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data: {
     isMounted: false,
@@ -38,15 +38,15 @@ var app = new Vue({
   methods: {
     registerEmail() {
       this.isSubmitted = true;
-      var params = { email: this.$refs.emailField.email, university: this.$refs.universityAutofill.query };
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", '/signup', true);
+      const params = { email: this.$refs.emailField.email, university: this.$refs.universityAutofill.query };
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/signup', true);
       xhr.onreadystatechange = () => {
-        if (xhr.readyState == XMLHttpRequest.DONE) {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
           this.statusMessage = JSON.parse(xhr.responseText).status;
         }
-      }
-      xhr.setRequestHeader("Content-Type", "application/json");
+      };
+      xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(params));
     }
   }
