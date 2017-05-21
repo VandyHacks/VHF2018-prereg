@@ -53,6 +53,7 @@ export default {
     },
     reset() {
       this.items = [];
+      this.current = -1;
       this.loading = false;
     },
     shouldDisplayMenu() {
