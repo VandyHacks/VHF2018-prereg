@@ -54,11 +54,8 @@ export default {
       this.items = [];
       this.loading = false;
     },
-    isInputFocused() {
-      return document.activeElement === this.$refs.uniName;
-    },
     shouldDisplayMenu() {
-      return this.hasItems && this.isInputFocused();
+      return this.hasItems && document.activeElement === this.$refs.uniName;
     },
     fetch() {
       let results;
