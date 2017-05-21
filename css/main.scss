@@ -258,6 +258,7 @@ input {
             cursor: not-allowed;
             transform: scale(1) !important;
             opacity: 0.5;
+            min-width: 107.5px;
             &.submitted {
                 cursor: wait;
             }

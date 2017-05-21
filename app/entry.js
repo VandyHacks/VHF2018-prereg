@@ -37,7 +37,7 @@ const app = new Vue({
   },
   methods: {
     registerEmail() {
-      if (this.$refs.universityAutofill.shouldDisplayMenu()) {
+      if (this.$refs.universityAutofill.shouldDisplayMenu() || !this.areInputsValid) {
         return;
       }
       this.isSubmitted = true;
