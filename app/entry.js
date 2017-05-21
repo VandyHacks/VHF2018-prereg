@@ -52,7 +52,7 @@ new Vue({
     logoEl.src = '#';
     logoEl.src = imageUrl;
     // Opacity and scale (workaround Safari initial load no animation)
-    setTimeout(() => document.body.className = 'loaded', 50);
+    setTimeout(() => { document.body.className = 'loaded'; }, 50);
     // Wake up dyno if applicable
     const xhr = new XMLHttpRequest();
     xhr.open('GET', preregEndpoint + '/ping', true);
