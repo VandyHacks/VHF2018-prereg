@@ -33,7 +33,7 @@ export default {
     }
   },
   watch: {
-    email(val, oldVal) {
+    email(val) {
       this.$emit('update:email', val);
     }
   },

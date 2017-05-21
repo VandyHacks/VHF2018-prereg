@@ -98,7 +98,7 @@ export default {
     }
   },
   watch: {
-    query(val, oldVal) {
+    query(val) {
       this.$emit('update:university', val);
     }
   }
