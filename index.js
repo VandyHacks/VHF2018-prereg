@@ -4,6 +4,7 @@ const compressible = require('compressible');
 
 const request = require('superagent');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const EmailValidator = require('email-validator');
 const MailgunValidator = require('mailgun-validate');
@@ -12,8 +13,8 @@ require('dotenv').config();
 
 const app = express();
 app.use(compression({ filter: shouldCompress }));
-
 app.use(bodyParser.json());
+app.use(cors());
 
 // api var initialize
 const mailchimpInstance = process.env.MC_INSTANCE_ID;
@@ -21,6 +22,8 @@ const listUniqueId = process.env.MC_LIST_ID;
 const mailchimpApiKey = process.env.MC_API_KEY;
 
 const mailgunValidator = new MailgunValidator(process.env.MG_PUBLIC_KEY);
+
+app.get('/ping', (req, res) => res.sendStatus(200));
 
 app.post('/signup', (req, res) => {
   if (!EmailValidator.validate(req.body.email) || req.body.university.length < 8) {
