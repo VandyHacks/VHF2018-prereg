@@ -112,7 +112,7 @@ $colored-line-width: 2px;
         vertical-align: middle;
         width: $date_img_width;
     }
-    &.lines {
+    .loaded & {
         &:before,
         &:after {
             width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2;
@@ -124,6 +124,11 @@ $colored-line-width: 2px;
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.75s ease-out;
+}
+
+.loaded #app {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .signup,
@@ -310,8 +315,8 @@ input {
         img {
             width: 360px;
         }
-        &.lines:before,
-        &.lines:after {
+        .loaded &:before,
+        .loaded &:after {
             width: 86px;
         }
     }

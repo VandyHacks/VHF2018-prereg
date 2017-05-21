@@ -49,10 +49,6 @@ const app = new Vue({
     logoEl.src = '#';
     logoEl.src = imageUrl;
     // Opacity and scale
-    const appEl = document.getElementById('app');
-    appEl.style.opacity = '1';
-    appEl.style.transform = 'scale(1)';
-    document.getElementById('date').className += ' lines';
     document.body.className = 'loaded';
   }
 });
