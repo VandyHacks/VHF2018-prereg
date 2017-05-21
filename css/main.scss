@@ -387,7 +387,7 @@ input {
     input[type="email"] {
         width: $input-width-480px;
     }
-    $input-total-width-480px: $input-width-480px+$input-padding-left+$font-width+$icon-padding * 2+$colored-line-width * 2+$mysterious-space;
+    $input-total-width-480px: $logo_width_480px;
     .typeahead-container {
         width: $input-total-width-480px;
     }
