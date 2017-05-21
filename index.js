@@ -26,7 +26,7 @@ const mailgunValidator = new MailgunValidator(process.env.MG_PUBLIC_KEY);
 app.get('/ping', (req, res) => res.sendStatus(200));
 
 app.post('/signup', (req, res) => {
-  if (!EmailValidator.validate(req.body.email) || req.body.university.length < 8) {
+  if (!req.body.email || !req.body.university || !EmailValidator.validate(req.body.email) || req.body.university.length < 8) {
     res.json({ status: 'The submitted email or university was invalid.' });
     return;
   }
