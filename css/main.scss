@@ -333,9 +333,6 @@ input {
         font-size: 16px;
         max-width: $logo_width_640px;
     }
-    .signup > * {
-        display: block;
-    }
     $input-width-640px: 378px;
     input[type="text"],
     input[type="email"] {
@@ -382,6 +379,9 @@ input {
         font-size: 14px;
         max-width: $logo_width_480px;
     }
+    .signup > * {
+        display: block;
+    }
     $input-width-480px: 250px;
     input[type="text"],
     input[type="email"] {
@@ -394,14 +394,7 @@ input {
     input[type="submit"] {
         width: $input-total-width-480px;
     }
-    .email-container,
-    .typeahead-container {
-        margin-right: 0px;
-        margin-bottom: 16px;
-    }
     .uni-list-container {
-        position: absolute;
-        z-index: 5;
         .list-wrapper {
             min-width: $input-total-width-480px;
         }
