@@ -21,7 +21,7 @@
 				<form id="signup" class="signup" v-if="!statusMessage" key="inputs" @submit.prevent="submitRegistration">
 					<email @update:email="setEmail"></email>
 					<typeahead @update:university="setUniversity"></typeahead>
-					<input type="submit" :value="isSubmitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: isSubmitted }" :disabled="!areInputsValid || isSubmitted">
+					<input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!areInputsValid || submitted">
 				</form>
 				<div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
 			</transition>

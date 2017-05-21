@@ -9,7 +9,7 @@ const app = new Vue({
   data: {
     email: '',
     university: '',
-    isSubmitted: false,
+    submitted: false,
     statusMessage: null
   },
   computed: {
@@ -29,7 +29,7 @@ const app = new Vue({
       if (!this.areInputsValid) {
         return;
       }
-      this.isSubmitted = true;
+      this.submitted = true;
       const params = { email: this.email, university: this.university };
       const xhr = new XMLHttpRequest();
       xhr.open('POST', '/signup', true);
