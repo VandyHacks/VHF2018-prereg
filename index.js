@@ -12,7 +12,6 @@ const MailgunValidator = require('mailgun-validate');
 require('dotenv').config();
 
 const app = express();
-app.use(compression({ filter: shouldCompress }));
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -67,18 +66,20 @@ app.post('/signup', (req, res) => {
   });
 });
 
-function shouldCompress(req, res) {
-  const type = res.getHeader('Content-Type');
-  // compressible doesn't think GIF should be compressed, which is wrong
-  if (type === undefined || (type !== 'image/gif' && !compressible(type))) {
-    return false;
+// Comment out if frontend deployed elsewhere
+app.use(compression({
+  filter: (req, res) => {
+    const type = res.getHeader('Content-Type');
+    // compressible doesn't think GIF should be compressed, which is wrong
+    if (type === undefined || (type !== 'image/gif' && !compressible(type))) {
+      return false;
+    }
+    return true;
   }
-  return true;
-}
+}));
+app.use(express.static('public'));
 
 app.set('port', (process.env.PORT || 5000));
-
-app.use(express.static('public'));
 
 app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
