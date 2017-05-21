@@ -1,47 +1,36 @@
 import Vue from 'vue';
 import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
-// import VueResource from 'vue-resource'
-// Vue.use(VueResource);
-
-setTimeout(() => {
-  // Workaround Chrome animated GIF bug
-  const logoEl = document.getElementById('logo');
-  const imageUrl = logoEl.src;
-  logoEl.src = '#';
-  logoEl.src = imageUrl;
-  // Opacity and scale
-  const appEl = document.getElementById('app');
-  appEl.style.opacity = '1';
-  appEl.style.transform = 'scale(1)';
-  document.getElementById('date').className += ' lines';
-  document.body.className = 'loaded';
-}, 5);
+import EmailValidator from 'email-validator'
 
 const app = new Vue({
   el: '#app',
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data: {
-    isMounted: false,
+    email: '',
+    university: '',
     isSubmitted: false,
     statusMessage: null
   },
-  mounted() {
-    this.isMounted = true;
-  },
   computed: {
     areInputsValid() {
-      return this.isMounted &&
-        this.$refs.emailField.isEmailInputValid && this.$refs.universityAutofill.isUniversityInputValid;
+      return this.email.trim() !== '' && EmailValidator.validate(this.email)
+        && this.university.trim() !== '' && this.university.length >= 8;;
     }
   },
   methods: {
-    registerEmail() {
-      if (this.$refs.universityAutofill.shouldDisplayMenu() || !this.areInputsValid) {
+    setEmail(val) {
+      this.email = val;
+    },
+    setUniversity(val) {
+      this.university = val;
+    },
+    submitRegistration() {
+      if (!this.areInputsValid) {
         return;
       }
       this.isSubmitted = true;
-      const params = { email: this.$refs.emailField.email, university: this.$refs.universityAutofill.query };
+      const params = { email: this.email, university: this.university };
       const xhr = new XMLHttpRequest();
       xhr.open('POST', '/signup', true);
       xhr.onreadystatechange = () => {
@@ -52,5 +41,18 @@ const app = new Vue({
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(params));
     }
+  },
+  mounted() {
+    // Workaround Chrome animated GIF bug
+    const logoEl = document.getElementById('logo');
+    const imageUrl = logoEl.src;
+    logoEl.src = '#';
+    logoEl.src = imageUrl;
+    // Opacity and scale
+    const appEl = document.getElementById('app');
+    appEl.style.opacity = '1';
+    appEl.style.transform = 'scale(1)';
+    document.getElementById('date').className += ' lines';
+    document.body.className = 'loaded';
   }
 });

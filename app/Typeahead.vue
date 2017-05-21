@@ -18,12 +18,11 @@
 </template>
 
 <script>
-import VueTypeahead from 'vue-typeahead';
-import createTrie from 'autosuggest-trie';
+import VueTypeahead from 'vue-typeahead'
+import universityList from './universities.json'
+import createTrie from 'autosuggest-trie'
 
-const universities = require('./universities.json')
-  .map(uni => ({ name: uni }));
-// console.log('Universities loaded: ' + universities.length);
+const universities = universityList.map(uni => ({ name: uni }));
 const splitByHyphen = /\s+|-/;
 const trie = createTrie(universities, 'name', { splitRegex: splitByHyphen });
 
@@ -92,9 +91,11 @@ export default {
       } else {
         return ['icon-ok-circled'];
       }
-    },
-    isUniversityInputValid() {
-      return this.query.trim() !== '' && this.query.length >= 8;
+    }
+  },
+  watch: {
+    query(val, oldVal) {
+      this.$emit('update:university', val);
     }
   }
 };

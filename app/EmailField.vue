@@ -1,14 +1,14 @@
 <template>
-    <div class="email-container">
-        <div class="input-wrapper">
-            <input ref="emailInput" type="email" placeholder="Email Address" v-model="email">
-            <span class="fa" :class="emailIndicatorClass"></span>
-        </div>
+  <div class="email-container">
+    <div class="input-wrapper">
+      <input ref="emailInput" type="email" placeholder="Email Address" v-model="email">
+      <span class="fa" :class="emailIndicatorClass"></span>
     </div>
+  </div>
 </template>
 
 <script>
-import * as EmailValidator from 'email-validator';
+import EmailValidator from 'email-validator'
 
 export default {
   data() {
@@ -25,9 +25,11 @@ export default {
       } else {
         return 'icon-ok-circled';
       }
-    },
-    isEmailInputValid() {
-      return this.email.trim() !== '' && EmailValidator.validate(this.email);
+    }
+  },
+  watch: {
+    email(val, oldVal) {
+      this.$emit('update:email', val);
     }
   },
   mounted() {
