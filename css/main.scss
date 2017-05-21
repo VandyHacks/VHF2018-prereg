@@ -66,6 +66,15 @@ body {
     font-family: $font-stack;
 }
 
+/* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
+/* Workaround Edge not supporting background-size transitions */
+@supports (-ms-ime-align: auto) {
+    body {
+        background-size: 100%, 100%;
+        transition: none;
+    }
+}
+
 body.loaded {
     background-size: 100%, 100%;
 }
