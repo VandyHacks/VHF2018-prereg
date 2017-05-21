@@ -5,6 +5,12 @@
     font-style: normal;
 }
 
+$font-stack: 'Sofia Pro', sans-serif;
+
+body {
+    font-family: $font-stack;
+}
+
 @import 'normalize';
 @import 'fontello';
 @mixin placeholder {
@@ -22,8 +28,6 @@
     }
 }
 
-$font-stack: 'Sofia Pro',
-sans-serif;
 $bg-color: #29214a;
 $primary-color: #2EDCEB;
 html,
@@ -63,7 +67,6 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-family: $font-stack;
 }
 
 /* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
