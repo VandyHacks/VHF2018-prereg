@@ -50,6 +50,6 @@ new Vue({
     logoEl.src = '#';
     logoEl.src = imageUrl;
     // Opacity and scale (workaround Safari initial load no animation)
-    setTimeout(() => document.body.className = 'loaded', 25);
+    document.body.className = 'loaded';
   }
 });
