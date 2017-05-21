@@ -100,7 +100,7 @@ export default {
   },
   watch: {
     query(val) {
-      this.$emit('update:university', val);
+      this.$emit('update:query', val);
     }
   }
 };

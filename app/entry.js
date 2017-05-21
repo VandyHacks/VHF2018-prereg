@@ -22,12 +22,6 @@ new Vue({
     }
   },
   methods: {
-    setEmail(val) {
-      this.email = val;
-    },
-    setUniversity(val) {
-      this.university = val;
-    },
     submitRegistration() {
       if (!this.areInputsValid || this.submitted) {
         return;
