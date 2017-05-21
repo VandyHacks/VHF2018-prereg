@@ -49,7 +49,7 @@ new Vue({
     const imageUrl = logoEl.src;
     logoEl.src = '#';
     logoEl.src = imageUrl;
-    // Opacity and scale
-    document.body.className = 'loaded';
+    // Opacity and scale (workaround Safari initial load no animation)
+    setTimeout(() => document.body.className = 'loaded', 5);
   }
 });
