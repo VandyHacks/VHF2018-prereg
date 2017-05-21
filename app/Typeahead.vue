@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import VueTypeahead from 'vue-typeahead'
-import universityList from './universities.json'
-import createTrie from 'autosuggest-trie'
+import VueTypeahead from 'vue-typeahead';
+import universityList from './universities.json';
+import createTrie from 'autosuggest-trie';
 
 const universities = universityList.map(uni => ({ name: uni }));
 const splitByHyphen = /\s+|-/;
@@ -79,7 +79,7 @@ export default {
         results = Object.keys(ranks)
           .sort((a, b) => ranks[b] - ranks[a]).slice(0, 5)
           .map(result => ({ name: result }));
-        if (results.length == 1 && results[0].name === trimmedQuery) {
+        if (results.length === 1 && results[0].name === trimmedQuery) {
           results = [];
         }
       }

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import EmailValidator from 'email-validator'
+import EmailValidator from 'email-validator';
 
 export default {
   data() {

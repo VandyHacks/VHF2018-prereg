@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
-import EmailValidator from 'email-validator'
+import EmailValidator from 'email-validator';
 
 const app = new Vue({
   el: '#app',
@@ -14,8 +14,8 @@ const app = new Vue({
   },
   computed: {
     areInputsValid() {
-      return this.email.trim() !== '' && EmailValidator.validate(this.email)
-        && this.university.trim() !== '' && this.university.length >= 8;;
+      return this.email.trim() !== '' && EmailValidator.validate(this.email) &&
+        this.university.trim() !== '' && this.university.length >= 8;
     }
   },
   methods: {
