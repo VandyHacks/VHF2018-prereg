@@ -76,6 +76,9 @@ export default {
         results = Object.keys(ranks)
         .sort((a, b) => ranks[b] - ranks[a]).slice(0, 5)
         .map(result => ({ name: result }));
+        if (results.length == 1 && results[0].name === trimmedQuery) {
+          results = [];
+        }
       }
       return Promise.resolve({ data: results });
     }

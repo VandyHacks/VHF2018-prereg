@@ -37,6 +37,9 @@ const app = new Vue({
   },
   methods: {
     registerEmail() {
+      if (this.$refs.universityAutofill.shouldDisplayMenu()) {
+        return;
+      }
       this.isSubmitted = true;
       const params = { email: this.$refs.emailField.email, university: this.$refs.universityAutofill.query };
       const xhr = new XMLHttpRequest();
