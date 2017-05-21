@@ -9,6 +9,10 @@ $font-stack: 'Sofia Pro', sans-serif;
 
 body {
     font-family: $font-stack;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 @import 'normalize';
@@ -56,17 +60,13 @@ body {
 
 /** App starts here **/
 
-body {
+html {
     background: url('/img/skyline.svg'), linear-gradient(180deg, #181829, $bg-color 100%) fixed no-repeat;
     background-color: $bg-color;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 110%, 100%;
     transition: background-size 0.75s ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 /* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
