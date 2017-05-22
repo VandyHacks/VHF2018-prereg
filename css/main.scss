@@ -85,7 +85,7 @@ body.loaded {
     background-size: 100%, 100%;
 }
 
-.content {
+.container {
     text-align: center;
 }
 
@@ -135,13 +135,13 @@ $colored-line-width: 2px;
     }
 }
 
-.app-container {
+.content {
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.75s ease-out;
 }
 
-.loaded .app-container {
+.loaded .content {
     opacity: 1;
     transform: scale(1);
 }
@@ -370,7 +370,7 @@ input {
             min-width: $input_total_width_640px;
         }
     }
-    .app-container {
+    .content {
         height: 300px;
     }
 }
@@ -409,14 +409,14 @@ input {
             min-width: $input-total-width-480px;
         }
     }
-    .app-container {
+    .content {
         height: 278px;
     }
 }
 
 // lol
 @media screen and (max-width: 340px) {
-    .content {
+    .container {
         transform: scale(0.9);
     }
 }
