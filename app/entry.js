@@ -14,5 +14,6 @@ setTimeout(() => {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  // Explanation: https://github.com/vuejs-templates/webpack-simple/issues/29
   render: h => h(App)
 });
