@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Signup from './Signup.vue';
+import App from './App.vue';
 
 setTimeout(() => {
   // Workaround Chrome animated GIF bug
@@ -14,5 +14,5 @@ setTimeout(() => {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: { signup: Signup }
+  render: h => h(App)
 });

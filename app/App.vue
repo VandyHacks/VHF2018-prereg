@@ -1,12 +1,20 @@
 <template>
-  <transition name="fade" mode="out-in">
-    <div id="signup" class="signup" v-if="!statusMessage" key="inputs">
-      <email :submitted="submitted" :email.sync="email" @pressed:enter="submitRegistration"></email>
-      <typeahead :submitted="submitted" :query.sync="university" @pressed:enter="submitRegistration"></typeahead>
-      <input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!areInputsValid || submitted" @click="submitRegistration">
+  <div id="app">
+    <div class="logo-container">
+      <img id="logo" src="img/logo_anim.gif" alt="VandyHacks IV" />
+      <div id="date" class="dateText">
+        <img src="img/date.svg" alt="October 20-22, 2017 at Vanderbilt University">
+      </div>
     </div>
-    <div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
-  </transition>
+    <transition name="fade" mode="out-in">
+      <div id="signup" class="signup" v-if="!statusMessage" key="inputs">
+        <email :submitted="submitted" :email.sync="email" @pressed:enter="submitRegistration"></email>
+        <typeahead :submitted="submitted" :query.sync="university" @pressed:enter="submitRegistration"></typeahead>
+        <input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!areInputsValid || submitted" @click="submitRegistration">
+      </div>
+      <div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -15,10 +23,10 @@ import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
 
 export default {
-  props: ['endpoint'],
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data() {
     return {
+      endpoint: '',
       email: '',
       university: '',
       submitted: false,
