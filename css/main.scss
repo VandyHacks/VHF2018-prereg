@@ -135,13 +135,13 @@ $colored-line-width: 2px;
     }
 }
 
-#app {
+.app-container {
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.75s ease-out;
 }
 
-.loaded #app {
+.loaded .app-container {
     opacity: 1;
     transform: scale(1);
 }
@@ -367,7 +367,7 @@ input {
             min-width: $input_total_width_640px;
         }
     }
-    #app {
+    .app-container {
         height: 300px;
     }
 }
@@ -406,7 +406,7 @@ input {
             min-width: $input-total-width-480px;
         }
     }
-    #app {
+    .app-container {
         height: 278px;
     }
 }
