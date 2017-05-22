@@ -14,11 +14,12 @@ import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
 
+const endpoint = 'https://prereg.vandyhacks.org/';
+
 export default {
   components: { 'typeahead': Typeahead, 'email': EmailField },
   data() {
     return {
-      endpoint: '',
       email: '',
       university: '',
       submitted: false,
@@ -40,7 +41,7 @@ export default {
       this.submitted = true;
       const params = { email: this.email, university: this.university };
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', this.endpoint + 'signup', true);
+      xhr.open('POST', endpoint + 'signup', true);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           this.statusMessage = JSON.parse(xhr.responseText).status;
@@ -53,7 +54,7 @@ export default {
   mounted() {
     // Wake up dyno if applicable
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', this.endpoint + 'ping', true);
+    xhr.open('GET', endpoint + 'ping', true);
     xhr.send();
   }
 };
