@@ -1,21 +1,22 @@
 const path = require('path');
+const joinRelPath = relPath => path.join(__dirname, relPath);
 
 module.exports = {
-  entry: path.join(__dirname, '/app/entry.js'),
+  entry: joinRelPath('/app/entry.js'),
   output: {
-    path: path.join(__dirname, '/public/js'),
+    path: joinRelPath('/public/js'),
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        use: 'vue-loader'
       }
     ]
   }
