@@ -8,8 +8,8 @@
   "scripts": {
     "start": "node index.js",
     "watch:start": "nodemon index.js",
-    "build": "webpack && node-sass css/main.scss public/css/main.css",
-    "build:prod": "webpack -p && node-sass css/main.scss public/css/main.css --output-style compressed",
+    "build": "webpack && node-sass css/main.scss public/css/main.min.css",
+    "build:prod": "webpack -p && node-sass css/main.scss public/css/main.min.css --output-style compressed",
     "lint": "eslint index.js app/**.js app/**.vue"
   },
   "dependencies": {
