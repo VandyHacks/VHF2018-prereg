@@ -252,7 +252,7 @@ input {
     border: none;
     font-family: $font-stack;
     font-size: 13.333px;
-    line-height: 19px;
+    line-height: 49px - 2 * $input-padding-left;
     &[type="text"],
     &[type="email"] {
         background: transparent;
