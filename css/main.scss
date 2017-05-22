@@ -251,6 +251,8 @@ input {
     outline: none;
     border: none;
     font-family: $font-stack;
+    font-size: 0.8333em;
+    line-height: 1.44em;
     &[type="text"],
     &[type="email"] {
         background: transparent;
@@ -264,6 +266,7 @@ input {
         color: $bg-color;
         cursor: pointer;
         padding: 17px;
+        min-width: 118px;
         -webkit-tap-highlight-color: transparent;
         &:hover {
             background: lighten($primary-color, 10%);
@@ -278,7 +281,6 @@ input {
             cursor: not-allowed;
             transform: scale(1) !important;
             opacity: 0.5;
-            min-width: 107.5px;
             &.submitted {
                 cursor: wait;
             }
@@ -333,7 +335,7 @@ input {
         }
         .loaded &:before,
         .loaded &:after {
-            width: 88px;
+            width: 85px;
         }
     }
     .status-message {
