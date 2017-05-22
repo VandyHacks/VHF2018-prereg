@@ -66,18 +66,20 @@ app.post('/signup', (req, res) => {
   });
 });
 
-// Comment out if frontend deployed elsewhere
-app.use(compression({
-  filter: (req, res) => {
-    const type = res.getHeader('Content-Type');
-    // compressible doesn't think GIF should be compressed, which is wrong
-    if (type === undefined || (type !== 'image/gif' && !compressible(type))) {
-      return false;
+var deployMode = process.argv[2];
+if (!deployMode || deployMode !== 'prod') {
+  app.use(compression({
+    filter: (req, res) => {
+      const type = res.getHeader('Content-Type');
+      // compressible doesn't think GIF should be compressed, which is wrong
+      if (type === undefined || (type !== 'image/gif' && !compressible(type))) {
+        return false;
+      }
+      return true;
     }
-    return true;
-  }
-}));
-app.use(express.static('public'));
+  }));
+  app.use(express.static('public'));
+}
 
 app.set('port', (process.env.PORT || 5000));
 
