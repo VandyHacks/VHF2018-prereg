@@ -130,7 +130,7 @@ $colored-line-width: 2px;
     .loaded & {
         &:before,
         &:after {
-            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2;
+            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 1px;
         }
     }
 }
@@ -310,7 +310,7 @@ input {
         &:before,
         &:after {
             height: 2 * $logo_width / $logo_width_800px + 0px;
-            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 1px;
+            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
         }
     }
     .status-message {
