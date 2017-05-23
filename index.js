@@ -79,6 +79,10 @@ if (!deployMode || deployMode !== 'prod') {
     }
   }));
   app.use(express.static('public'));
+} else {
+  app.get('/', (req, res) => {
+    res.redirect('https://vandyhacks.org');
+  });
 }
 
 app.set('port', (process.env.PORT || 5000));
