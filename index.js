@@ -66,7 +66,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-var deployMode = process.argv[2];
+const deployMode = process.argv[2];
 if (!deployMode || deployMode !== 'prod') {
   app.use(compression({
     filter: (req, res) => {
