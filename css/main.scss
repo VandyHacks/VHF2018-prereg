@@ -130,7 +130,7 @@ $colored-line-width: 2px;
     .loaded & {
         &:before,
         &:after {
-            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 1px;
+            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
         }
     }
 }
