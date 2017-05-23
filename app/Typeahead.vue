@@ -70,7 +70,9 @@ export default {
         const normalizedQuery = trimmedQuery.split(splitByHyphen).join(' ').toLowerCase();
         for (const result of results) {
           const normalizedResult = result.name.split(splitByHyphen).join(' ').toLowerCase();
-          if (normalizedResult.startsWith(normalizedQuery)) {
+          if (normalizedResult === normalizedQuery) {
+            ranks[result.name] = 3;
+          } else if (normalizedResult.startsWith(normalizedQuery)) {
             ranks[result.name] = 2;
           } else if (normalizedResult.includes(normalizedQuery)) {
             ranks[result.name] = 1;
