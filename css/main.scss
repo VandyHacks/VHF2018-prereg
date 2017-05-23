@@ -305,9 +305,12 @@ input {
     .dateText {
         transform: scale($logo_width_800px / $logo_width);
         margin-bottom: 0px;
+    }
+    .loaded .dateText {
         &:before,
         &:after {
             height: 2 * $logo_width / $logo_width_800px + 0px;
+            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 1px;
         }
     }
     .status-message {
@@ -336,6 +339,7 @@ input {
         }
         .loaded &:before,
         .loaded &:after {
+            height: 2 * $logo_width / $logo_width_640px + 0px;
             width: 85px;
         }
     }
