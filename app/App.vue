@@ -3,7 +3,7 @@
     <div class="signup" v-if="!statusMessage" key="inputs">
       <email :submitted="submitted" :email.sync="email" @pressed:enter="submitRegistration"></email>
       <typeahead :submitted="submitted" :query.sync="university" @pressed:enter="submitRegistration"></typeahead>
-      <input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!submitAllowed" @click="submitRegistration">
+      <input type="submit" :value="submitted ? 'Sending...' : 'Pre-register'" :class="{ submitted: submitted }" :disabled="!submitAllowed" @click="submitRegistration">
     </div>
     <div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
   </transition>
