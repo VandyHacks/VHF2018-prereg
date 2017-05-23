@@ -52,7 +52,7 @@ app.post('/signup', (req, res) => {
             if (err) console.log(err);
             res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
           } else if (response.status < 300) {
-            res.json({ status: 'Thank you for pre-registering! Please check for a confirmation email.' });
+            res.json({ status: 'Thank you for pre-registering! Please check your inbox for a confirmation email.' });
           } else if (response.status === 400 && response.body.title === 'Member Exists') {
             res.json({ status: 'You have already pre-registered!' });
           } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
