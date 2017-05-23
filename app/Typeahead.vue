@@ -1,7 +1,7 @@
 <template>
   <div class="typeahead-container">
     <div class="input-wrapper">
-      <input type="text" placeholder="University Name" autocomplete="off" ref="uniName" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.tab="hit" @keydown.enter="processEnter" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" :readonly="submitted" />
+      <input type="text" placeholder="University name" autocomplete="off" ref="uniName" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.tab="hit" @keydown.enter="processEnter" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" :readonly="submitted" />
       <span class="fa" v-bind:class="typeaheadIndicatorClass"></span>
     </div>
     <div class="uni-list-container">
