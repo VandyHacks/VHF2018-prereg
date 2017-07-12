@@ -21,7 +21,6 @@
     "dotenv": "^4.0.0",
     "email-validator": "^1.0.7",
     "express": "^4.15.3",
-    "mailgun-validate": "^0.1.0",
     "replaceall": "^0.1.6",
     "superagent": "^3.5.2"
   },
