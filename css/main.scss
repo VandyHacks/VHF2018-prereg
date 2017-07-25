@@ -167,6 +167,16 @@ $colored-line-width: 2px;
     max-width: $logo_width;
 }
 
+.sponsor {
+    font-size: 18px;
+    margin-top: 16px;
+    display: block;
+
+    a {
+        color: $primary-color;
+    }
+}
+
 .input-wrapper {
     border: $colored-line-width solid $primary-color;
 }

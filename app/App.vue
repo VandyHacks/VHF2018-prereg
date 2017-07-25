@@ -4,6 +4,7 @@
       <email :submitted="submitted" :email.sync="email" @pressed:enter="submitRegistration"></email>
       <typeahead :submitted="submitted" :query.sync="university" @pressed:enter="submitRegistration"></typeahead>
       <input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!submitAllowed" @click="submitRegistration">
+      <div class="status-message sponsor">Interested in sponsoring us? Email <a href="mailto:sponsor@vandyhacks.org">sponsor@vandyhacks.org</a></div>
     </div>
     <div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
   </transition>

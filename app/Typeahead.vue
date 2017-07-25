@@ -8,7 +8,7 @@
       <div class="list-wrapper" v-show="hasItems">
         <div class="caret"></div>
         <ul>
-          <li v-for="(item, $item) in items" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
+          <li v-for="(item, $item) in items" :key="item.name" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
             <span v-text="item.name"></span>
           </li>
         </ul>
