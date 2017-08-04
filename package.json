@@ -10,7 +10,7 @@
     "watch:start": "nodemon index.js",
     "build": "webpack && node-sass css/main.scss public/css/main.min.css",
     "build:prod": "webpack -p && node-sass css/main.scss public/css/main.min.css --output-style compressed",
-    "lint": "eslint index.js app/**.js app/**.vue"
+    "lint": "eslint index.js \"app/**.js\" \"app/**.vue\""
   },
   "dependencies": {
     "autosuggest-trie": "^2.1.1",
