@@ -167,6 +167,19 @@ $colored-line-width: 2px;
     max-width: $logo_width;
 }
 
+.sponsor {
+    font-size: 18px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -70px;
+    z-index: -2;
+
+    a {
+        color: $primary-color;
+    }
+}
+
 .input-wrapper {
     border: $colored-line-width solid $primary-color;
 }
@@ -346,6 +359,9 @@ input {
     .status-message {
         font-size: 16px;
         max-width: $logo_width_640px;
+    }
+    .sponsor {
+        margin-bottom: -80px;
     }
     .signup > * {
         display: block;
