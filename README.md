@@ -1,3 +1,8 @@
+Deprecation
+==
+
+Full site repository has been moved to [VandyHacks/VHF2017-website](https://github.com/VandyHacks/VHF2017-website)
+
 Installing
 ==
 
