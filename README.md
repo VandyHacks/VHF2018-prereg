@@ -1,7 +1,7 @@
 Deprecation
 ==
 
-Full site repository has been moved to [VandyHacks/VHF2017-website](https://github.com/VandyHacks/VHF2017-website)
+Recycled and updated from [last year](https://github.com/VandyHacks/VHF2017-prereg)
 
 Installing
 ==
