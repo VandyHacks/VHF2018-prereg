@@ -1,5 +1,6 @@
 const path = require('path');
 const joinRelPath = relPath => path.join(__dirname, relPath);
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: joinRelPath('/app/entry.js'),
@@ -11,13 +12,16 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.vue$/,
-        use: 'vue-loader'
+        loader: 'vue-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 };
