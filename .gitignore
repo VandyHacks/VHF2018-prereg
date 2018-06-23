@@ -16,6 +16,4 @@ docker-compose.yml
 jsconfig.json
 
 # Webpack
-dist/js
-dist/css/*.css
-dist/css/*.gz
+dist
