@@ -7,11 +7,11 @@ Installing
     npm install
     npm install --only=dev
 
-Running
+Prod
 ---
 
-    npm run build	# npm run build:prod for production
-    npm start
+    npm run prod    # builds files
+    npm start       # starts server
 
 Create a .env file and add:
 
@@ -24,8 +24,9 @@ Dev
 ---
 Running:
 
-    npm i -g nodemon
-    npm run watch:start
+    npm run dev     # starts webpack dev server, with hot reload
+
+    ### NOTE: todo: proxy webpack-dev-server to our own server?
 
 Linting:
 

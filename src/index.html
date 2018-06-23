@@ -6,13 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<meta name="description" content="The VandyHacks 2018 official website. Sign up for pre-registration here!">
 	<meta name="theme-color" content="#181829">
+	<!-- social media stuff -->
 	<meta property="og:image" content="https://vandyhacks.org/assets/img/bg18-1.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
 	<link rel="preload" href="assets/fonts/SofiaProRegular.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="icon" type="image/png" href="assets/img/favicon.png">
-	<link rel="stylesheet" href="css/main.min.css">
+	<!-- css included in App.vue -->
+	<!-- <link rel="stylesheet" href="css/main.min.css"> -->
 </head>
+
+<!-- note: background currently all defined in CSS ... -->
 
 <body>
 	<a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/seasons/na-2019/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2019-season&utm_content=blue" target="_blank">
@@ -29,7 +33,7 @@
 			<div id="app"></div>
 		</div>
 	</div>
-	<script src="js/bundle.js"></script>
+	<!-- webpack 4 injects js bundle automatically -->
 </body>
 
 </html>
