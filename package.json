@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack --mode production",
     "lint": "eslint --fix server.js \"src/**.js\" \"src/**.vue\""
@@ -57,5 +57,6 @@
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
-  }
+  },
+  "install": "npm i webpack"
 }
