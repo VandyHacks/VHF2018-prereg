@@ -1,12 +1,33 @@
 <template>
-  <transition name="fade" mode="out-in">
-    <div class="signup" v-if="!statusMessage" key="inputs">
-      <email :submitted="submitted" :email.sync="email" @pressed:enter="submitRegistration"></email>
-      <typeahead :submitted="submitted" :query.sync="university" @pressed:enter="submitRegistration"></typeahead>
-      <input type="submit" :value="submitted ? 'Sending...' : 'Get Notified'" :class="{ submitted: submitted }" :disabled="!submitAllowed" @click="submitRegistration">
+  <transition
+    name="fade"
+    mode="out-in">
+    <div
+      class="signup"
+      v-if="!statusMessage"
+      key="inputs">
+      <email
+        :submitted="submitted"
+        :email.sync="email"
+        @pressed:enter="submitRegistration"/>
+      <typeahead
+        :submitted="submitted"
+        :query.sync="university"
+        @pressed:enter="submitRegistration"/>
+      <input
+        type="submit"
+        :value="submitted ? 'Sending...' : 'Get Notified'"
+        :class="{ submitted: submitted }"
+        :disabled="!submitAllowed"
+        @click="submitRegistration">
       <div class="status-message sponsor">Interested in being a sponsor? Email <a href="mailto:sponsor@vandyhacks.org">sponsor@vandyhacks.org</a></div>
     </div>
-    <div class="status-message" v-else key="message" v-html="statusMessage" v-cloak></div>
+    <div
+      class="status-message"
+      v-else
+      key="message"
+      v-html="statusMessage"
+      v-cloak/>
   </transition>
 </template>
 
@@ -63,4 +84,3 @@ export default {
 <style lang="scss">
    @import 'css/main.scss'
 </style>
-

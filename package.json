@@ -6,7 +6,7 @@
     "start": "nodemon server.js",
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack --mode production",
-    "lint": "eslint server.js \"src/**.js\" \"src/**.vue\""
+    "lint": "eslint --fix server.js \"src/**.js\" \"src/**.vue\""
   },
   "engines": {
     "node": ">=8.11.3"

@@ -1,15 +1,37 @@
 <template>
   <div class="typeahead-container">
     <div class="input-wrapper">
-      <input type="text" placeholder="University Name" autocomplete="off" v-model="query" @keydown.down="down" @keydown.up="up" @keydown.tab="hit" @keydown.enter="processEnter" @input="update" @keydown.esc="reset" @blur="reset" @focus="update" :readonly="submitted" />
-      <span class="fa" v-bind:class="typeaheadIndicatorClass"></span>
+      <input
+        type="text"
+        placeholder="University"
+        autocomplete="off"
+        v-model="query"
+        @keydown.down="down"
+        @keydown.up="up"
+        @keydown.tab="hit"
+        @keydown.enter="processEnter"
+        @input="update"
+        @keydown.esc="reset"
+        @blur="reset"
+        @focus="update"
+        :readonly="submitted" >
+      <span
+        class="fa"
+        :class="typeaheadIndicatorClass"/>
     </div>
     <div class="uni-list-container">
-      <div class="list-wrapper" v-show="hasItems">
-        <div class="caret"></div>
+      <div
+        class="list-wrapper"
+        v-show="hasItems">
+        <div class="caret"/>
         <ul>
-          <li v-for="(item, $item) in items" :key="item.name" :class="activeClass($item)" @mousedown="hit" @mousemove="setActive($item)">
-            <span v-text="item.name"></span>
+          <li
+            v-for="(item, $item) in items"
+            :key="item.name"
+            :class="activeClass($item)"
+            @mousedown="hit"
+            @mousemove="setActive($item)">
+            <span v-text="item.name"/>
           </li>
         </ul>
       </div>

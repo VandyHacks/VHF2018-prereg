@@ -1,8 +1,16 @@
 <template>
   <div class="email-container">
     <div class="input-wrapper">
-      <input ref="emailInput" type="email" placeholder="Email Address" v-model="email" @keydown.enter="processEnter" :readonly="submitted" />
-      <span class="fa" :class="emailIndicatorClass"></span>
+      <input
+        ref="emailInput"
+        type="email"
+        placeholder="Email Address"
+        v-model="email"
+        @keydown.enter="processEnter"
+        :readonly="submitted" >
+      <span
+        class="fa"
+        :class="emailIndicatorClass"/>
     </div>
   </div>
 </template>
