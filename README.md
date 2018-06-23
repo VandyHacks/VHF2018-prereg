@@ -32,9 +32,8 @@ Linting:
 
     npm run lint
 
-Checking for unused/outdated dependencies:
+Check for outdated deps:
 
-    npm i -g npm-check
-    npm-check
+    npm outdated
 
 Disclaimer: recycled and updated from [last year](https://github.com/VandyHacks/VHF2017-prereg).

@@ -7,7 +7,7 @@
     },
     "extends": [
         "standard",
-        "vue"
+        "plugin:vue/strongly-recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
