@@ -58,5 +58,5 @@
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
-  "install": "npm i webpack"
+  "preinstall": "npm i webpack webpack-cli"
 }
