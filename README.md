@@ -27,6 +27,7 @@ Running:
     npm run dev     # starts webpack dev server, with hot reload
 
     ### NOTE: todo: proxy webpack-dev-server to our own server?
+    ### The webpack-dev-server doesn't write to disk. It serves the result from memory.
 
 Linting:
 

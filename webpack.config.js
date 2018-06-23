@@ -1,16 +1,15 @@
 const path = require('path');
-const joinRelPath = relPath => path.join(__dirname, relPath);
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   // in Webpack 4, default entry is src/index.js, default output is dist/main.js
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -34,11 +33,18 @@ module.exports = {
       {
         test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
-            loader: 'file-loader',
-            options: {
-                name: '[name].[ext]',
-                outputPath: 'fonts/'
-            }
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          }
+        }]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {}
         }]
       }
     ]
@@ -54,9 +60,15 @@ module.exports = {
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
+    // default template is ./src/index.html
     new HtmlWebpackPlugin({ 
       template: './src/index.html', 
       filename: './index.html' 
-    })
+    }),
+    // copies static assets from ./assets to ./dist/assets
+    new CopyWebpackPlugin([{
+      from: 'assets',
+      to: 'assets'
+    }])
   ]
 };
