@@ -1,0 +1,85 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 573.97 442.18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2, .cls-4, .cls-8, .cls-9 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4, .cls-9 {
+        font-size: 73.52px;
+        font-family: SofiaProCondensedRegular, Sofia Pro Condensed;
+      }
+
+      .cls-4 {
+        letter-spacing: 0.22em;
+      }
+
+      .cls-5, .cls-9 {
+        letter-spacing: 0.25em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0.22em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0.02em;
+      }
+
+      .cls-8 {
+        font-size: 16.13px;
+        font-family: SofiaProLight, Sofia Pro;
+        letter-spacing: 0.02em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0.23em;
+      }
+
+      .cls-11 {
+        letter-spacing: 0.25em;
+      }
+
+      .cls-12 {
+        letter-spacing: 0.23em;
+      }
+
+      .cls-13 {
+        letter-spacing: 0.22em;
+      }
+
+      .cls-14 {
+        letter-spacing: 0.22em;
+      }
+    </style>
+    <clipPath id="clip-path" transform="translate(-711.81 -341.89)">
+      <path class="cls-1" d="M1018.17,650.29,1131,345.82a2.65,2.65,0,0,0-2.66-3.82H1109a6.29,6.29,0,0,0-5.49,3.82L990.71,650.29a2.65,2.65,0,0,0,2.66,3.82h19.31A6.29,6.29,0,0,0,1018.17,650.29Z"/>
+    </clipPath>
+  </defs>
+  <title>VH Combined Logo &amp;amp; Text</title>
+  <g>
+    <g>
+      <path class="cls-2" d="M857.6,346.38l112.31,303a3,3,0,0,1-3,4.37H948.73a7.19,7.19,0,0,1-6.28-4.37l-112.31-303a3,3,0,0,1,3-4.37h18.14A7.19,7.19,0,0,1,857.6,346.38Z" transform="translate(-711.81 -341.89)"/>
+      <path class="cls-2" d="M903.76,346.38,993.48,587.6a3,3,0,0,1-3,4.37H972.3A7.2,7.2,0,0,1,966,587.6L876.3,346.38a3,3,0,0,1,3-4.37h18.14A7.2,7.2,0,0,1,903.76,346.38Z" transform="translate(-711.81 -341.89)"/>
+      <path class="cls-2" d="M971.94,649.75l112.43-303.38a3,3,0,0,0-3-4.37H1063.2a7.19,7.19,0,0,0-6.28,4.37L944.48,649.75a3,3,0,0,0,3,4.37h18.14A7.19,7.19,0,0,0,971.94,649.75Z" transform="translate(-711.81 -341.89)"/>
+      <path class="cls-2" d="M1065.51,649.75l112.43-303.38a3,3,0,0,0-3-4.37h-18.14a7.19,7.19,0,0,0-6.28,4.37L1038,649.75a3,3,0,0,0,3,4.37h18.14A7.19,7.19,0,0,0,1065.51,649.75Z" transform="translate(-711.81 -341.89)"/>
+      <g class="cls-3">
+        <g>
+          <path class="cls-2" d="M1018.38,649.75l47.37-127.82a3,3,0,0,0-3-4.37h-18.14a7.19,7.19,0,0,0-6.28,4.37L990.92,649.75a3,3,0,0,0,3,4.37h18.14A7.19,7.19,0,0,0,1018.38,649.75Z" transform="translate(-711.81 -341.89)"/>
+          <path class="cls-2" d="M1076.05,493.74l54.65-147.48a3,3,0,0,0-3-4.37h-18.14a7.19,7.19,0,0,0-6.28,4.37l-54.65,147.48a3,3,0,0,0,3,4.37h18.14A7.19,7.19,0,0,0,1076.05,493.74Z" transform="translate(-711.81 -341.89)"/>
+        </g>
+      </g>
+    </g>
+    <text class="cls-4" transform="translate(0.08 416.83) scale(0.87 0.76)">V<tspan class="cls-5" x="51.22" y="0">AN</tspan><tspan class="cls-6" x="171.08" y="0">D</tspan><tspan class="cls-7" x="232.29" y="0">Y</tspan></text>
+    <text class="cls-8" transform="translate(237.26 389.95)">®</text>
+    <text class="cls-9" transform="translate(250.65 416.83) scale(0.87 0.76)">H<tspan class="cls-10" x="62.6" y="0">A</tspan><tspan class="cls-11" x="120.43" y="0">C</tspan><tspan class="cls-12" x="180.42" y="0">K</tspan><tspan class="cls-11" x="233.4" y="0">S</tspan><tspan class="cls-13" x="287.92" y="0"> </tspan><tspan class="cls-14" x="320.12" y="0">V</tspan></text>
+  </g>
+</svg>

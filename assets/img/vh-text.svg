@@ -1,0 +1,60 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 573.97 99.42">
+  <defs>
+    <style>
+      .cls-1, .cls-6 {
+        font-size: 73.52px;
+        font-family: SofiaProCondensedRegular, Sofia Pro Condensed;
+      }
+
+      .cls-1, .cls-5, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        letter-spacing: 0.22em;
+      }
+
+      .cls-2, .cls-6 {
+        letter-spacing: 0.25em;
+      }
+
+      .cls-3 {
+        letter-spacing: 0.22em;
+      }
+
+      .cls-4 {
+        letter-spacing: 0.02em;
+      }
+
+      .cls-5 {
+        font-size: 16.13px;
+        font-family: SofiaProLight, Sofia Pro;
+        letter-spacing: 0.02em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0.23em;
+      }
+
+      .cls-8 {
+        letter-spacing: 0.25em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0.23em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0.22em;
+      }
+
+      .cls-11 {
+        letter-spacing: 0.22em;
+      }
+    </style>
+  </defs>
+  <title>VH Text</title>
+  <text class="cls-1" transform="translate(0.08 74.07) scale(0.87 0.76)">V<tspan class="cls-2" x="51.22" y="0">AN</tspan><tspan class="cls-3" x="171.08" y="0">D</tspan><tspan class="cls-4" x="232.29" y="0">Y</tspan></text>
+  <text class="cls-5" transform="translate(237.26 47.19)">®</text>
+  <text class="cls-6" transform="translate(250.65 74.07) scale(0.87 0.76)">H<tspan class="cls-7" x="62.6" y="0">A</tspan><tspan class="cls-8" x="120.43" y="0">C</tspan><tspan class="cls-9" x="180.42" y="0">K</tspan><tspan class="cls-8" x="233.4" y="0">S</tspan><tspan class="cls-10" x="287.92" y="0"> </tspan><tspan class="cls-11" x="320.12" y="0">V</tspan></text>
+</svg>

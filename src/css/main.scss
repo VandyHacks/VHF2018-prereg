@@ -32,7 +32,7 @@ body {
     }
 }
 
-$bg-color: #1d1d1d;
+$bg-color: #000000;
 $primary-color: #e9e9e9;
 html,
 body {
@@ -65,11 +65,13 @@ html {
 }
 
 body {
-    background: url('../assets/img/skyline.svg'), linear-gradient(180deg, $bg-color 100%, $bg-color 100%) fixed no-repeat;
+    /* fallback? */
+    background: linear-gradient(180deg, $bg-color 80%, $bg-color 100%) fixed no-repeat;
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 110%, 100%;
     transition: background-size 0.75s ease-out;
+    /*** actual body image set in body .loaded {} ***/
 }
 
 /* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
@@ -82,7 +84,9 @@ body {
 }
 
 body.loaded {
-    background-size: 100%, 100%;
+    background: url(../assets/img/bg_web.png);
+    background-size: cover; // or 100%, 100%
+    background-opacity: 50%;
 }
 
 .container {
@@ -313,6 +317,10 @@ input {
 
 @media screen and (max-width: 800px) {
     $logo_width_800px: 600px;
+    body {
+        /* special mobile background image */
+        background-image: url(/assets/img/bg_mobile.png);
+    }
     #logo {
         width: $logo_width_800px;
     }
