@@ -86,7 +86,6 @@ body {
 body.loaded {
     background: url(../assets/img/bg_web.png);
     background-size: cover; // or 100%, 100%
-    background-opacity: 50%;
 }
 
 .container {
@@ -317,9 +316,10 @@ input {
 
 @media screen and (max-width: 800px) {
     $logo_width_800px: 600px;
-    body {
+    body .loaded {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
+        background-size: cover;
     }
     #logo {
         width: $logo_width_800px;
