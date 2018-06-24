@@ -240,7 +240,7 @@ $mysterious-space: 5px; // Idk
         color: #000;
         padding: 8px 12px;
         text-align: left;
-        font-size: 13.3333px;
+        font-size: 14px;
         &.active {
             background: darken(white, 10%);
             cursor: default;
@@ -262,13 +262,15 @@ input[type="submit"] {
     color: white;
 }
 
+$input-font-size: 18px;
+
 input {
     padding: $input-padding-left;
     margin: 0px;
     outline: none;
     border: none;
     font-family: $font-stack;
-    font-size: 13.333px;
+    font-size: $input-font-size;
     line-height: 49px - 2 * $input-padding-left;
     &[type="text"],
     &[type="email"] {
