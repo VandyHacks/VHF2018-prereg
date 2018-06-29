@@ -21,6 +21,8 @@ const mailchimpApiKey = process.env.MC_API_KEY;
 
 app.get('/ping', (req, res) => res.sendStatus(200));
 
+app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
+
 app.post('/signup', (req, res) => {
   if (!req.body.email || !req.body.university || !EmailValidator.validate(req.body.email) || req.body.university.length < 8) {
     res.json({ status: 'The submitted email or university was invalid.' });
