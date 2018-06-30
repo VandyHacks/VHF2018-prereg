@@ -3,7 +3,7 @@
     <style>
       .cls-1, .cls-6 {
         font-size: 73.52px;
-        font-family: SofiaProCondensedRegular, Sofia Pro Condensed;
+        font-family: "Sofia Pro", sans-serif; 
       }
 
       .cls-1, .cls-5, .cls-6 {

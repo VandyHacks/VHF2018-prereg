@@ -1,4 +1,4 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 573.97 362.18">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 573.97 442.18">
   <defs>
     <style>
       .cls-1 {
@@ -15,7 +15,7 @@
 
       .cls-4, .cls-9 {
         font-size: 73.52px;
-        font-family: SofiaProRegular, Sofia Pro;
+        font-family: SofiaProCondensedRegular, Sofia Pro Condensed, Arial;
       }
 
       .cls-4 {
@@ -78,5 +78,8 @@
         </g>
       </g>
     </g>
+    <text class="cls-4" transform="translate(0.08 416.83) scale(0.87 0.76)">V<tspan class="cls-5" x="51.22" y="0">AN</tspan><tspan class="cls-6" x="171.08" y="0">D</tspan><tspan class="cls-7" x="232.29" y="0">Y</tspan></text>
+    <text class="cls-8" transform="translate(237.26 389.95)">®</text>
+    <text class="cls-9" transform="translate(250.65 416.83) scale(0.87 0.76)">H<tspan class="cls-10" x="62.6" y="0">A</tspan><tspan class="cls-11" x="120.43" y="0">C</tspan><tspan class="cls-12" x="180.42" y="0">K</tspan><tspan class="cls-11" x="233.4" y="0">S</tspan><tspan class="cls-13" x="287.92" y="0"> </tspan><tspan class="cls-14" x="320.12" y="0">V</tspan></text>
   </g>
 </svg>

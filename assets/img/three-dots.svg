@@ -1,0 +1,26 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 192.78 22.4">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #dc9850;
+      }
+    </style>
+    <clipPath id="clip-path" transform="translate(-864 -528.6)">
+      <rect class="cls-1" x="854" y="528.6" width="212.78" height="22.4"/>
+    </clipPath>
+  </defs>
+  <title>Three Dots</title>
+  <g class="cls-2">
+    <path class="cls-3" d="M875.2,551A11.2,11.2,0,1,0,864,539.8,11.2,11.2,0,0,0,875.2,551" transform="translate(-864 -528.6)"/>
+    <path class="cls-3" d="M960.39,551a11.2,11.2,0,1,0-11.2-11.2,11.2,11.2,0,0,0,11.2,11.2" transform="translate(-864 -528.6)"/>
+    <path class="cls-3" d="M1045.58,551a11.2,11.2,0,1,0-11.2-11.2,11.2,11.2,0,0,0,11.2,11.2" transform="translate(-864 -528.6)"/>
+  </g>
+</svg>
