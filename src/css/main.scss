@@ -15,6 +15,9 @@ body {
     flex-direction: column;
 }
 
+/* prevent page jumping when scrollbar appears */
+/*body { width: calc(100vw - 24px);}*/
+
 @import 'normalize';
 @import 'fontello';
 @mixin placeholder {
