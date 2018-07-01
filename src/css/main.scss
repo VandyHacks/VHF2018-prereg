@@ -308,14 +308,14 @@ input {
         -webkit-border-radius: 0px;
         &:hover {
             background: lighten($primary-color, 10%);
+            transform: scale(1.05);
         }
         &:active {
-            background: darken($primary-color, 15%);
-            transform: scale(0.95);
+            background: darken($primary-color, 25%);
         }
         &:disabled {
             background: $primary-color;
-            color: darken($primary-color, 15%);
+            color: darken($primary-color, 50%);
             cursor: not-allowed;
             transform: scale(1) !important;
             opacity: 0.5;
