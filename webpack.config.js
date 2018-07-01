@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production'
 
+/* in Webpack 4, minifying via Uglify.js and scope-hoisting is enabled by default in prod */
+
 module.exports = {
   // in Webpack 4, default entry is src/index.js, default output is dist/main.js
   module: {
