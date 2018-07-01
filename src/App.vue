@@ -32,27 +32,31 @@
 </template>
 
 <script>
-import EmailField from './EmailField.vue';
-import Typeahead from './Typeahead.vue';
-import EmailValidator from 'email-validator';
+import EmailField from "./EmailField.vue";
+import Typeahead from "./Typeahead.vue";
+import EmailValidator from "email-validator";
 
-const endpoint = 'https://prereg.vandyhacks.org/';
+const endpoint = "https://prereg.vandyhacks.org/";
 
 export default {
-  components: { 'typeahead': Typeahead, 'email': EmailField },
+  components: { typeahead: Typeahead, email: EmailField },
   data() {
     return {
-      email: '',
-      university: '',
+      email: "",
+      university: "",
       submitted: false,
       statusMessage: null
     };
   },
   computed: {
     submitAllowed() {
-      return this.email.trim() !== '' && EmailValidator.validate(this.email) &&
-        this.university.trim() !== '' && this.university.length >= 8 &&
-        !this.submitted;
+      return (
+        this.email.trim() !== "" &&
+        EmailValidator.validate(this.email) &&
+        this.university.trim() !== "" &&
+        this.university.length >= 8 &&
+        !this.submitted
+      );
     }
   },
   methods: {
@@ -63,24 +67,34 @@ export default {
       this.submitted = true;
       const params = { email: this.email, university: this.university };
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', endpoint + 'signup', true);
+      xhr.open("POST", endpoint + "signup", true);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           this.statusMessage = JSON.parse(xhr.responseText).status;
         }
       };
-      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.setRequestHeader("Content-Type", "application/json");
       xhr.send(JSON.stringify(params));
     }
   },
   mounted() {
     // Wake up dyno if applicable
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', endpoint + 'ping', true);
+    xhr.open("GET", endpoint + "ping", true);
     xhr.send();
+    // egg
+    new Egg()
+      .addCode("up,up,down,down,left,right,left,right,b,a", () => {
+        alert("Special thanks to Ray Berger(github.com/RayBB) from hackNY");
+      })
+      .listen();
+    // hint
+    setTimeout(() => {
+      console.log("konami...");
+    }, 10000);
   }
 };
 </script>
 <style lang="scss">
-   @import 'css/main.scss'
+@import "css/main.scss";
 </style>
