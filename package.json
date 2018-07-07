@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "heroku-prebuild": "npm i webpack webpack-cli",
     "start": "nodemon server.js",
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack --mode production",
