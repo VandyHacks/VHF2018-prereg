@@ -70,6 +70,7 @@ if (!deployMode || deployMode !== 'prod') {
       return true;
     }
   }));
+  /* actually serves static files */
   app.use(express.static('dist'));
 } else {
   app.get('/', (req, res) => {
