@@ -94,7 +94,6 @@ body {
     background-position: bottom;
     background-size: 100%, 100%;
     transition: background-size 0.75s ease-out;
-    /*** actual body image set in body .loaded {} ***/
 }
 
 /* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
@@ -312,6 +311,11 @@ input {
 
 @media screen and (max-width: 800px) {
     $logo_width_800px: 600px;
+    html {
+        /* special mobile background image */
+        background-image: url(/assets/img/bg_mobile.png);
+        background-size: cover;
+    }
     html .loaded {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
