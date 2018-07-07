@@ -1,11 +1,19 @@
 @font-face {
     font-family: 'Sofia Pro';
-    src: url(../assets/fonts/SofiaProRegular.woff2) format('woff2'), url(../assets/fonts/SofiaProRegular.woff) format('woff');
+    src: url(../assets/fonts/SofiaProRegular.woff2) format('woff2'), 
+         url(../assets/fonts/SofiaProRegular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sofia Pro Condensed';
+    src: url(../assets/fonts/SofiaProCondRegular.ttf) format('truetype'), 
+         url(../assets/fonts/SofiaProCondLight.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-$font-stack: 'Sofia Pro', sans-serif;
+$font-stack: 'Sofia Pro Condensed', sans-serif;
 
 body {
     font-family: $font-stack;
@@ -13,6 +21,10 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    /* make text not selectable */
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 /* prevent page jumping when scrollbar appears */
@@ -131,9 +143,6 @@ $horiz_line_spacing: 12px;
             width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
         }
     }
-}
-.titleText {
-    font-size: $input-font-size * 2.5;
 }
 
 .content {
@@ -428,4 +437,8 @@ input {
 }
 .loaded #dots img{
     height: 12px;
+}
+
+.titleText {
+    font-size: $input-font-size * 2.5;
 }
