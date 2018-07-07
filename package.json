@@ -5,7 +5,7 @@
   "scripts": {
     "heroku-prebuild": "npm i webpack webpack-cli",
     "heroku-postbuild": "npm run prod",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack --mode production",
     "lint": "eslint --fix server.js \"src/**.js\" \"src/**.vue\""
