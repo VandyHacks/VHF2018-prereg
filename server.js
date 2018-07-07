@@ -5,6 +5,7 @@ const compressible = require('compressible');
 const request = require('superagent');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 
 const EmailValidator = require('email-validator');
 
@@ -13,6 +14,7 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(helmet());
 
 // api var initialize
 const mailchimpInstance = process.env.MC_INSTANCE_ID;
