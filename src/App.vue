@@ -36,7 +36,7 @@ import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
 
-const endpoint = 'https://vandyhacks.org/';
+const endpoint = '/';
 
 export default {
   components: { typeahead: Typeahead, email: EmailField },
