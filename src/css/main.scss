@@ -315,11 +315,15 @@ input {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
         background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $bg-color;
     }
     html .loaded {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
         background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $bg-color;
     }
     #logo {
         width: $logo_width_800px;
