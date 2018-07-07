@@ -21,6 +21,10 @@ const mailchimpInstance = process.env.MC_INSTANCE_ID;
 const listUniqueId = process.env.MC_LIST_ID;
 const mailchimpApiKey = process.env.MC_API_KEY;
 
+if(!mailchimpApiKey || !mailchimpInstance || !listUniqueId){
+  console.warn('Mailchimp is not configured properly.');
+}
+
 app.get('/ping', (req, res) => res.sendStatus(200));
 
 app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
