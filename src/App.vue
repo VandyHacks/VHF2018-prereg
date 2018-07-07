@@ -36,7 +36,7 @@ import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
 
-const endpoint = 'https://prereg.vandyhacks.org/';
+const endpoint = 'https://vandyhacks.org/';
 
 export default {
   components: { typeahead: Typeahead, email: EmailField },
@@ -67,11 +67,21 @@ export default {
       this.submitted = true;
       const params = { email: this.email, university: this.university };
       const xhr = new XMLHttpRequest();
+      xhr.timeout = 3000; // 3 sec timeout
       xhr.open('POST', endpoint + 'signup', true);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-          this.statusMessage = JSON.parse(xhr.responseText).status;
+          try{
+            this.statusMessage = JSON.parse(xhr.responseText).status;
+          }
+          catch(e){
+            this.statusMessage = 'Oh no! An error occured. Please refresh and try again.'
+          }
         }
+      };
+      xhr.ontimeout = function (e) {
+        // XMLHttpRequest timed out. Do something here.
+        this.statusMessage = 'Request timed out. Please try again.'
       };
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(params));
