@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "heroku-prebuild": "npm i webpack webpack-cli",
+    "heroku-postbuild": "npm run prod",
     "start": "nodemon server.js",
     "dev": "webpack-dev-server --mode development",
     "prod": "webpack --mode production",
