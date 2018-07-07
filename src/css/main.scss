@@ -213,7 +213,7 @@ $horiz_line_spacing: 12px;
         position: absolute;
         display: inline-block;
         margin-right: -100%;
-        min-width: 340px;
+        min-width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;;
         padding: 0;
         .caret {
             width: 0px;
