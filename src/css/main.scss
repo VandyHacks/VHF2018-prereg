@@ -83,6 +83,8 @@ body {
 
 html {
     background-color: $bg-color;
+    background: url(../assets/img/bg_web.png);
+    background-size: cover; // or 100%, 100%
 }
 
 body {
@@ -104,7 +106,7 @@ body {
     }
 }
 
-body.loaded {
+html .loaded {
     background: url(../assets/img/bg_web.png);
     background-size: cover; // or 100%, 100%
 }
@@ -310,7 +312,7 @@ input {
 
 @media screen and (max-width: 800px) {
     $logo_width_800px: 600px;
-    body .loaded {
+    html .loaded {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
         background-size: cover;
