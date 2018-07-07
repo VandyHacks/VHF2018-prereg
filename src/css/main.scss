@@ -82,9 +82,10 @@ body {
 /** App starts here **/
 
 html {
-    background-color: $bg-color;
     background: url(../assets/img/bg_web.png);
+    background-repeat: no-repeat;
     background-size: cover; // or 100%, 100%
+    background: $bg-color;
 }
 
 body {
@@ -204,9 +205,12 @@ $horiz_line_spacing: 12px;
 
 .uni-list-container {
     position: relative;
+    height: 0;
     right: 50%;
     text-align: center;
+    z-index: 5;
     .list-wrapper {
+        position: absolute;
         display: inline-block;
         margin-right: -100%;
         min-width: 340px;
@@ -389,8 +393,6 @@ input {
         width: $input_total_width_640px;
     }
     .uni-list-container {
-        position: absolute;
-        z-index: 5;
         .list-wrapper {
             min-width: $input_total_width_640px;
         }
