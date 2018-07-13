@@ -59,7 +59,7 @@ $btn-bg-color-hover: rgba(200, 200, 200, .5);
 
 html,
 body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     width: 100%;
     padding: 0;
@@ -126,7 +126,7 @@ $horiz_line_spacing: 12px;
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     align-items: center;
     width: $logo_width;
@@ -142,6 +142,7 @@ $horiz_line_spacing: 12px;
     /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
     -webkit-filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) ); 
             filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) );
+    max-width: 100%;
 }
 .logo-container {
     width: 50%;
@@ -149,7 +150,6 @@ $horiz_line_spacing: 12px;
 
 .divider {
     height: 300px;
-    justify-content: center;
     border-radius: 2px;
     width: 4px;
     opacity: .5;
@@ -185,7 +185,6 @@ $horiz_line_spacing: 12px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     justify-content: space-between;
     padding: 5px;
 }
@@ -195,10 +194,10 @@ $horiz_line_spacing: 12px;
     flex-direction: column;
     align-content: flex-start;
     text-align: center;
-    align-items: left;
-    width:50%;
-    justify-content: center;
+    width: 50%;
     padding-top: 30px;
+    padding-bottom: 30px;
+    height: 100%;
 }
 
 .status-message {
@@ -313,7 +312,6 @@ input {
     &[type="submit"] {
         background: $primary-color;
         color: $bg-color;
-        cursor: pointer;
         padding: 17px;
         min-width: 118px;
         -webkit-tap-highlight-color: transparent;
@@ -342,17 +340,12 @@ input {
 }
 
 #submit-btn {
+    height: 5%;
     display: block;
     margin: 4px auto;
     border-radius: 4px;
-}
-
-.loaded #dots img {
-    height: 12px;
-}
-
-#dots img {
-    padding: 12px;
+    min-height: 19px;
+    padding: 17px;
 }
 
 .titleText {
@@ -365,73 +358,104 @@ input {
 */
 
 @media screen and (max-width: 800px) {
-    $logo_width_800px: 600px;
+    $width_800px: 600px;
     html {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: $bg-color;
     }
     html .loaded {
         /* special mobile background image */
         background-image: url(/assets/img/bg_mobile.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: $bg-color;
     }
     #logo,
     .sponsor,
-    .status-message {
+    .status-message,
+    .container,
+    .signup {
         font-size: 18px;
-        max-width: $logo_width_800px;
+        max-width: $width_800px;
+    }
+    .content {
+        // Make stack
+        flex-direction: column;
+        justify-content: center;
+    }
+    .divider {
+        // Make divider horizontal
+        height: 4px;
+        width: $width_800px * .4;
+    }
+    .signup,
+    .logo-container {
+        // Undo padding for horizontal view
+        padding-top: 0px;
+        width: $width_800px * 0.5;
+    }
+    .sponsor {
+        padding-bottom: 30px;
     }
 }
 
 @media screen and (max-width: 640px) {
-    $logo_width_640px: 450px;
+    html {
+        /* special mobile background image */
+        background-image: none;
+    }
+    html .loaded {
+        /* special mobile background image */
+        background-image: none;
+    }
+    $width_640px: 450px;
     #logo,
-    .sponsor {
-        width: $logo_width_640px;
+    .sponsor,
+    .status-message,
+    .container {
+        font-size: 18px;
+        max-width: $width_640px;
     }
     .dateText {
-        img {
-            width: 360px;
-        }
-        .loaded &:before,
-        .loaded &:after {
-            height: 2 * $logo_width / $logo_width_640px + 0px;
+        transform: scale(0.84);
+        .loaded {
+            height: 2 * $logo_width / $width_640px;
             width: 85px;
         }
     }
-    .status-message {
-        font-size: 16px;
-        max-width: $logo_width_640px;
+    .divider {
+        width: $width_640px / 2;
+    }
+    .signup,
+    .logo-container {
+        width: $width_640px * .75;
     }
 }
 
 
 @media screen and (max-width: 480px) {
-    $logo_width_480px: 320px;
+    $width_480px: 320px;
     #logo,
-    .sponsor {
-        width: $logo_width_480px;
-    }
+    .status-message,
+    .container,
     .dateText {
+        max-width: $width_480px;
+    }
+    .dateText { 
         transform: scale(0.84);
-        &:before,
-        &:after {
-            height: 4px;
+        .loaded {
+            height: 2 * $logo_width / $width_480px;
+            width: 85px;
         }
     }
-    .status-message {
-        font-size: 14px;
-        max-width: $logo_width_480px;
+    .divider {
+        width: $width_480px / 2;
+    }
+    .signup,
+    .logo-container {
+        width: $width_480px;
     }
 }
 
 @media screen and (max-width: 340px) {
-    .container {
+    .html {
         transform: scale(0.9);
     }
 }
