@@ -15,6 +15,7 @@
         :query.sync="university"
         @pressed:enter="submitRegistration"/>
       <input
+        id="submit-btn"
         type="submit"
         :value="submitted ? 'Sending...' : 'Get Notified'"
         :class="{ submitted: submitted }"
