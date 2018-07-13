@@ -1,20 +1,19 @@
 @font-face {
     font-family: 'Sofia Pro';
-    src: url(../assets/fonts/SofiaProRegular.woff2) format('woff2'), 
-         url(../assets/fonts/SofiaProRegular.woff) format('woff');
+    src: url(../assets/fonts/SofiaProRegular.woff2) format('woff2'), url(../assets/fonts/SofiaProRegular.woff) format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'Sofia Pro Condensed';
-    src: url(../assets/fonts/SofiaProCondRegular.ttf) format('truetype'), 
-         url(../assets/fonts/SofiaProCondLight.ttf) format('truetype');
+    src: url(../assets/fonts/SofiaProCondRegular.ttf) format('truetype'), url(../assets/fonts/SofiaProCondLight.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-$font-stack: 'Sofia Pro Condensed', sans-serif;
-
+$font-stack: 'Sofia Pro Condensed',
+sans-serif;
 body {
     font-family: $font-stack;
     display: flex;
@@ -28,6 +27,7 @@ body {
 }
 
 /* prevent page jumping when scrollbar appears */
+
 /*body { width: calc(100vw - 24px);}*/
 
 @import 'normalize';
@@ -52,7 +52,6 @@ $input-padding-left: 15px;
 $input-font-size: 18px;
 $font-width: 26px;
 $icon-padding: 9px;
-
 $bg-color: #0F192D;
 $primary-color: #e9e9e9;
 html,
@@ -60,7 +59,6 @@ body {
     height: 100%;
     margin: 0px;
 }
-
 
 /** Vue stuff **/
 
@@ -77,7 +75,6 @@ body {
 [v-cloak] {
     display: none;
 }
-
 
 /** App starts here **/
 
@@ -98,7 +95,9 @@ body {
 }
 
 /* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
+
 /* Workaround Edge not supporting background-size transitions */
+
 @supports (-ms-ime-align: auto) {
     body {
         background-size: 100%, 100%;
@@ -126,6 +125,7 @@ $horiz_line_spacing: 12px;
 #logo {
     width: $logo_width /2;
 }
+
 .titleText,
 .dateText {
     margin-bottom: 5px;
@@ -213,7 +213,7 @@ $horiz_line_spacing: 12px;
         position: absolute;
         display: inline-block;
         margin-right: -100%;
-        min-width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;;
+        min-width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
         padding: 0;
         .caret {
             width: 0px;
@@ -272,7 +272,7 @@ input {
     &[type="text"],
     &[type="email"] {
         background: transparent;
-        color:$primary-color ;
+        color: $primary-color;
         width: $input-width;
         padding-right: 0px;
         margin-right: 0px;
@@ -307,7 +307,6 @@ input {
         color: $primary-color;
     }
 }
-
 
 /*
 	Responsiveness
@@ -359,7 +358,7 @@ input {
 
 @media screen and (max-width: 640px) {
     $logo_width_640px: 450px;
-    #logo, 
+    #logo,
     .logo-container {
         width: $logo_width_640px;
     }
@@ -377,7 +376,7 @@ input {
         font-size: 16px;
         max-width: $logo_width_640px;
     }
-    .signup > * {
+    .signup>* {
         display: block;
     }
     $input-width-640px: 378px;
@@ -447,7 +446,8 @@ input {
         transform: scale(0.9);
     }
 }
-.loaded #dots img{
+
+.loaded #dots img {
     height: 12px;
 }
 
