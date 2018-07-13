@@ -59,10 +59,15 @@ $btn-bg-color-hover: rgba(200, 200, 200, .5);
 
 html,
 body {
-    height: 100vh;
     margin: 0;
     width: 100%;
     padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
 }
 
 /** Vue stuff **/
@@ -126,7 +131,7 @@ $horiz_line_spacing: 12px;
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: center;
     align-items: center;
     width: $logo_width;
@@ -208,7 +213,7 @@ $horiz_line_spacing: 12px;
 
 .sponsor {
     color: $primary-color;
-    padding-top: 30px;
+    padding-top: 5%;
     font-size: 18px;
     z-index: -2;
     a {
