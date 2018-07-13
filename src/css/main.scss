@@ -52,12 +52,15 @@ $input-padding-left: 15px;
 $input-font-size: 18px;
 $font-width: 26px;
 $icon-padding: 9px;
-$bg-color: #0F192D;
+$bg-color: #0f0c2d;
 $primary-color: #e9e9e9;
+$btn-bg-color: rgba(200, 200, 200, .3);
 html,
 body {
     height: 100%;
-    margin: 0px;
+    margin: 0;
+    width: 100%;
+    padding: 0;
 }
 
 /** Vue stuff **/
@@ -94,8 +97,6 @@ body {
     transition: background-size 0.75s ease-out;
 }
 
-/* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
-
 /* Workaround Edge not supporting background-size transitions */
 
 @supports (-ms-ime-align: auto) {
@@ -111,17 +112,17 @@ html .loaded {
 }
 
 .container {
+    display: flex;
     text-align: center;
-}
-
-.logo-container {
-    display: inline-block;
+    align-content: center;
+    justify-content: center;
 }
 
 $logo_width: 750px;
 $date_total_width: 739px;
 $date_img_width: 475px;
 $horiz_line_spacing: 12px;
+
 #logo {
     width: $logo_width /2;
 }
@@ -158,16 +159,19 @@ $horiz_line_spacing: 12px;
     transform: scale(1);
 }
 
-.signup,
-.status-message {
+.signup .status-message {
     height: 72px;
 }
 
 .signup {
+    align-content: center;
+    text-align: center;
+    align-items: center;
     margin: 10px auto;
     &>* {
-        display: inline-block;
+        display: block;
     }
+    width:100%;
 }
 
 .status-message {
@@ -180,26 +184,28 @@ $horiz_line_spacing: 12px;
 }
 
 .sponsor {
+    color: $primary-color;
+    padding-top: 30px;
     font-size: 18px;
     display: block;
-    position: absolute;
     z-index: -2;
     a {
         color: $primary-color;
     }
+    width: $logo_width;
 }
 
 .input-wrapper {
     border: 2px solid $primary-color;
+    border-radius: 4px;
+    background: $btn-bg-color;
 }
 
 .email-container,
 .typeahead-container {
+    text-align: center;
     vertical-align: top;
-    margin-right: 4px;
-}
-
-.typeahead-container {
+    margin: 4px auto;
     width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
 }
 
@@ -210,7 +216,6 @@ $horiz_line_spacing: 12px;
     text-align: center;
     z-index: 5;
     .list-wrapper {
-        position: absolute;
         display: inline-block;
         margin-right: -100%;
         min-width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
@@ -310,8 +315,22 @@ input {
 
 #submit-btn {
     display: block;
-    margin: 10px auto;
+    margin: 4px auto;
+    border-radius: 4px;
 }
+
+.loaded #dots img {
+    height: 12px;
+}
+
+#dots img {
+    padding-bottom: 14px;
+}
+
+.titleText {
+    font-size: $input-font-size * 2.5;
+}
+
 
 /*
 	Responsiveness
@@ -333,39 +352,22 @@ input {
         background-repeat: no-repeat;
         background-color: $bg-color;
     }
-    #logo {
-        width: $logo_width_800px;
-    }
-    .dateText {
-        transform: scale($logo_width_800px / $logo_width);
-        margin-bottom: 0px;
-    }
-    .loaded .dateText {
-        &:before,
-        &:after {
-            height: 2 * $logo_width / $logo_width_800px + 0px;
-            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
-        }
-    }
+    .sponsor,
+    .status-message,
     .status-message {
         font-size: 18px;
         max-width: $logo_width_800px;
-    }
-    $input-width-800px: 166px;
-    input[type="text"],
-    input[type="email"] {
-        width: $input-width-800px;
-    }
-    .typeahead-container {
-        width: $input-width-800px + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
     }
 }
 
 @media screen and (max-width: 640px) {
     $logo_width_640px: 450px;
     #logo,
-    .logo-container {
+    .sponsor {
         width: $logo_width_640px;
+    }
+    #logo {
+        padding-top: 10%;
     }
     .dateText {
         img {
@@ -381,40 +383,20 @@ input {
         font-size: 16px;
         max-width: $logo_width_640px;
     }
-    .signup>* {
-        display: block;
-        margin: 10px auto;
-    }
-    $input-width-640px: 378px;
-    input[type="text"],
-    input[type="email"] {
-        width: $input-width-640px;
-    }
-    $input-total-width-640px: $logo_width_640px;
-    .typeahead-container {
-        width: $input_total_width_640px;
-    }
-    input[type="submit"] {
-        width: $input_total_width_640px;
-    }
-    .uni-list-container {
-        .list-wrapper {
-            min-width: $input_total_width_640px;
-        }
-    }
-    .content {
-        height: 300px;
-    }
 }
+
 
 @media screen and (max-width: 480px) {
     $logo_width_480px: 320px;
     #logo,
-    .logo-container {
+    .sponsor {
         width: $logo_width_480px;
     }
+    #logo {
+        padding-top: 10%;
+    }
     .dateText {
-        transform: scale(0.57);
+        transform: scale(0.84);
         &:before,
         &:after {
             height: 4px;
@@ -424,39 +406,10 @@ input {
         font-size: 14px;
         max-width: $logo_width_480px;
     }
-    $input-width-480px: 250px;
-    input[type="text"],
-    input[type="email"] {
-        width: $input-width-480px;
-    }
-    $input-total-width-480px: $logo_width_480px;
-    .typeahead-container {
-        width: $input-total-width-480px;
-    }
-    input[type="submit"] {
-        width: $input-total-width-480px;
-    }
-    .uni-list-container {
-        .list-wrapper {
-            min-width: $input-total-width-480px;
-        }
-    }
-    .content {
-        height: 278px;
-    }
 }
 
-// lol
 @media screen and (max-width: 340px) {
     .container {
         transform: scale(0.9);
     }
-}
-
-.loaded #dots img {
-    height: 12px;
-}
-
-.titleText {
-    font-size: $input-font-size * 2.5;
 }

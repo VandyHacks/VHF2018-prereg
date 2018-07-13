@@ -21,7 +21,7 @@
         :class="{ submitted: submitted }"
         :disabled="!submitAllowed"
         @click="submitRegistration">
-      <div class="status-message sponsor">Interested in being a sponsor? Check out our <a href="/sponsorship">sponsorship prospectus</a>!</div>
+      <div class="sponsor">Interested in being a sponsor? Check out our <a href="/sponsorship">sponsorship prospectus</a>!</div>
     </div>
     <div
       class="status-message"
