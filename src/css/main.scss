@@ -189,7 +189,8 @@ $horiz_line_spacing: 12px;
     padding: 5px;
 }
 
-.signup {
+.signup,
+.status-message {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
@@ -203,7 +204,6 @@ $horiz_line_spacing: 12px;
 .status-message {
     color: $primary-color;
     font-size: 24px;
-    margin: 10px;
 }
 
 .sponsor {
