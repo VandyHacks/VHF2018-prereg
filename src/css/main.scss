@@ -55,6 +55,8 @@ $icon-padding: 9px;
 $bg-color: #0f0c2d;
 $primary-color: #e9e9e9;
 $btn-bg-color: rgba(200, 200, 200, .3);
+$btn-bg-color-hover: rgba(200, 200, 200, .5);
+
 html,
 body {
     height: 100%;
@@ -111,20 +113,48 @@ html .loaded {
     background-size: cover; // or 100%, 100%
 }
 
-.container {
-    display: flex;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
-}
 
-$logo_width: 750px;
+$logo_width: 800px;
 $date_total_width: 739px;
 $date_img_width: 475px;
 $horiz_line_spacing: 12px;
 
+.container {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.75s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: $logo_width;
+}
+.loaded .container {
+    opacity: 1;
+    transform: scale(1);
+}
+
 #logo {
-    width: $logo_width /2;
+    // 7% allows for full logo to display on landscape mobile devices
+    margin-top: 7%;
+    /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
+    -webkit-filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) ); 
+            filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) );
+}
+.logo-container {
+    width: 50%;
+}
+
+.divider {
+    height: 300px;
+    justify-content: center;
+    border-radius: 2px;
+    width: 4px;
+    opacity: .5;
+    background: rgba(200, 200, 200, .6);
+    margin: 20px;
 }
 
 .titleText,
@@ -146,67 +176,64 @@ $horiz_line_spacing: 12px;
             width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
         }
     }
+    padding-top: 10px;
 }
 
 .content {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.75s ease-out;
-}
-
-.loaded .content {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.signup .status-message {
-    height: 72px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 5px;
 }
 
 .signup {
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
     text-align: center;
-    align-items: center;
-    margin: 10px auto;
-    &>* {
-        display: block;
-    }
-    width:100%;
+    align-items: left;
+    width:50%;
+    justify-content: center;
+    padding-top: 30px;
 }
 
 .status-message {
     color: $primary-color;
     font-size: 24px;
-    margin: 10px auto;
-    left: 0;
-    right: 0;
-    max-width: $logo_width;
+    margin: 10px;
 }
 
 .sponsor {
     color: $primary-color;
     padding-top: 30px;
     font-size: 18px;
-    display: block;
     z-index: -2;
     a {
         color: $primary-color;
     }
-    width: $logo_width;
+    width: 100%;
 }
 
 .input-wrapper {
+    transition: 0.4s ease;
     border: 2px solid $primary-color;
     border-radius: 4px;
     background: $btn-bg-color;
+    &:hover {
+        background: $btn-bg-color-hover;
+    }
 }
 
 .email-container,
 .typeahead-container {
     text-align: center;
     vertical-align: top;
-    margin: 4px auto;
-    width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
+    margin: 4px;
+    // width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
 }
 
 .uni-list-container {
@@ -267,7 +294,10 @@ input[type="submit"] {
 }
 
 input {
-    padding: $input-padding-left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 9px;
+    padding-right: 9px;
     margin: 0px;
     outline: none;
     border: none;
@@ -278,9 +308,7 @@ input {
     &[type="email"] {
         background: transparent;
         color: $primary-color;
-        width: $input-width;
-        padding-right: 0px;
-        margin-right: 0px;
+        width: 70%;
     }
     &[type="submit"] {
         background: $primary-color;
@@ -324,7 +352,7 @@ input {
 }
 
 #dots img {
-    padding-bottom: 14px;
+    padding: 12px;
 }
 
 .titleText {
@@ -352,8 +380,8 @@ input {
         background-repeat: no-repeat;
         background-color: $bg-color;
     }
+    #logo,
     .sponsor,
-    .status-message,
     .status-message {
         font-size: 18px;
         max-width: $logo_width_800px;
@@ -365,9 +393,6 @@ input {
     #logo,
     .sponsor {
         width: $logo_width_640px;
-    }
-    #logo {
-        padding-top: 10%;
     }
     .dateText {
         img {
@@ -391,9 +416,6 @@ input {
     #logo,
     .sponsor {
         width: $logo_width_480px;
-    }
-    #logo {
-        padding-top: 10%;
     }
     .dateText {
         transform: scale(0.84);
