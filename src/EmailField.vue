@@ -4,7 +4,7 @@
       <input
         ref="emailInput"
         type="email"
-        placeholder="Email Address"
+        placeholder="Email"
         v-model="email"
         @keydown.enter="processEnter"
         :readonly="submitted" >
@@ -16,34 +16,34 @@
 </template>
 
 <script>
-import EmailValidator from 'email-validator';
+import EmailValidator from "email-validator";
 
 export default {
-  props: ['submitted'],
+  props: ["submitted"],
   data() {
     return {
-      email: ''
+      email: ""
     };
   },
   methods: {
     processEnter() {
-      this.$emit('pressed:enter');
+      this.$emit("pressed:enter");
     }
   },
   computed: {
     emailIndicatorClass() {
-      if (this.email.trim() === '') {
-        return 'icon-mail-alt';
+      if (this.email.trim() === "") {
+        return "icon-mail-alt";
       } else if (!EmailValidator.validate(this.email)) {
-        return 'icon-attention-circled';
+        return "icon-attention-circled";
       } else {
-        return 'icon-ok-circled';
+        return "icon-ok-circled";
       }
     }
   },
   watch: {
     email(val) {
-      this.$emit('update:email', val);
+      this.$emit("update:email", val);
     }
   },
   mounted() {
