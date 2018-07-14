@@ -89,7 +89,7 @@ body {
 /** App starts here **/
 
 html {
-    background: url(../assets/img/bg_web.png);
+    background: url(../assets/img/ben_butchery.png);
     background-repeat: no-repeat;
     background-size: cover; // or 100%, 100%
     background: $bg-color;
@@ -114,7 +114,7 @@ body {
 }
 
 html .loaded {
-    background: url(../assets/img/bg_web.png);
+    background: url(../assets/img/ben_butchery.png);
     background-size: cover; // or 100%, 100%
 }
 
@@ -145,7 +145,7 @@ $horiz_line_spacing: 12px;
     // 7% allows for full logo to display on landscape mobile devices
     margin-top: 7%;
     /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
-    -webkit-filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) ); 
+    -webkit-filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) );
             filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) );
     max-width: 100%;
 }
@@ -443,7 +443,7 @@ input {
     .dateText {
         max-width: $width_480px;
     }
-    .dateText { 
+    .dateText {
         transform: scale(0.84);
         .loaded {
             height: 2 * $logo_width / $width_480px;
