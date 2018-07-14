@@ -26,6 +26,26 @@ body {
     -webkit-user-select: none;
 }
 
+.preload * {
+    transition: none !important;
+    opacity: 0;
+}
+#root {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .5s;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 /* prevent page jumping when scrollbar appears */
 
 /*body { width: calc(100vw - 24px);}*/
@@ -75,12 +95,12 @@ body {
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity .5s
+    transition: opacity .5s;
 }
 
 .fade-enter,
 .fade-leave-to {
-    opacity: 0
+    opacity: 0;
 }
 
 [v-cloak] {
@@ -128,7 +148,7 @@ $horiz_line_spacing: 12px;
 .container {
     opacity: 0;
     transform: scale(0.9);
-    transition: all 0.75s ease-out;
+    transition: all 0.75s ease-out .25s;
     display: flex;
     flex-direction: column;
     align-content: center;
