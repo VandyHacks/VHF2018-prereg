@@ -17,3 +17,9 @@ setTimeout(() => {
   // Opacity and scale (workaround Safari initial load no animation)
   document.body.className = 'loaded';
 }, 50);
+
+// Load content after background
+window.onload = () => {
+  const element = document.getElementById('root');
+  element.classList.remove('preload');
+};

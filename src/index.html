@@ -18,36 +18,27 @@
 
 <!-- note: background currently all defined in CSS ... -->
 
-<body>
+<body id="root" class="preload">
 	<a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000"
-	    href="https://mlh.io/seasons/na-2019/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2019-season&utm_content=blue"
-	    target="_blank">
+	 href="https://mlh.io/seasons/na-2019/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2019-season&utm_content=blue"
+	 target="_blank">
 		<img src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-blue.svg" alt="Major League Hacking 2019 Hackathon Season"
-		    style="width:100%">
+		 style="width:100%">
 	</a>
 	<div class="container">
 		<div class="content">
 			<div class="logo-container">
 				<img id="logo" src="../assets/img/Logo Outline.svg" alt="Vandy&#174;Hacks V">
-				<!--
-				<div id="title" class="titleText">
-					V&nbspA&nbspN&nbspD&nbspY
-					<sup>
-						<text style="transform: scale(.2)">&#174;</text>
-					</sup>
-					H&nbspA&nbspC&nbspK&nbspS&nbsp&nbsp&nbspV
-				</div>
-				-->
-				<!-- <img id="date" src="../assets/img/date.svg" alt="November 2-4, 2018 at Vanderbilt University"> -->
 				<div id="date" class="dateText">
 					<div>November&nbsp2-4,&nbsp2018</div>
 					<div>Vanderbilt&nbspUniversity</div>
 				</div>
 			</div>
 			<span class="divider"></span>
-			<div id="app"></div>
+			<App id="app" v-cloak />
 		</div>
-		<div class="sponsor">Interested in being a sponsor? Check out our <a href="/sponsorship">sponsorship prospectus</a>!</div>
+		<div class="sponsor">Interested in being a sponsor? Check out our
+			<a href="/sponsorship">sponsorship prospectus</a>!</div>
 	</div>
 	<!-- tiny easter egg :) -->
 	<script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
