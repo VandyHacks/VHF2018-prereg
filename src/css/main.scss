@@ -385,14 +385,6 @@ input {
 
 @media screen and (max-width: 810px) {
     $width_800px: 600px;
-    html {
-        /* special mobile background image */
-        background-image: url(/assets/img/bg_mobile.png);
-    }
-    html .loaded {
-        /* special mobile background image */
-        background-image: url(/assets/img/bg_mobile.png);
-    }
     #logo,
     .sponsor,
     .status-message,
