@@ -26,6 +26,26 @@ body {
     -webkit-user-select: none;
 }
 
+.preload * {
+    transition: none !important;
+    opacity: 0;
+}
+#root {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .5s;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 /* prevent page jumping when scrollbar appears */
 
 /*body { width: calc(100vw - 24px);}*/
@@ -54,22 +74,33 @@ $font-width: 26px;
 $icon-padding: 9px;
 $bg-color: #0f0c2d;
 $primary-color: #e9e9e9;
+$btn-bg-color: rgba(200, 200, 200, .3);
+$btn-bg-color-hover: rgba(200, 200, 200, .5);
+
 html,
 body {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+}
+html {
     height: 100%;
-    margin: 0px;
+}
+body {
+    min-height: 100%;
 }
 
 /** Vue stuff **/
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity .5s
+    transition: opacity .5s;
 }
 
 .fade-enter,
 .fade-leave-to {
-    opacity: 0
+    opacity: 0;
 }
 
 [v-cloak] {
@@ -79,7 +110,7 @@ body {
 /** App starts here **/
 
 html {
-    background: url(../assets/img/bg_web.png);
+    background: url('/assets/img/bg_web.svg');
     background-repeat: no-repeat;
     background-size: cover; // or 100%, 100%
     background: $bg-color;
@@ -94,8 +125,6 @@ body {
     transition: background-size 0.75s ease-out;
 }
 
-/* VSCode highlighting bug: https://github.com/Microsoft/vscode/issues/1505 */
-
 /* Workaround Edge not supporting background-size transitions */
 
 @supports (-ms-ime-align: auto) {
@@ -106,24 +135,52 @@ body {
 }
 
 html .loaded {
-    background: url(../assets/img/bg_web.png);
+    background: url('/assets/img/bg_web.svg');
     background-size: cover; // or 100%, 100%
 }
 
-.container {
-    text-align: center;
-}
 
-.logo-container {
-    display: inline-block;
-}
-
-$logo_width: 750px;
+$logo_width: 800px;
 $date_total_width: 739px;
 $date_img_width: 475px;
 $horiz_line_spacing: 12px;
+
+.container {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.75s ease-out .25s;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: $logo_width;
+}
+.loaded .container {
+    opacity: 1;
+    transform: scale(1);
+}
+
 #logo {
-    width: $logo_width /2;
+    // 7% allows for full logo to display on landscape mobile devices
+    margin-top: 7%;
+    /* Use -webkit- only if supporting: Chrome < 54, iOS < 9.3, Android < 4.4.4 */
+    -webkit-filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) ); 
+            filter: drop-shadow( -2px -2px 2px rgba(30,30,30,.3) );
+    max-width: 100%;
+}
+.logo-container {
+    width: 50%;
+}
+
+.divider {
+    height: 300px;
+    border-radius: 2px;
+    width: 4px;
+    opacity: .5;
+    background: rgba(200, 200, 200, .6);
+    margin: 40px;
 }
 
 .titleText,
@@ -145,62 +202,64 @@ $horiz_line_spacing: 12px;
             width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
         }
     }
+    padding-top: 10px;
 }
 
 .content {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.75s ease-out;
-}
-
-.loaded .content {
-    opacity: 1;
-    transform: scale(1);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
 }
 
 .signup,
 .status-message {
-    height: 72px;
-}
-
-.signup {
-    margin: 10px auto;
-    &>* {
-        display: inline-block;
-    }
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 100%;
 }
 
 .status-message {
     color: $primary-color;
     font-size: 24px;
-    margin: 10px auto;
-    left: 0;
-    right: 0;
-    max-width: $logo_width;
 }
 
 .sponsor {
+    color: $primary-color;
+    padding-top: 5%;
     font-size: 18px;
-    display: block;
-    position: absolute;
     z-index: -2;
     a {
         color: $primary-color;
     }
+    width: 100%;
 }
 
 .input-wrapper {
+    transition: 0.4s ease;
     border: 2px solid $primary-color;
+    border-radius: 4px;
+    background: $btn-bg-color;
+    &:hover {
+        background: $btn-bg-color-hover;
+    }
 }
 
 .email-container,
 .typeahead-container {
+    text-align: center;
     vertical-align: top;
-    margin-right: 4px;
-}
-
-.typeahead-container {
-    width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
+    margin: 4px;
+    // width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
 }
 
 .uni-list-container {
@@ -210,7 +269,6 @@ $horiz_line_spacing: 12px;
     text-align: center;
     z-index: 5;
     .list-wrapper {
-        position: absolute;
         display: inline-block;
         margin-right: -100%;
         min-width: $input-width + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
@@ -262,7 +320,10 @@ input[type="submit"] {
 }
 
 input {
-    padding: $input-padding-left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 9px;
+    padding-right: 9px;
     margin: 0px;
     outline: none;
     border: none;
@@ -273,14 +334,11 @@ input {
     &[type="email"] {
         background: transparent;
         color: $primary-color;
-        width: $input-width;
-        padding-right: 0px;
-        margin-right: 0px;
+        width: 70%;
     }
     &[type="submit"] {
         background: $primary-color;
         color: $bg-color;
-        cursor: pointer;
         padding: 17px;
         min-width: 118px;
         -webkit-tap-highlight-color: transparent;
@@ -310,153 +368,115 @@ input {
 
 #submit-btn {
     display: block;
-    margin: 10px auto;
+    margin: 4px auto;
+    border-radius: 4px;
+    min-height: 19px;
+    padding: 17px;
 }
+
+.titleText {
+    font-size: $input-font-size * 2.5;
+}
+
 
 /*
 	Responsiveness
 */
 
-@media screen and (max-width: 800px) {
-    $logo_width_800px: 600px;
-    html {
-        /* special mobile background image */
-        background-image: url(/assets/img/bg_mobile.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: $bg-color;
-    }
-    html .loaded {
-        /* special mobile background image */
-        background-image: url(/assets/img/bg_mobile.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: $bg-color;
-    }
-    #logo {
-        width: $logo_width_800px;
-    }
-    .dateText {
-        transform: scale($logo_width_800px / $logo_width);
-        margin-bottom: 0px;
-    }
-    .loaded .dateText {
-        &:before,
-        &:after {
-            height: 2 * $logo_width / $logo_width_800px + 0px;
-            width: ($date_total_width - $date_img_width - 2 * $horiz_line_spacing) / 2 + 2px;
-        }
-    }
-    .status-message {
+@media screen and (max-width: 810px) {
+    $width_800px: 600px;
+    #logo,
+    .sponsor,
+    .status-message,
+    .container,
+    .signup {
         font-size: 18px;
-        max-width: $logo_width_800px;
+        max-width: $width_800px;
     }
-    $input-width-800px: 166px;
-    input[type="text"],
-    input[type="email"] {
-        width: $input-width-800px;
+    .content {
+        // Make stack
+        flex-direction: column;
+        justify-content: center;
     }
-    .typeahead-container {
-        width: $input-width-800px + $input-padding-left + $font-width + $icon-padding * 2 + 9px;
+    .divider {
+        // Make divider horizontal
+        height: 4px;
+        width: $width_800px / 2;
+    }
+    .signup,
+    .logo-container {
+        // Undo padding for horizontal view
+        padding-top: 0px;
+        width: $width_800px * 0.75;
+    }
+    .sponsor {
+        padding-bottom: 30px;
     }
 }
 
 @media screen and (max-width: 640px) {
-    $logo_width_640px: 450px;
+    html {
+        /* special mobile background image */
+        background-image: none;
+    }
+    html .loaded {
+        /* special mobile background image */
+        background-image: none;
+    }
+    $width_640px: 450px;
     #logo,
-    .logo-container {
-        width: $logo_width_640px;
+    .sponsor,
+    .status-message,
+    .container {
+        font-size: 18px;
+        max-width: $width_640px;
     }
     .dateText {
-        img {
-            width: 360px;
-        }
-        .loaded &:before,
-        .loaded &:after {
-            height: 2 * $logo_width / $logo_width_640px + 0px;
+        transform: scale(0.84);
+        .loaded {
+            height: 2 * $logo_width / $width_640px;
             width: 85px;
         }
     }
-    .status-message {
-        font-size: 16px;
-        max-width: $logo_width_640px;
+    .divider {
+        width: $width_640px / 2;
     }
-    .signup>* {
-        display: block;
-        margin: 10px auto;
-    }
-    $input-width-640px: 378px;
-    input[type="text"],
-    input[type="email"] {
-        width: $input-width-640px;
-    }
-    $input-total-width-640px: $logo_width_640px;
-    .typeahead-container {
-        width: $input_total_width_640px;
-    }
-    input[type="submit"] {
-        width: $input_total_width_640px;
-    }
-    .uni-list-container {
-        .list-wrapper {
-            min-width: $input_total_width_640px;
-        }
-    }
-    .content {
-        height: 300px;
+    .signup,
+    .logo-container {
+        width: $width_640px * .75;
     }
 }
+
 
 @media screen and (max-width: 480px) {
-    $logo_width_480px: 320px;
+    $width_480px: 320px;
     #logo,
-    .logo-container {
-        width: $logo_width_480px;
-    }
+    .status-message,
+    .container,
     .dateText {
-        transform: scale(0.57);
-        &:before,
-        &:after {
-            height: 4px;
+        max-width: $width_480px;
+    }
+    .dateText { 
+        transform: scale(0.84);
+        .loaded {
+            height: 2 * $logo_width / $width_480px;
+            width: 85px;
         }
     }
-    .status-message {
-        font-size: 14px;
-        max-width: $logo_width_480px;
+    .divider {
+        width: $width_480px / 2;
     }
-    $input-width-480px: 250px;
-    input[type="text"],
-    input[type="email"] {
-        width: $input-width-480px;
+    .signup,
+    .logo-container {
+        width: $width_480px;
     }
-    $input-total-width-480px: $logo_width_480px;
-    .typeahead-container {
-        width: $input-total-width-480px;
-    }
-    input[type="submit"] {
-        width: $input-total-width-480px;
-    }
-    .uni-list-container {
-        .list-wrapper {
-            min-width: $input-total-width-480px;
-        }
-    }
-    .content {
-        height: 278px;
+    #mlh-trust-badge {
+        right: 10px !important;
     }
 }
 
-// lol
 @media screen and (max-width: 340px) {
-    .container {
+    .html {
         transform: scale(0.9);
     }
-}
-
-.loaded #dots img {
-    height: 12px;
-}
-
-.titleText {
-    font-size: $input-font-size * 2.5;
 }
