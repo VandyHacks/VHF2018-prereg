@@ -34,7 +34,6 @@ app.post('/signup', (req, res) => {
     res.json({ status: 'The submitted email or university was invalid.' });
     return;
   }
-
   console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
   request
     .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
@@ -44,7 +43,8 @@ app.post('/signup', (req, res) => {
       'email_address': req.body.email,
       'status': 'pending',
       'merge_fields': {
-        'UNIVERSITY': req.body.university
+        'UNIVERSITY': req.body.university,
+        'USERAGENT': req.headers.USERAGENT.trim()
       }
     })
     .end((err, response) => {
