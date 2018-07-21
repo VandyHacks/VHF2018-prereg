@@ -44,7 +44,8 @@ app.post('/signup', (req, res) => {
       'status': 'pending',
       'merge_fields': {
         'UNIVERSITY': req.body.university,
-        'USERAGENT': req.headers.USERAGENT.trim()
+        'USERAGENT': req.headers['user-agent'].trim(),
+        'TIMESTAMP': Date.now()
       }
     })
     .end((err, response) => {
