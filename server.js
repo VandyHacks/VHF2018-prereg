@@ -34,6 +34,13 @@ else{
   console.log('Sentry configured.')
 }
 
+function handleError(err){
+  console.error(err);
+  if(Raven){
+    Raven.captureException(err);
+  }
+}
+
 app.get('/ping', (req, res) => res.sendStatus(200));
 app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
 
@@ -60,7 +67,7 @@ app.post('/signup', (req, res) => {
       }
     })
     .end((err, response) => {
-      if (err) this.handleError(err);
+      if (err) handleError(err);
       if (!response) {
         res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
       } else if (response.status < 300) {
@@ -100,10 +107,3 @@ app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), () => {
   console.log('Express app is running on port', app.get('port'));
 });
-
-function handleError(err){
-  console.error(err);
-  if(Raven){
-    Raven.captureException(err);
-  }
-}
