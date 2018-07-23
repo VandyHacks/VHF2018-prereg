@@ -7,7 +7,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const Raven = require('raven');
 const EmailValidator = require('email-validator');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 
 // require('dotenv').config();
 
@@ -35,17 +35,15 @@ else{
 }
 
 app.get('/ping', (req, res) => res.sendStatus(200));
-try{
-  app.use(favicon(__dirname + '/assets/img/favicon.png'));
-}
-catch(err){
-  handleError(err);
-}
 app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
 
 app.post('/signup', (req, res) => {
-  if (!req.body.email || !req.body.university || !EmailValidator.validate(req.body.email) || req.body.university.length < 8) {
-    res.json({ status: 'The submitted email or university was invalid.' });
+  if (!req.body.email || !EmailValidator.validate(req.body.email) || ) {
+    res.json({ status: 'Invalid email.' });
+    return;
+  }
+  if(!req.body.university || req.body.university.length < 8){
+    res.json({ status: 'Invalid university.' });
     return;
   }
   console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
