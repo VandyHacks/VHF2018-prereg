@@ -5,10 +5,11 @@ const request = require('superagent');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const Raven = require('raven')
+const Raven = require('raven');
 const EmailValidator = require('email-validator');
+const favicon = require('serve-favicon');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
@@ -34,7 +35,12 @@ else{
 }
 
 app.get('/ping', (req, res) => res.sendStatus(200));
-
+try{
+  app.use(favicon(__dirname + '/assets/img/favicon.png'));
+}
+catch(err){
+  handleError(err);
+}
 app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
 
 app.post('/signup', (req, res) => {
