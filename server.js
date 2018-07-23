@@ -1,12 +1,11 @@
 const express = require('express');
 const compression = require('compression');
 const compressible = require('compressible');
-
 const request = require('superagent');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-
+const Raven = require('raven')
 const EmailValidator = require('email-validator');
 
 require('dotenv').config();
@@ -22,7 +21,15 @@ const listUniqueId = process.env.MC_LIST_ID;
 const mailchimpApiKey = process.env.MC_API_KEY;
 
 if(!mailchimpApiKey || !mailchimpInstance || !listUniqueId){
-  console.warn('Mailchimp is not configured properly.');
+  console.warn('Mailchimp not configured properly.');
+}
+const sentryURL = process.env.SENTRY_URL
+if(!sentryURL){
+  console.warn('Sentry not configured.')
+}
+else{
+  Raven.config(sentryURL).install();
+  console.log('Sentry configured.')
 }
 
 app.get('/ping', (req, res) => res.sendStatus(200));
@@ -48,8 +55,8 @@ app.post('/signup', (req, res) => {
       }
     })
     .end((err, response) => {
+      if (err) this.handleError(err);
       if (!response) {
-        if (err) console.log(err);
         res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
       } else if (response.status < 300) {
         res.json({ status: 'Thank you for pre-registering! Please check your inbox for a confirmation email.' });
@@ -58,7 +65,6 @@ app.post('/signup', (req, res) => {
       } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
         res.json({ status: 'That email address doesn\'t look real. Please refresh and try again.' });
       } else {
-        if (err) console.log(err);
         res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
       }
     });
@@ -87,5 +93,12 @@ if (!deployMode || deployMode !== 'prod') {
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), () => {
-  console.log('Node app is running on port', app.get('port'));
+  console.log('Express app is running on port', app.get('port'));
 });
+
+function handleError(err){
+  console.error(err);
+  if(Raven){
+    Raven.captureException(err);
+  }
+}

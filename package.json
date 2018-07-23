@@ -24,6 +24,7 @@
     "express": "^4.15.3",
     "file-loader": "^1.1.11",
     "helmet": "^3.12.1",
+    "raven": "^2.6.3",
     "replaceall": "^0.1.6",
     "superagent": "^3.5.2"
   },
