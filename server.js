@@ -29,6 +29,7 @@ if(!sentryURL){
 }
 else{
   Raven.config(sentryURL).install();
+  Raven.captureMessage('Sentry started.')
   console.log('Sentry configured.')
 }
 
