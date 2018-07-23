@@ -38,7 +38,7 @@ app.get('/ping', (req, res) => res.sendStatus(200));
 app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
 
 app.post('/signup', (req, res) => {
-  if (!req.body.email || !EmailValidator.validate(req.body.email) || ) {
+  if (!req.body.email || !EmailValidator.validate(req.body.email)) {
     res.json({ status: 'Invalid email.' });
     return;
   }
