@@ -76,7 +76,9 @@ app.post('/signup', (req, res) => {
         res.json({ status: 'You have already pre-registered!' });
       } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
         try{
-          handleError(JSON.parse(err.text).errors)
+          console.log(response.res.text)
+          console.log(res.body.text)
+          console.log(err.text)
         }
         catch(err){
           handleError(err)
