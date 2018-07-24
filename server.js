@@ -73,7 +73,7 @@ app.post('/signup', (req, res) => {
     })
     .end((err, response) => {
       if (!response) {
-        res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
+        res.json({ status: 'An unknown error occurred. Please contact info@vandyhacks.org.' });
         if (err) handleError(err);
       } else if (response.status < 300) {
         res.json({ status: 'Thank you for pre-registering! Please check your inbox for a confirmation email.' });
@@ -84,7 +84,7 @@ app.post('/signup', (req, res) => {
         handleError(err)
         res.json({ status: 'Invalid user input. Please refresh and try again.' });
       } else {
-        res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
+        res.json({ status: 'An unknown error occurred. Please contact info@vandyhacks.org.' });
       }
     });
 });
