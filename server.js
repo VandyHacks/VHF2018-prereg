@@ -67,20 +67,18 @@ app.post('/signup', (req, res) => {
       }
     })
     .end((err, response) => {
-      if (err) handleError(err);
       if (!response) {
         res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
+        if (err) handleError(err);
       } else if (response.status < 300) {
         res.json({ status: 'Thank you for pre-registering! Please check your inbox for a confirmation email.' });
       } else if (response.status === 400 && response.body.title === 'Member Exists') {
         res.json({ status: 'You have already pre-registered!' });
       } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
         try{
-          console.log(response.res.text)
-          console.log(res.body.text)
-          console.log(err.text)
+          handleError(JSON.parse(response.res.text).errors)
         }
-        catch(err){
+        catch(parse_err){
           handleError(err)
         }
         res.json({ status: 'Invalid user input. Please refresh and try again.' });
