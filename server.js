@@ -6,10 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const Raven = require('raven');
-const EmailValidator = require('email-validator');
-// const favicon = require('serve-favicon');
-
-// require('dotenv').config();
+const validator = require('validator')
 
 const app = express();
 app.use(bodyParser.json());
@@ -45,24 +42,32 @@ app.get('/ping', (req, res) => res.sendStatus(200));
 app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
 
 app.post('/signup', (req, res) => {
-  if (!req.body.email || !EmailValidator.validate(req.body.email)) {
+  // sanitize all user input
+  const email = validator.escape(String(req.body.email));
+  const univ = validator.escape(String(req.body.university));
+  if (!email 
+    || !validator.isAscii(email)
+    || !validator.isEmail(email)) {
     res.json({ status: 'Invalid email.' });
     return;
   }
-  if(!req.body.university || req.body.university.length < 8){
+  email = validator.normalizeEmail(email);
+  if (!univ
+    || !validator.isAscii(univ)
+    || univ.length < 8){
     res.json({ status: 'Invalid university.' });
     return;
   }
-  console.log('Registering ' + req.body.email + ' attending ' + req.body.university);
+  console.log('Registering ' + email + ' attending ' + univ);
   request
     .post('https://' + mailchimpInstance + '.api.mailchimp.com/3.0/lists/' + listUniqueId + '/members/')
     .set('Content-Type', 'application/json;charset=utf-8')
     .set('Authorization', 'Basic ' + Buffer.from('any:' + mailchimpApiKey).toString('base64'))
     .send({
-      'email_address': req.body.email,
+      'email_address': email,
       'status': 'pending',
       'merge_fields': {
-        'UNIVERSITY': req.body.university,
+        'UNIVERSITY': univ,
         'USERAGENT': req.headers['user-agent'].trim()
       }
     })
@@ -75,12 +80,8 @@ app.post('/signup', (req, res) => {
       } else if (response.status === 400 && response.body.title === 'Member Exists') {
         res.json({ status: 'You have already pre-registered!' });
       } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
-        try{
-          handleError(JSON.parse(response.res.text).errors)
-        }
-        catch(parse_err){
-          handleError(err)
-        }
+        console.error('Error: ' + JSON.parse(response.res.text).errors)
+        handleError(err)
         res.json({ status: 'Invalid user input. Please refresh and try again.' });
       } else {
         res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
