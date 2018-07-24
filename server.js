@@ -75,7 +75,13 @@ app.post('/signup', (req, res) => {
       } else if (response.status === 400 && response.body.title === 'Member Exists') {
         res.json({ status: 'You have already pre-registered!' });
       } else if (response.status === 400 && response.body.title === 'Invalid Resource') {
-        res.json({ status: 'That email address doesn\'t look real. Please refresh and try again.' });
+        try{
+          handleError(JSON.parse(err.text).errors)
+        }
+        catch(err){
+          handleError(err)
+        }
+        res.json({ status: 'Invalid user input. Please refresh and try again.' });
       } else {
         res.json({ status: 'An unknown error occurred. Please refresh and try again.' });
       }
