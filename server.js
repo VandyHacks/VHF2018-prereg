@@ -43,7 +43,7 @@ app.use('/sponsorship', express.static(__dirname + '/sponsorship.pdf'));
 
 app.post('/signup', (req, res) => {
   // sanitize all user input
-  const email = validator.escape(String(req.body.email));
+  let email = validator.escape(String(req.body.email));
   const univ = validator.escape(String(req.body.university));
   if (!email 
     || !validator.isAscii(email)
