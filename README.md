@@ -23,6 +23,7 @@ Create a .env file and add:
     MC_LIST_ID = {list id}
     MC_API_KEY = {api key}
     MG_PUBLIC_KEY = {mailgun public api key}
+    SENTRY_URL = {sentry url}
 
 Configuring `heroku` to run with `Cloudflare DNS`:
 https://support.cloudflare.com/hc/en-us/articles/205893698-Configure-Cloudflare-and-Heroku-over-HTTPS
