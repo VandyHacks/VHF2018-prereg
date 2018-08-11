@@ -2,6 +2,9 @@ VandyHacks 2018 landing page
 ==
 Architecture
 ---
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/VandyHacks/VHF2018-prereg.svg)](https://greenkeeper.io/)
+
 In prod, an express server acts as both an HTTP API endpoint server AND serves static files from `/dist` (webpack output). 
 
 
