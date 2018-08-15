@@ -21,7 +21,9 @@
         :class="{ submitted: submitted }"
         :disabled="!submitAllowed"
         @click="submitRegistration">
+      <div id='mlh-text'>We enforce the <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>MLH Code of Conduct</a>.</div>
     </div>
+    
     <div
       class="status-message"
       v-else
