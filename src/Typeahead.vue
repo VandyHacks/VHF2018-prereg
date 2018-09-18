@@ -111,14 +111,20 @@ export default {
   },
   computed: {
     typeaheadIndicatorClass() {
+      let isValidUniv = (univ) => {
+        // cheap length check
+        // check actually in univs list
+        return  univ.length > 8 && universityList.includes(univ)
+      }
       if (this.query.trim() === '') {
         return ['icon-graduation-cap'];
-      } else if (this.query.length < 8) {
+      } else if (!isValidUniv(this.query)) {
         return ['icon-attention-circled'];
       } else {
         return ['icon-ok-circled'];
       }
     }
+
   },
   watch: {
     query(val) {

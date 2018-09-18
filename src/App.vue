@@ -37,6 +37,7 @@
 import EmailField from './EmailField.vue';
 import Typeahead from './Typeahead.vue';
 import EmailValidator from 'email-validator';
+import universityList from './universities.json';
 
 const endpoint = '/';
 
@@ -57,6 +58,7 @@ export default {
         EmailValidator.validate(this.email) &&
         this.university.trim() !== '' &&
         this.university.length >= 8 &&
+        universityList.includes(this.university) &&
         !this.submitted
       );
     }
